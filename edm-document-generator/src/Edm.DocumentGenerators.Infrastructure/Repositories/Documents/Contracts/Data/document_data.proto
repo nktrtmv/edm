@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/StatusesTransitions/document_status_transition.proto";
+import "Repositories/Contracts/Data/Validators/document_validator.proto";
+
+import "Repositories/Documents/Contracts/Data/AttributesValues/document_attribute_value.proto";
+import "Repositories/Documents/Contracts/Data/Errors/AttributesErrors/document_attribute_error.proto";
+import "Repositories/Contracts/Data/Notifications/document_notification.proto";
+import "Repositories/Documents/Contracts/Data/Audits/Records/document_audit_record.proto";
+import "Repositories/Documents/Contracts/Data/ApprovalData/document_approval_data.proto";
+import "Repositories/Documents/Contracts/Data/SigningData/document_signing_data.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/document_application_event.proto";
+import "Repositories/Documents/Contracts/Data/Errors/document_errors.proto";
+import "Repositories/Contracts/Data/Parameters/document_parameters.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message DocumentDataDb {
+  int32 version = 1;
+  repeated DocumentStatusTransitionDb status_transitions = 2;
+  repeated DocumentAttributeValueDb attributes_values = 3;
+  DocumentErrorsDb document_errors = 4;
+  repeated DocumentValidatorDb validators = 5;
+  repeated DocumentNotificationDb notifications = 6;
+  repeated DocumentAuditRecordDb audit_records = 7;
+  DocumentApprovalDataDb approval_data = 8;
+  DocumentSigningDataDb signing_data = 9;
+  string front_metadata = 10;
+  repeated DocumentApplicationEventDb application_events = 11;
+  optional google.protobuf.Timestamp template_updated_date = 12;
+  DocumentParametersDb parameters = 13;
+  repeated DocumentAttributeErrorDb attributes_errors_obsolete = 14;
+}
+

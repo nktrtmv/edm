@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "vendor/Services/Details/Queries/GetElectronic/Contracts/Electornics/Documents/States/Statuses/signing_document_status.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message SigningDocumentStateDto {
+  SigningDocumentStatusDto status = 4;
+  google.protobuf.Timestamp status_changed_at = 5;
+  string status_description = 6;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "Grpc/Services/Details/Queries/GetWorkflows/Stages/Groups/Assignments/CompletionDetails/CompletionReasons/entities_approval_workflow_assignment_completion_reason.proto";
+import "Grpc/Services/Details/Queries/GetWorkflows/Stages/Groups/Assignments/CompletionDetails/DelegationDetails/entities_approval_workflow_assignment_delegation_details.proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+message EntitiesApprovalWorkflowAssignmentCompletionDetailsDto {
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto completion_reason = 1;
+  google.protobuf.Timestamp completed_date = 2;
+  optional google.protobuf.StringValue completion_comment = 3;
+  optional EntitiesApprovalWorkflowAssignmentDelegationDetailsDto delegation_details = 4;
+}

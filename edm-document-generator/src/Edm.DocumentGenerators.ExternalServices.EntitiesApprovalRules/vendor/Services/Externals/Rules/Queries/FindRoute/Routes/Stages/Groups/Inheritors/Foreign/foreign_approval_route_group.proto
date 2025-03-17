@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Services/Externals/Rules/Queries/FindRoute/Routes/Stages/Groups/Inheritors/Foreign/Arguments/foreign_approval_route_group_argument.proto";
+
+message ForeignApprovalRouteGroupDto {
+  string type_id = 1;
+  repeated ForeignApprovalRouteGroupArgumentDto arguments = 2;
+}
+

@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+enum EntityConditionOperatorTypeDb {
+  EntityConditionOperatorTypeDb_None = 0;
+
+  EntityConditionOperatorTypeDb_AttributeValueEqual = 101;
+  EntityConditionOperatorTypeDb_AttributeValueGreater = 102;
+  EntityConditionOperatorTypeDb_AttributeValueGreaterOrEqual = 105;
+  EntityConditionOperatorTypeDb_AttributeValueLess = 103;
+  EntityConditionOperatorTypeDb_AttributeValueLessOrEqual = 104;
+
+  EntityConditionOperatorTypeDb_LogicalNaryAnd = 201;
+  EntityConditionOperatorTypeDb_LogicalNaryOr = 202;
+
+  EntityConditionOperatorTypeDb_LogicalUnaryNot = 301;
+}

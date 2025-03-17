@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore"/>
+    <PackageReference Include="KafkaFlow"/>
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Application\Edm.Entities.Signing.Workflows.Application.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx\Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Infrastructure\Edm.Entities.Signing.Workflows.Infrastructure.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Presentation.Abstractions\Edm.Entities.Signing.Workflows.Presentation.Abstractions.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Presentation.Publisher\Edm.Entities.Signing.Workflows.Presentation.Publisher.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'Converter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

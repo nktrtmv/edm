@@ -1,0 +1,1160 @@
+{
+  "$schema": "domain-schema.json",
+  "Id": "8a3d776c-906a-4de2-9c20-1df638f1545b",
+  "ShowInProduction": true,
+  "Name": "Договорная работа",
+  "DocumentCreationType": "ByClassification",
+  "DocumentsSettings": {
+    "RegistryTitle": "Документы",
+    "DetailsTitle": "Документ",
+    "CreationTitle": "Создание документа"
+  },
+  "CommentsSettings": {
+    "EntityType": "document-generator-document"
+  },
+  "UrlAlias": "contracts",
+  "RegistryRoles": [
+    {
+      "Id": 1,
+      "Name": "RegistrationNumber",
+      "Display": "Рег. номер",
+      "Kind": "Attribute",
+      "SystemName": "contractNumber",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "AllowForSearch": true,
+        "ShowInFilters": false,
+        "SearchKind": "Contains"
+      }
+    },
+    {
+      "Id": 101,
+      "Name": "Number",
+      "Display": "Номер договора",
+      "Kind": "Attribute",
+      "SystemName": "contractDocNumber",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "AllowForSearch": true,
+        "ShowInFilters": false,
+        "SearchKind": "Contains"
+      }
+    },
+    {
+      "Id": 102,
+      "Name": "Date",
+      "Display": "Дата договора",
+      "Kind": "Attribute",
+      "SystemName": "contractDate",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Range",
+        "Order": 1400
+      }
+    },
+    {
+      "Id": 122,
+      "Name": "SelfCompany",
+      "Display": "Юр. лицо Компании",
+      "Kind": "Attribute",
+      "SystemName": "selfLegalName",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 500,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "AllowMultipleValues": true,
+        "Order": 600
+      }
+    },
+    {
+      "Id": 123,
+      "Name": "ContractorCompany",
+      "Display": "Юр. лицо контрагента",
+      "Kind": "Attribute",
+      "SystemName": "contractorLegalName",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 600,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "AllowMultipleValues": true,
+        "Order": 700
+      }
+    },
+    {
+      "Id": 105,
+      "Name": "Name",
+      "Display": "Название",
+      "Kind": "Attribute",
+      "SystemName": "contractName",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "AllowForSearch": true,
+        "ShowInFilters": false,
+        "SearchKind": "Contains"
+      }
+    },
+    {
+      "Id": 106,
+      "Name": "ResponsibleManager",
+      "Display": "Ответственный",
+      "Kind": "Attribute",
+      "SystemName": "contractResponsibleManager",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "AllowMultipleValues": true,
+        "Order": 1000
+      }
+    },
+    {
+      "Id": 107,
+      "Name": "Author",
+      "Display": "Автор",
+      "Kind": "Attribute",
+      "SystemName": "author",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "AllowMultipleValues": true,
+        "Order": 800
+      }
+    },
+    {
+      "Id": 108,
+      "Name": "Clerk",
+      "Display": "Исполнитель",
+      "Kind": "Attribute",
+      "SystemName": "contractClerk",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "AllowMultipleValues": true,
+        "Order": 900
+      }
+    },
+    {
+      "Id": 109,
+      "Name": "BusinessSegment",
+      "Display": "Бизнес-сегмент",
+      "Kind": "Attribute",
+      "SystemName": "businessSegment",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1200,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 300
+      }
+    },
+    {
+      "Id": 110,
+      "Name": "DocumentCategory",
+      "Display": "Категория договора",
+      "Kind": "Attribute",
+      "SystemName": "contractCategory",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 900,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 400
+      }
+    },
+    {
+      "Id": 111,
+      "Name": "DocumentType",
+      "Display": "Тип договора",
+      "Kind": "Attribute",
+      "SystemName": "contractType",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1000,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 500
+      }
+    },
+    {
+      "Id": 112,
+      "Name": "DocumentKind",
+      "Display": "Вид договора",
+      "Kind": "Attribute",
+      "SystemName": "contractKind",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1100,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": false,
+        "SearchKind": "Match"
+      }
+    },
+    {
+      "Id": 113,
+      "Name": "ValidityDate",
+      "Display": "Дата ввода в действие",
+      "Kind": "Attribute",
+      "SystemName": "contractValidityDate",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Range",
+        "Order": 1500
+      }
+    },
+    {
+      "Id": 114,
+      "Name": "EndDate",
+      "Display": "Дата окончания",
+      "Kind": "Attribute",
+      "SystemName": "contractEndDate",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Range",
+        "Order": 1600
+      }
+    },
+    {
+      "Id": 115,
+      "Name": "IsSignedDocumentsScansReceived",
+      "Display": "Сканы подписанных документов",
+      "Kind": "Attribute",
+      "SystemName": "signedDocumentsScans",
+      "TypeSettings": {
+        "$type": "Boolean"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 2000
+      }
+    },
+    {
+      "Id": 116,
+      "Name": "IsSignedDocumentsOriginalsReceived",
+      "Display": "Оригиналы подписанных документов",
+      "Kind": "Attribute",
+      "SystemName": "signedDocumentsOriginals",
+      "TypeSettings": {
+        "$type": "Boolean"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 2100
+      }
+    },
+    {
+      "Id": 117,
+      "Name": "Currency",
+      "Display": "Валюта договора",
+      "Kind": "Attribute",
+      "SystemName": "contractCurrency",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 100,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 1900
+      }
+    },
+    {
+      "Id": 119,
+      "Name": "ContractSigningType",
+      "Display": "Тип подписания контракта",
+      "Kind": "Attribute",
+      "SystemName": "signingType",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 800,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 2300
+      }
+    },
+    {
+      "Id": 2,
+      "Name": "Stage",
+      "Display": "Этап",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 1200
+      }
+    },
+    {
+      "Id": 3,
+      "Name": "Status",
+      "Display": "Статус",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 1300
+      }
+    },
+    {
+      "Id": 4,
+      "Name": "CreatedAt",
+      "Display": "Дата создания",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true,
+        "ShowByDefault": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Range",
+        "Order": 1700
+      }
+    },
+    {
+      "Id": 5,
+      "Name": "UpdatedAt",
+      "Display": "Дата изменения",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Range",
+        "Order": 1800
+      }
+    },
+    {
+      "Id": 6,
+      "Name": "DocumentParticipants",
+      "Display": "",
+      "Kind": "Watchers",
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false
+      },
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      }
+    },
+    {
+      "Id": 7,
+      "Name": "DocumentCumulativeParticipants",
+      "Display": "",
+      "Kind": "Watchers",
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false
+      },
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      }
+    },
+    {
+      "Id": 8,
+      "Name": "ApprovalParticipants",
+      "Display": "Согласующие",
+      "Kind": "Watchers",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 1100
+      }
+    },
+    {
+      "Id": 9,
+      "Name": "ApprovalCumulativeParticipants",
+      "Display": "Согласующие со всех этапов",
+      "Kind": "Watchers",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false,
+        "SearchKind": "Match"
+      }
+    },
+    {
+      "Id": 12,
+      "Name": "State",
+      "Display": "Состояние",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 3700,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false,
+        "SearchKind": "Match"
+      }
+    },
+    {
+      "Id": 16,
+      "Name": "ApprovalGroups",
+      "Display": "Группы согласующих",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "AllowForSearch": false,
+        "ShowInFilters": false,
+        "AllowMultipleValues": true,
+        "SearchKind": "Contains",
+        "Order": 1120
+      }
+    },
+    {
+      "Id": 18,
+      "Name": "StatusStepResponsiblePerson",
+      "Display": "Ответственный за этап",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false,
+        "SearchKind": "Match"
+      }
+    },
+    {
+      "Id": 19,
+      "Name": "StatusStarted",
+      "Display": "Время начала статуса",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "DateTime"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false,
+        "SearchKind": "Range"
+      }
+    },
+    {
+      "Id": 20,
+      "Name": "StatusStepStarted",
+      "Display": "Время начала этапа",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "DateTime"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": false
+      },
+      "FilterSettings": {
+        "ShowInFilters": false,
+        "SearchKind": "Range"
+      }
+    },
+    {
+      "Id": 126,
+      "Name": "Revision",
+      "Display": "Количество редакций",
+      "Kind": "ComputedProperty",
+      "TypeSettings": {
+        "$type": "Number",
+        "Precision": 0
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": false
+      }
+    },
+    {
+      "Id": 130,
+      "Name": "ProjectInput",
+      "Display": "Ввод по проекту",
+      "Kind": "Attribute",
+      "TypeSettings": {
+        "$type": "Boolean"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 2200
+      }
+    },
+    {
+      "Id": 131,
+      "Name": "MacroBusinessUnit",
+      "Display": "Макро Бизнес юнит",
+      "Kind": "Attribute",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1800,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 100
+      }
+    },
+    {
+      "Id": 132,
+      "Name": "CategoryFirstLevel",
+      "Display": "Бизнес юнит",
+      "Kind": "Attribute",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1820,
+        "DisplayType": "Common"
+      },
+      "RegistrySettings": {
+        "ShowInRegistry": true
+      },
+      "FilterSettings": {
+        "ShowInFilters": true,
+        "SearchKind": "Match",
+        "Order": 200
+      }
+    }
+  ],
+  "SystemAttributes": [
+    {
+      "Id": 1,
+      "Display": "Автор",
+      "SystemName": "author",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "DocumentRolesIds": [
+        5
+      ],
+      "RegistryRolesIds": [
+        107
+      ]
+    },
+    {
+      "Id": 200,
+      "Display": "Автоматическая пролонгация",
+      "SystemName": "autoProlongation",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Boolean"
+      }
+    },
+    {
+      "Id": 201,
+      "Display": "Оригинал получен",
+      "SystemName": "isOriginalDocReceived",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Boolean"
+      }
+    },
+    {
+      "Id": 202,
+      "Display": "Сканы подписанных документов",
+      "SystemName": "signedDocumentsScans",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Boolean"
+      }
+    },
+    {
+      "Id": 203,
+      "Display": "Оригиналы подписанных документов",
+      "SystemName": "signedDocumentsOriginals",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Boolean"
+      }
+    },
+    {
+      "Id": 300,
+      "SystemName": "contractDate",
+      "Display": "Дата договора",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      }
+    },
+    {
+      "Id": 301,
+      "SystemName": "contractStartDate",
+      "Display": "Дата начала",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      }
+    },
+    {
+      "Id": 302,
+      "Display": "Дата окончания",
+      "SystemName": "contractEndDate",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      }
+    },
+    {
+      "Id": 303,
+      "Display": "Дата ввода в действие",
+      "SystemName": "contractValidityDate",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Date",
+        "DisplayType": "Date"
+      }
+    },
+    {
+      "Id": 401,
+      "Display": "ID Контрагента",
+      "SystemName": "contractorId",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Number",
+        "Precision": 0
+      }
+    },
+    {
+      "Id": 402,
+      "Display": "Сумма договора",
+      "SystemName": "contractAmount",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Number",
+        "Precision": 0
+      }
+    },
+    {
+      "Id": 500,
+      "Display": "Ответственный",
+      "SystemName": "contractResponsibleManager",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "RegistryRolesIds": [
+        106
+      ],
+      "DocumentRolesIds": [
+        7
+      ]
+    },
+    {
+      "Id": 501,
+      "Display": "Валюта договор",
+      "SystemName": "contractCurrency",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 100,
+        "DisplayType": "Common"
+      },
+      "RegistryRolesIds": [
+        117
+      ]
+    },
+    {
+      "Id": 502,
+      "Display": "БЮ",
+      "SystemName": "businessUnitId",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 400,
+        "DisplayType": "Common"
+      }
+    },
+    {
+      "Id": 503,
+      "Display": "Исполнитель",
+      "SystemName": "contractClerk",
+      "IsArray": false,
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 300,
+        "DisplayType": "Person"
+      },
+      "DocumentRolesIds": [
+        6
+      ],
+      "RegistryRolesIds": [
+        108
+      ]
+    },
+    {
+      "Id": 2000,
+      "Display": "Рег. номер",
+      "SystemName": "contractNumber",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2001,
+      "Display": "Номер договора",
+      "SystemName": "contractDocNumber",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2002,
+      "Display": "Юр. лицо Компании",
+      "SystemName": "selfLegalName",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 500,
+        "DisplayType": "Common"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2003,
+      "Display": "Юр. лицо контрагента",
+      "SystemName": "contractorLegalName",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 600,
+        "DisplayType": "Common"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2004,
+      "Display": "Название",
+      "SystemName": "contractName",
+      "TypeSettings": {
+        "$type": "String"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2005,
+      "Display": "Бизнес-сегмент",
+      "SystemName": "businessSegment",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1200,
+        "DisplayType": "Common"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2006,
+      "Display": "Категория договора",
+      "SystemName": "contractCategory",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 900,
+        "DisplayType": "Common"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2007,
+      "Display": "Тип договора",
+      "SystemName": "contractType",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1000,
+        "DisplayType": "Common"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2008,
+      "Display": "Вид договора",
+      "SystemName": "contractKind",
+      "TypeSettings": {
+        "$type": "Reference",
+        "ReferenceId": 1100,
+        "DisplayType": "Common"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2009,
+      "Display": "Скан получен",
+      "SystemName": "isSignedDocCopyReceived",
+      "TypeSettings": {
+        "$type": "Boolean"
+      },
+      "IsArray": false
+    },
+    {
+      "Id": 2010,
+      "Display": "Тип подписания",
+      "SystemName": "signingType",
+      "TypeSettings": {
+        "$type": "Boolean"
+      },
+      "IsArray": false
+    }
+  ],
+  "DocumentRoles": [
+    {
+      "Id": 1,
+      "Name": "DocumentName",
+      "Display": "Название",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "String"
+        }
+      ]
+    },
+    {
+      "Id": 2,
+      "Name": "DocumentDate",
+      "Display": "Дата договора",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Date"
+        }
+      ]
+    },
+    {
+      "Id": 3,
+      "Name": "DocumentNumber",
+      "Display": "Номер договора",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "String"
+        }
+      ]
+    },
+    {
+      "Id": 4,
+      "Name": "DocumentRegistrationNumber",
+      "Display": "Рег. номер",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "String"
+        }
+      ]
+    },
+    {
+      "Id": 5,
+      "Name": "DocumentAuthor",
+      "Display": "Автор",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 300
+        }
+      ]
+    },
+    {
+      "Id": 6,
+      "Name": "DocumentClerk",
+      "Display": "Исполнитель",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 300
+        }
+      ]
+    },
+    {
+      "Id": 7,
+      "Name": "DocumentResponsible",
+      "Display": "Ответственный",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 300
+        }
+      ]
+    },
+    {
+      "Id": 8,
+      "Name": "SigningType",
+      "Display": "Тип подписания",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 800
+        }
+      ]
+    },
+    {
+      "Id": 9,
+      "Name": "SigningPartySelf",
+      "Display": "Юр. лицо Компании",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 500
+        }
+      ]
+    },
+    {
+      "Id": 10,
+      "Name": "SigningPartyContractor",
+      "Display": "Юр. лицо контрагента",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 600
+        }
+      ]
+    },
+    {
+      "Id": 11,
+      "Name": "SigningSignatory",
+      "Display": "Подписывающее лицо",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 300
+        }
+      ]
+    },
+    {
+      "Id": 12,
+      "Name": "SigningDocumentsToSign",
+      "Display": "Документы на подписание",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Attachment"
+        }
+      ]
+    },
+    {
+      "Id": 13,
+      "Name": "DocumentCategory",
+      "Display": "Категория документа",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 900
+        }
+      ]
+    },
+    {
+      "Id": 14,
+      "Name": "DocumentType",
+      "Display": "Тип документа",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 1000
+        }
+      ]
+    },
+    {
+      "Id": 15,
+      "Name": "DocumentKind",
+      "Display": "Вид документа",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 1100
+        }
+      ]
+    },
+    {
+      "Id": 16,
+      "Name": "BusinessSegment",
+      "Display": "Бизнес-сегмент",
+      "MarkAttributeWithRoleConditions": [
+        {
+          "$type": "Reference",
+          "ReferenceId": 1200
+        }
+      ]
+    }
+  ],
+  "DocumentActions": [
+    "UpdateDocumentsClerks",
+    "ExportDocumentToExcel"
+  ]
+}

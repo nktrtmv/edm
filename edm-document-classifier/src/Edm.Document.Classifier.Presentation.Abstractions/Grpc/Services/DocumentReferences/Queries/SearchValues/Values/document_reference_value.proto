@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+message DocumentReferenceValueDto {
+  string id = 1;
+  string display_value = 2;
+  string display_sub_value = 3;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Requests/CreateWorkflow/create_workflow_entities_approval_workflows_request.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Requests/UpdateOwners/update_owners_entities_approval_workflows_request.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Requests/UpdateDocumentAuthor/update_document_author_entities_approval_workflows_request.proto";
+
+message EntitiesApprovalWorkflowsRequestDocumentApplicationEventDb {
+  oneof request {
+    CreateWorkflowEntitiesApprovalWorkflowsRequestDb as_create_workflow = 1;
+    UpdateOwnersEntitiesApprovalWorkflowsRequestDb as_update_owners = 2;
+    UpdateDocumentAuthorEntitiesApprovalWorkflowsRequestDb as_update_document_author = 3;
+  }
+}

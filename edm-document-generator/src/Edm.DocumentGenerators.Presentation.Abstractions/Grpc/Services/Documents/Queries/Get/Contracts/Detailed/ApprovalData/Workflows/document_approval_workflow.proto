@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/ApprovalData/Workflows/Statuses/document_approval_workflow_status.proto";
+
+message DocumentApprovalWorkflowDto {
+  string id = 1;
+  DocumentApprovalWorkflowStatusDto status = 2;
+}

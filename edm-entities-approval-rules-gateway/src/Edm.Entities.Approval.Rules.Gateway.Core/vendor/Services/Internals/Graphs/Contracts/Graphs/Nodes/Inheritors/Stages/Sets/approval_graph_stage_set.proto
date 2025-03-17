@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Contracts/Entities/Conditions/entity_condition.proto";
+
+message ApprovalGraphStageSetDto {
+  EntityConditionDto condition = 1;
+  repeated string groups_ids = 2;
+}

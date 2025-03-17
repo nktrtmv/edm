@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message EntityAttributeValueDto {
+  int32 id = 1;
+  oneof value {
+    EntityBooleanAttributeValueDto as_boolean = 2;
+    EntityDateAttributeValueDto as_date = 3;
+    EntityNumberAttributeValueDto as_number = 4;
+    EntityReferenceAttributeValueDto as_reference = 5;
+    EntityStringAttributeValueDto as_string = 6;
+  }
+}
+
+message EntityBooleanAttributeValueDto {
+  repeated bool value = 1;
+}
+
+message EntityDateAttributeValueDto {
+  repeated google.protobuf.Timestamp value = 1;
+}
+
+message EntityNumberAttributeValueDto {
+  repeated int64 value = 1;
+}
+
+message EntityReferenceAttributeValueDto {
+  repeated string value = 1;
+}
+
+message EntityStringAttributeValueDto {
+  repeated string value = 1;
+}

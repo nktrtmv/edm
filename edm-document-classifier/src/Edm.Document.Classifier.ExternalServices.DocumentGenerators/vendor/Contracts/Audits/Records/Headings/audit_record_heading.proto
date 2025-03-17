@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message AuditRecordHeadingDto {
+  string updated_by_id = 1;
+  google.protobuf.Timestamp updated_date_time = 2;
+}

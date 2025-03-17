@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="MediatR"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Domain\Edm.Entities.Signing.Workflows.Domain.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.ExternalServices\Edm.Entities.Signing.Workflows.ExternalServices.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Infrastructure.Abstractions\Edm.Entities.Signing.Workflows.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)Domain)?Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

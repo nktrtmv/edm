@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "vendor/Grpc/Services/Details/Queries/GetStages/Contracts/Stages/signing_stage_details.proto";
+
+message GetSigningStagesDetailsQuery {
+  string workflow_id = 1;
+}
+
+message GetSigningStagesDetailsQueryResponse {
+  repeated SigningStageDetailsDto stages = 1;
+}

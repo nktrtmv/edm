@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+message ApprovalWorkflowOptionsDb {
+  bool approving_with_remark_is_disabled = 1;
+  bool auto_in_progress_assignments_is_disabled = 2;
+  bool auto_delegating_is_disabled = 3;
+  repeated string watchers_ids = 4;
+}

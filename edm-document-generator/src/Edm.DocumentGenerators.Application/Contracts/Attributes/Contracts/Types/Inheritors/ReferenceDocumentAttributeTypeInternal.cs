@@ -1,0 +1,5 @@
+using Edm.DocumentGenerators.GenericSubdomain;
+
+namespace Edm.DocumentGenerators.Application.Contracts.Attributes.Contracts.Types.Inheritors;
+
+public sealed record ReferenceDocumentAttributeTypeInternal(Metadata<ReferenceDocumentAttributeTypeInternal> ReferenceType) : DocumentAttributeTypeInternal;

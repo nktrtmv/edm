@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Document.Searcher.GenericSubdomain\Edm.Document.Searcher.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+</Project>

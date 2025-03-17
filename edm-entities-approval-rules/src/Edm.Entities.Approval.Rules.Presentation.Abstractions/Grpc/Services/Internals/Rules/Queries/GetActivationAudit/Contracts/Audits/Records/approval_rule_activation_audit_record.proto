@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "google/protobuf/timestamp.proto";
+
+message GetActivationAuditApprovalRulesQueryResponseAuditRecord {
+  int32 approval_rule_version = 1;
+  string updated_by = 2;
+  google.protobuf.Timestamp updated_at = 3;
+  oneof record {
+    GetActivationAuditApprovalRulesQueryResponseActivatedAuditRecord activated = 4;
+    GetActivationAuditApprovalRulesQueryResponseDeactivatedAuditRecord deactivated = 5;
+  }
+}
+
+message GetActivationAuditApprovalRulesQueryResponseActivatedAuditRecord {
+  string comment = 1;
+}
+
+message GetActivationAuditApprovalRulesQueryResponseDeactivatedAuditRecord {
+  string comment = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Documents/Contracts/AttributesValues/document_attribute_value.proto";
+
+message DocumentAttributesValuesChangedAuditRecordChangeDto {
+  DocumentAttributeValueDto from = 1;
+  DocumentAttributeValueDto to = 2;
+}

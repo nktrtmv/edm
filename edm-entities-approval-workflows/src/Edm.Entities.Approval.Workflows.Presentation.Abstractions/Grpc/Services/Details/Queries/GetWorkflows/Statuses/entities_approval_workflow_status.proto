@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+enum EntitiesApprovalWorkflowStatusDto
+{
+  EntitiesApprovalWorkflowStatusDto_None = 0;
+  EntitiesApprovalWorkflowStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowStatusDto_Approved = 3;
+  EntitiesApprovalWorkflowStatusDto_Rejected = 4;
+  EntitiesApprovalWorkflowStatusDto_ReturnedToRework = 5;
+  EntitiesApprovalWorkflowStatusDto_ApprovedWithRemark = 6;
+}

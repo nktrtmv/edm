@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Services/Externals/Rules/Commands/UpsertEntityType/upsert_entity_type_approval_rules_command.proto";
+
+import "vendor/Services/Externals/Rules/Queries/FindRoute/find_route_approval_rules_query.proto";
+import "vendor/Services/Externals/Rules/Queries/ValidateThereAreActiveGraphs/validate_there_are_active_graphs_approval_rules_query.proto";
+import "vendor/Contracts/EntitiesTypes/Keys/entity_type_key.proto";
+
+service ApprovalRulesService {
+  rpc UpsertEntityType(UpsertEntityTypeApprovalRulesCommand) returns (UpsertEntityTypeApprovalRulesCommandResponse);
+  rpc DeleteEntityType(DeleteEntityTypeApprovalRulesCommand) returns (DeleteEntityTypeApprovalRulesCommandResponse);
+  rpc FindRoute(FindRouteApprovalRulesQuery) returns (FindRouteApprovalRulesQueryResponse);
+  rpc ValidateThereAreActiveGraphs(ValidateThereAreActiveGraphsApprovalRulesQuery) returns (ValidateThereAreActiveGraphsApprovalRulesQueryResponse);
+}
+
+message DeleteEntityTypeApprovalRulesCommand {
+  EntityTypeKeyDto entity_type_key = 1;
+  string current_user_id = 2;
+}
+
+message DeleteEntityTypeApprovalRulesCommandResponse {
+}

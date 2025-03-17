@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+message GetTypesQuery {
+}
+
+message GetTypesQueryResponse {
+  repeated GetTypesQueryResponseReference references = 1;
+}
+
+message GetTypesQueryResponseReference {
+  string reference_type = 1;
+  repeated string parent_references_types = 2;
+  string display_name = 3;
+  GetTypesQueryResponseReferenceSearchConditionType search_condition_type = 4;
+  GetTypesQueryResponseReferenceKind reference_kind = 5;
+}
+
+enum GetTypesQueryResponseReferenceSearchConditionType {
+  GetTypesQueryResponseReferenceSearchConditionType_None = 0;
+  GetTypesQueryResponseReferenceSearchConditionType_FixedList = 1;
+  GetTypesQueryResponseReferenceSearchConditionType_Search = 2;
+}
+
+enum GetTypesQueryResponseReferenceKind {
+  GetTypesQueryResponseReferenceKind_None = 0;
+  GetTypesQueryResponseReferenceKind_Employee = 1;
+}

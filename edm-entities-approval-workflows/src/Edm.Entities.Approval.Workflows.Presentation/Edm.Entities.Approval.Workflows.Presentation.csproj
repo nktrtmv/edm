@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore"/>
+    <PackageReference Include="KafkaFlow"/>
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Workflows.Application\Edm.Entities.Approval.Workflows.Application.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Workflows.Infrastructure\Edm.Entities.Approval.Workflows.Infrastructure.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Workflows.Presentation.Abstractions\Edm.Entities.Approval.Workflows.Presentation.Abstractions.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Workflows.Presentation.Publisher\Edm.Entities.Approval.Workflows.Presentation.Publisher.csproj"/>
+  </ItemGroup>
+
+</Project>

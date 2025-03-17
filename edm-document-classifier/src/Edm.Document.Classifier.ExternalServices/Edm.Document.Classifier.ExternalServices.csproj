@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Document.Classifier.Domain\Edm.Document.Classifier.Domain.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)Domain)?Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

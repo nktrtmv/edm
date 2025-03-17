@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Document.Classifier.Domain\Edm.Document.Classifier.Domain.csproj"/>
+  </ItemGroup>
+
+</Project>

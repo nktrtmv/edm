@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Application\Edm.Entities.Approval.Rules.Application.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Infrastructure\Edm.Entities.Approval.Rules.Infrastructure.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Presentation.Abstractions\Edm.Entities.Approval.Rules.Presentation.Abstractions.csproj"/>
+  </ItemGroup>
+
+</Project>

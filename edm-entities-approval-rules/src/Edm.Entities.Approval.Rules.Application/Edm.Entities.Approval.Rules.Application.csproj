@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="MediatR"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)(Domain|External))?Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Domain\Edm.Entities.Approval.Rules.Domain.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Infrastructure.Abstractions\Edm.Entities.Approval.Rules.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
+
+</Project>

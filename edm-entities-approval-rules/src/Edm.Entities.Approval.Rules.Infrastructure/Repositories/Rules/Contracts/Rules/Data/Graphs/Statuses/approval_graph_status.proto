@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+enum ApprovalGraphStatusDb {
+  ApprovalGraphStatusDb_None = 0;
+  ApprovalGraphStatusDb_Draft = 1;
+  ApprovalGraphStatusDb_Active = 2;
+}

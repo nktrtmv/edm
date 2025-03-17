@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/Parameters/ApprovalRulesKeys/EntitiesTypes/Keys/entity_type_key.proto";
+
+message ApprovalRuleKeyDb {
+  EntityTypeKeyDb entity_type_key = 1;
+  int32 version = 2;
+}

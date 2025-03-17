@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Contracts/EntitiesTypes/Keys/entity_type_key.proto";
+
+message GetAllApprovalRulesQueryResponseEntityTypeDto {
+  EntityTypeKeyDto key = 1;
+  string display_name = 2;
+  bool is_active = 3;
+}

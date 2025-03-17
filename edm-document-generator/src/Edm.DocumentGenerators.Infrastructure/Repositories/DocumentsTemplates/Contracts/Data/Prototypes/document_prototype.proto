@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/StatusesTransitions/document_status_transition.proto";
+import "Repositories/Contracts/Data/Attributes/document_attribute.proto";
+import "Repositories/Contracts/Data/Validators/document_validator.proto";
+import "Repositories/Contracts/Data/Notifications/document_notification.proto";
+import "Repositories/DocumentsTemplates/Contracts/Data/Prototypes/Numberings/document_numbering.proto";
+import "Repositories/Contracts/Data/Parameters/document_parameters.proto";
+
+message DocumentPrototypeDb {
+  repeated DocumentStatusTransitionDb status_transitions = 1;
+  repeated DocumentAttributeDb attributes = 2;
+  repeated DocumentValidatorDb validators = 3;
+  repeated DocumentNotificationDb notifications = 4;
+  DocumentNumberingDb numbering = 6;
+  string front_metadata = 5;
+  DocumentParametersDb parameters = 7;
+}

@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerator.Gateway.ExternalServices.EntitiesSigningWorkflows.Actions.Contracts.Queries.GetDocumentsToSign.DocumentsToSign;
+
+public sealed record SigningWorkflowDocumentToSignExternal(Guid DocumentAttachmentId);

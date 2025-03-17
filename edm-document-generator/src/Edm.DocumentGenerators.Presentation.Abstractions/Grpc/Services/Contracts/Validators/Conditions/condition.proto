@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/Validators/Conditions/condition_data.proto";
+import "Grpc/Services/Contracts/Validators/Conditions/Types/condition_compare_type.proto";
+import "Grpc/Services/Contracts/Validators/Conditions/Types/condition_compare_reference_value_type.proto";
+
+message OneOfConditionDto {
+  oneof value {
+    ConditionSumEqualsDto as_sum_equals = 1;
+    ConditionRegexDto as_regex = 2;
+    ConditionExistsDto as_exist = 3;
+    ConditionExistsAnyDto as_exists_any = 6;
+    ConditionExistsWithReferencePreconditionDto as_exists_with_reference_precondition = 7;
+    ConditionEmptyDto as_is_empty = 4;
+    ConditionCompareDto as_compare = 5;
+    ConditionCompareReferenceValueDto as_compare_reference_value = 8;
+  }
+}
+
+message ConditionSumEqualsDto{
+  ConditionDataDto data = 1;
+}
+
+message ConditionRegexDto{
+  ConditionDataDto data = 1;
+}
+
+message ConditionExistsDto{
+  ConditionDataDto data = 1;
+}
+
+message ConditionExistsAnyDto {
+  ConditionDataDto data = 1;
+}
+
+message ConditionExistsWithReferencePreconditionDto {
+  ConditionDataDto data = 1;
+  string precondition_reference_id = 2;
+}
+
+message ConditionEmptyDto{
+  ConditionDataDto data = 1;
+}
+
+message ConditionCompareDto{
+  ConditionDataDto data = 1;
+  ConditionCompareTypeDto compare_type = 2;
+}
+
+message ConditionCompareReferenceValueDto{
+  ConditionDataDto data = 1;
+  ConditionCompareReferenceValueTypeDto compare_type = 2;
+}

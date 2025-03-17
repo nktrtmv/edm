@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+enum EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto {
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_Executor = 1;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_Approval = 2;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_Chief = 3;
+}
+

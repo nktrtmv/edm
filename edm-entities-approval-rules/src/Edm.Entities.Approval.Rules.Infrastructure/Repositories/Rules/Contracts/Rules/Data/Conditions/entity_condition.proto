@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Conditions/Operators/Types/entity_condition_operator_type.proto";
+
+import "Repositories/Rules/Contracts/Rules/Data/Entities/AttributesValues/entity_attribute_value.proto";
+
+message EntityConditionDb {
+  oneof value {
+    EntityAttributeValueConditionDb as_attribute_value = 1;
+    EntityLogicalNaryConditionDb as_logical_nary = 2;
+    EntityLogicalUnaryConditionDb as_logical_unary = 3;
+    EntityNoneConditionDb as_none = 4;
+  }
+}
+
+message EntityAttributeValueConditionDb {
+  EntityConditionOperatorTypeDb operator = 1;
+  EntityAttributeValueDb attribute_value = 2;
+}
+
+message EntityLogicalNaryConditionDb {
+  EntityConditionOperatorTypeDb operator = 1;
+  repeated EntityConditionDb inner_conditions = 2;
+}
+
+message EntityLogicalUnaryConditionDb {
+  EntityConditionOperatorTypeDb operator = 1;
+  EntityConditionDb inner_condition = 2;
+}
+
+message EntityNoneConditionDb {}

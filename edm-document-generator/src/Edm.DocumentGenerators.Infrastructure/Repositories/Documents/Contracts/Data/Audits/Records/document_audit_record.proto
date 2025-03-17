@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Audits/Records/Headings/audit_record_heading.proto";
+
+import "Repositories/Documents/Contracts/Data/Audits/Records/AttributesValuesChanged/document_attributes_values_changed_audit_record.proto";
+import "Repositories/Documents/Contracts/Data/Audits/Records/DocumentCreated/document_created_audit_record.proto";
+import "Repositories/Documents/Contracts/Data/Audits/Records/StatusChanged/document_status_changed_audit_record.proto";
+
+message DocumentAuditRecordDb {
+  AuditRecordHeadingDb heading = 1;
+  oneof value {
+    DocumentAttributesValuesChangedAuditRecordDb as_attribute_values_changed = 2;
+    DocumentCreatedAuditRecordDb as_document_created = 3;
+    DocumentStatusChangedAuditRecordDb as_status_changed = 4;
+  }
+}

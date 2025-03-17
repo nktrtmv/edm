@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Services/Externals/Rules/Contracts/EntitiesTypes/entity_type.proto";
+
+message UpsertEntityTypeApprovalRulesCommand {
+  EntityTypeDto entity_type = 1;
+  string current_user_id = 2;
+}
+
+message UpsertEntityTypeApprovalRulesCommandResponse {
+}

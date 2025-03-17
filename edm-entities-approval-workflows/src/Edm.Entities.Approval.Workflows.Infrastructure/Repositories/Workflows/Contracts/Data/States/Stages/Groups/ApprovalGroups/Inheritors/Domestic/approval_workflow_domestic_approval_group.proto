@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/Inheritors/Domestic/ApprovalParticipants/approval_workflow_approval_participant.proto";
+
+message ApprovalWorkflowDomesticApprovalGroupDb {
+  repeated ApprovalWorkflowApprovalParticipantDb participants = 1;
+}
+

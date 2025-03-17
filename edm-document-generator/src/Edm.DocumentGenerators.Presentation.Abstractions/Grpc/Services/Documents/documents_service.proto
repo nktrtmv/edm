@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Documents/Queries/GetShortestPathToCompletion/get_shortest_path_to_completion_query.proto";
+import "Grpc/Services/Documents/Queries/Validate/validate_document_query.proto";
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/document_detailed.proto";
+import "Grpc/Services/Documents/Queries/GetAll/get_all_documents_query.proto";
+import "Grpc/Services/Documents/Contracts/AttributesValues/document_attribute_value.proto";
+import "Grpc/Services/Documents/Commands/Update/Contracts/StatusesTransitionsParametersValues/document_status_transition_parameter_value.proto";
+import "Grpc/Services/Documents/Queries/GetAllowedStatuses/get_documents_allowed_statuses.proto";
+import "Grpc/Services/Documents/Commands/UpdateBatch/DocumentStatuses/document_status_batch_update_command.proto";
+
+service DocumentsService {
+  rpc CreateByClassification(CreateByClassificationDocumentsCommand) returns (CreateByClassificationDocumentsCommandResponse);
+  rpc CreateByTemplateId(CreateDocumentByTemplateIdCommand) returns (CreateDocumentByTemplateIdCommandResponse);
+  rpc CreateByTemplateSystemName(CreateByTemplateSystemName.Command) returns (CreateByTemplateSystemName.Response);
+  rpc Update(UpdateDocumentCommand) returns (UpdateDocumentCommandResponse);
+  rpc DocumentClerkBatchUpdate(DocumentClerkBatchUpdateCommand) returns (DocumentClerkBatchUpdateCommandResponse);
+  rpc Get(GetDocumentQuery) returns (GetDocumentQueryResponse);
+  rpc GetAll(GetAllDocumentsQuery) returns (stream DocumentDetailedDto);
+  rpc GetShortestPathToCompletion(GetShortestPathToCompletionQueryRequest) returns (GetShortestPathToCompletionQueryResponse);
+  rpc Validate(ValidateDocumentQuery) returns (ValidateDocumentQueryResponse);
+  rpc ProcessAll(ProcessAllDocumentsCommand) returns (ProcessAllDocumentsCommandResponse);
+  rpc GetDocumentsAllowedStatuses(GetDocumentsAllowedStatusesQuery) returns (GetDocumentsAllowedStatusesQueryResponse);
+  rpc DocumentStatusBatchUpdate(DocumentStatusBatchUpdateCommand) returns (DocumentStatusBatchUpdateCommandResponse);
+  rpc DeleteDocuments(DeleteDocumentsCommand) returns (DeleteDocumentsCommandResponse);
+}
+
+message DeleteDocumentsCommand{
+  string domain_id = 1;
+  repeated string ids = 2;
+}
+message DeleteDocumentsCommandResponse {
+}
+
+message GetDocumentQuery {
+  string document_id = 1;
+  bool skip_processing = 2;
+}
+
+message GetDocumentQueryResponse {
+  DocumentDetailedDto document = 1;
+}
+
+message CreateDocumentByTemplateIdCommand {
+  string template_id = 1;
+  string current_user_id = 2;
+  string domain_id = 3;
+}
+
+message CreateDocumentByTemplateIdCommandResponse {
+  string document_id = 1;
+}
+
+message CreateByClassificationDocumentsCommand {
+  CreateByClassificationDocumentsCommandClassification classification = 1;
+  string current_user_id = 2;
+}
+
+message CreateByClassificationDocumentsCommandResponse {
+  string document_id = 1;
+}
+
+message CreateByClassificationDocumentsCommandClassification {
+  string business_segment_id = 1;
+  string document_category_id = 2;
+  string document_type_id = 3;
+  string document_kind_id = 4;
+}
+
+message ProcessAllDocumentsCommand {
+  string domain_id = 1;
+}
+
+message ProcessAllDocumentsCommandResponse {
+}
+
+message DocumentClerkBatchUpdateCommand {
+  repeated string document_ids = 1;
+  string new_clerk_id = 2;
+  string current_user_id = 3;
+  string domain_id = 4;
+}
+
+message DocumentClerkBatchUpdateCommandResponse {
+  repeated string uncompleted_document_ids = 1;
+}
+
+message UpdateDocumentCommand {
+  string document_id = 1;
+  DocumentUpdateParametersDto parameters = 2;
+  string current_user_id = 3;
+  string concurrency_token = 4;
+  string domain_id = 5;
+}
+
+message DocumentUpdateParametersDto {
+  string status_id = 1;
+  repeated DocumentAttributeValueDto attributes_values = 2;
+  repeated DocumentStatusTransitionParameterValueDto status_transition_parameters_values = 3;
+}
+
+message UpdateDocumentCommandResponse {
+}
+
+message CreateByTemplateSystemName {
+  message Command {
+    string domain_id = 1;
+    string system_name = 2;
+    string current_user_id = 3;
+  }
+  message Response {
+    string document_id = 1;
+  }
+}
+

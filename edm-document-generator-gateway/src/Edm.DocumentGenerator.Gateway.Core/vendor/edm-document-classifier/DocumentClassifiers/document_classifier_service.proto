@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "vendor/edm-document-classifier/DocumentClassifiers/Queries/GetBusinessSegments/get_business_segments_query.proto";
+import "vendor/edm-document-classifier/DocumentClassifiers/Queries/GetDocumentCategories/get_document_categories_query.proto";
+import "vendor/edm-document-classifier/DocumentClassifiers/Queries/GetDocumentKinds/get_document_kinds_query.proto";
+import "vendor/edm-document-classifier/DocumentClassifiers/Queries/GetDocumentTypes/get_document_types_query.proto";
+
+service DocumentClassifierService {
+  rpc GetBusinessSegments(GetBusinessSegmentsQuery) returns (GetBusinessSegmentsQueryResponse);
+  rpc GetDocumentCategories(GetDocumentCategoriesQuery) returns (GetDocumentCategoriesQueryResponse);
+  rpc GetDocumentTypes(GetDocumentTypesQuery) returns (GetDocumentTypesQueryResponse);
+  rpc GetDocumentKinds(GetDocumentKindsQuery) returns (GetDocumentKindsQueryResponse);
+}

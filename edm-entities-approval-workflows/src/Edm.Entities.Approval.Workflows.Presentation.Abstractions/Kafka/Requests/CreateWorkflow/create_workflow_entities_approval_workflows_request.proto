@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "Kafka/Requests/CreateWorkflow/Contracts/Parameters/approval_parameters.proto";
+
+import "Kafka/Requests/CreateWorkflow/Contracts/FindRouteApprovalRulesQueryResponse/find_route_approval_rules_response.proto";
+
+message CreateWorkflowEntitiesApprovalWorkflowsRequest {
+  string workflow_id = 1;
+  FindRouteApprovalRulesQueryResponse find_route_response = 5;
+  ApprovalParametersDto parameters = 3;
+  string current_user_id = 4;
+}

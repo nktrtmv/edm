@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/Audits/Records/AttributesValuesChanged/Changes/document_attributes_values_changed_audit_record_change.proto";
+
+message DocumentAttributesValuesChangedAuditRecordDb {
+  repeated DocumentAttributesValuesChangedAuditRecordChangeDb change = 1;
+}

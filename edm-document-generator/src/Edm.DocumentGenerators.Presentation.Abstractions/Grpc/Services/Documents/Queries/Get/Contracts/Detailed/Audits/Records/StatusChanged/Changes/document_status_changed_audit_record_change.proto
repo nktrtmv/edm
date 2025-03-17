@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/Statuses/document_status.proto";
+
+message DocumentStatusChangedAuditRecordChangeDto {
+  DocumentStatusDto from = 1;
+  DocumentStatusDto to = 2;
+}

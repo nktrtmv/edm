@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+import "vendor/edm-document-generator/DocumentsTemplates/Contracts/Statuses/document_template_status.proto";
+import "vendor/edm-document-generator/DocumentsTemplates/Contracts/Prototypes/document_prototype.proto";
+
+import "vendor/edm-document-generator/DocumentsTemplates/Queries/Get/Contracts/Detailed/Audits/document_template_audit.proto";
+
+message DocumentTemplateDetailedDto {
+  string id = 1;
+  string name = 3;
+  DocumentTemplateStatusDto status = 4;
+  DocumentPrototypeDto document_prototype = 5;
+  string front_metadata = 6;
+  DocumentTemplateAuditDto audit = 7;
+  string concurrency_token = 8;
+  optional google.protobuf.Timestamp approval_attributes_version = 9;
+  string domain_id = 10;
+  google.protobuf.StringValue system_name = 11;
+}

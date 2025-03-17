@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/Contracts/Attributes/document_attribute.proto";
+import "vendor/Contracts/Validators/document_validator.proto";
+import "vendor/Contracts/Notifications/document_notification.proto";
+
+import "vendor/DocumentsTemplates/Contracts/Prototypes/Numberings/document_numbering.proto";
+import "vendor/DocumentsTemplates/Contracts/Prototypes/StatusesTransitions/document_status_transition_prototype.proto";
+import "vendor/Contracts/Parameters/document_parameters.proto";
+
+message DocumentPrototypeDto {
+  repeated DocumentAttributeDto attributes = 1;
+  repeated DocumentValidatorDto validators = 2;
+  repeated DocumentStatusTransitionPrototypeDto statuses_transitions = 3;
+  repeated DocumentNotificationDto notifications = 4;
+  DocumentNumberingDto numbering = 6;
+  string front_metadata = 5;
+  DocumentParametersDto parameters = 8;
+}
+

@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+message EdmDocumentSearcherEventsKeyDto {
+  string key = 1;
+}
+
+message EdmDocumentSearcherEventsValueDto {
+  SearcherEventDto event = 1;
+}
+
+message SearcherEventDto {
+  oneof event {
+    DocumentUpdatedEventDto document_updated = 1;
+  }
+}
+message DocumentUpdatedEventDto {
+  string domain_id = 1;
+  string document_id = 2;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/DocumentsTemplates/Contracts/Data/ApprovalData/document_template_approval_data.proto";
+import "Repositories/DocumentsTemplates/Contracts/Data/Prototypes/document_prototype.proto";
+import "Repositories/DocumentsTemplates/Contracts/Data/Statuses/document_template_status.proto";
+
+message DocumentTemplateDataDb {
+  int32 version = 1;
+  DocumentTemplateStatusDb status = 2;
+  DocumentTemplateApprovalDataDb approval_data = 3;
+  string front_metadata = 4;
+  DocumentPrototypeDb document_prototype = 5;
+}

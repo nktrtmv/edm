@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.DocumentGenerator.Gateway.GenericSubdomain\Edm.DocumentGenerator.Gateway.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)Domain)?Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

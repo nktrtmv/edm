@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-infrastructure";
+
+package Edm.Entities.Document.Classifier.Infrastructure;
+
+option csharp_namespace = "Edm.Document.Classifier.Infrastructure";
+
+message DocumentClassificationDataDb {
+  string name = 1;
+  DocumentClassifierSubsetDb document_classifier_subset = 2;
+}
+
+message DocumentClassifierSubsetDb {
+  repeated string business_segment_ids = 1;
+  DocumentCategorySubsetDb document_category = 2;
+}
+
+message DocumentCategorySubsetDb {
+  string document_category_id = 1;
+  repeated DocumentTypeSubsetDb document_types = 2; 
+}
+
+message DocumentTypeSubsetDb {
+  string document_type_id = 1;
+  repeated string document_kind_ids = 2;
+}

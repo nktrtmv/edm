@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentsDetails/Queries/GetDocumentsReferenceDetails/get_documents_reference_details_query.proto";
+import "Grpc/Services/DocumentsDetails/Queries/GetDocumentsNumbers/get_document_registration_number_query.proto";
+
+service DocumentsDetailsService {
+  rpc GetReferenceDetails(GetDocumentsReferenceDetailsQuery) returns (GetDocumentsReferenceDetailsQueryResponse);
+  rpc GetRegistrationNumber(GetDocumentRegistrationNumberQuery) returns (GetDocumentRegistrationNumberQueryResponse);
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/edm-entities-approval-rules/Interfaces/References/Queries/SearchValues/Keys/aproval_reference_key.proto";
+import "vendor/edm-entities-approval-rules/Interfaces/References/Queries/SearchValues/Values/aproval_reference_value.proto";
+
+message SearchValuesApprovalReferencesQuery {
+  ApprovalReferenceKeyDto key = 1;
+  repeated string ids = 2;
+  string search = 3;
+  int32 skip = 4;
+  int32 limit = 5;
+}
+
+message SearchValuesApprovalReferencesQueryResponse {
+  ApprovalReferenceKeyDto key = 1;
+  repeated ApprovalReferenceValueDto values = 2;
+}

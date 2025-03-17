@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier.RegistryRoles.Contracts.DocumentsAttributes.AttributesTypes.Inheritors;
+
+public sealed class DocumentAttachmentAttributeTypeExternal : DocumentAttributeTypeExternal;

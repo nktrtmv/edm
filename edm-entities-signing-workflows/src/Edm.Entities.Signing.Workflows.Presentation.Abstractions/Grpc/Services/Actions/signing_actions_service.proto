@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "Grpc/Services/Actions/Commands/Cancel/cancel_signing_action_command.proto";
+import "Grpc/Services/Actions/Commands/PutIntoEffect/put_into_effect_signing_action_command.proto";
+import "Grpc/Services/Actions/Commands/ReturnToRework/return_to_rework_signing_action_command.proto";
+import "Grpc/Services/Actions/Commands/SendToContractor/send_to_contractor_signing_action_command.proto";
+import "Grpc/Services/Actions/Commands/Sign/sign_signing_action_command.proto";
+import "Grpc/Services/Actions/Commands/WithdrawByContractor/withdraw_by_contractor_signing_action_command.proto";
+import "Grpc/Services/Actions/Commands/WithdrawBySelf/withdraw_by_self_signing_action_command.proto";
+import "Grpc/Services/Actions/Queries/GetAvailableActions/get_available_signing_actions_query.proto";
+import "Grpc/Services/Actions/Queries/GetDocumentsToSign/get_signing_documents_to_sign_query.proto";
+
+service SigningActionsService {
+  rpc Cancel(CancelSigningActionCommand) returns (CancelSigningActionCommandResponse);
+  rpc PutIntoEffect(PutIntoEffectSigningActionCommand) returns (PutIntoEffectSigningActionCommandResponse);
+  rpc ReturnToRework(ReturnToReworkSigningActionCommand) returns (ReturnToReworkSigningActionCommandResponse);
+  rpc SendToContractor(SendToContractorSigningActionCommand) returns (SendToContractorSigningActionCommandResponse);
+  rpc Sign(SignSigningActionCommand) returns (SignSigningActionCommandResponse);
+  rpc WithdrawByContractor(WithdrawByContractorSigningActionCommand) returns (WithdrawByContractorSigningActionCommandResponse);
+  rpc WithdrawBySelf(WithdrawBySelfSigningActionCommand) returns (WithdrawBySelfSigningActionCommandResponse);
+  rpc GetAvailableActions(GetAvailableSigningActionsQuery) returns (GetAvailableSigningActionsQueryResponse);
+  rpc GetDocumentsToSign(GetSigningDocumentsToSignQuery) returns (GetSigningDocumentsToSignQueryResponse);
+}

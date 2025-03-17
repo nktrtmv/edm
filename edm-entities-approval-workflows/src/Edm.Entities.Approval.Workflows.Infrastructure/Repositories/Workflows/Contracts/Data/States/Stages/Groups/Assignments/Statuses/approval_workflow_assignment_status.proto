@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+enum ApprovalWorkflowAssignmentStatusDb {
+  ApprovalWorkflowAssignmentStatusDb_None = 0;
+  ApprovalWorkflowAssignmentStatusDb_NotStarted = 1;
+  ApprovalWorkflowAssignmentStatusDb_InProgress = 2;
+  ApprovalWorkflowAssignmentStatusDb_Completed = 10;
+
+  ApprovalWorkflowAssignmentStatusDb_Approved_Obsolete = 3 [deprecated = true];
+  ApprovalWorkflowAssignmentStatusDb_ApprovedWithRemark_Obsolete = 4 [deprecated = true];
+  ApprovalWorkflowAssignmentStatusDb_Rejected_Obsolete = 5 [deprecated = true];
+  ApprovalWorkflowAssignmentStatusDb_Delegated_Obsolete = 6 [deprecated = true];
+  ApprovalWorkflowAssignmentStatusDb_ReturnedToRework_Obsolete = 8 [deprecated = true];
+  ApprovalWorkflowAssignmentStatusDb_CompleteWithoutAction_Obsolete = 9 [deprecated = true];
+
+  reserved 7;
+}

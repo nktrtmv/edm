@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.DocumentGenerators.Domain\Edm.DocumentGenerators.Domain.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'Converter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

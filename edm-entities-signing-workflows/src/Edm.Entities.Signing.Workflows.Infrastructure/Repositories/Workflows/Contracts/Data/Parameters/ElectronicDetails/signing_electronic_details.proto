@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+import "Repositories/Workflows/Contracts/Data/Parameters/ElectronicDetails/Summaries/signing_electronic_summary.proto";
+import "Repositories/Workflows/Contracts/Data/Parameters/ElectronicDetails/Documents/signing_document.proto";
+import "Repositories/Workflows/Contracts/Data/Parameters/ElectronicDetails/Archives/signing_archive.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message SigningElectronicDetailsDb {
+  SigningElectronicSummaryDb summary = 1;
+  repeated SigningDocumentDb documents = 2;
+  repeated SigningArchiveDb archives = 3;
+  optional google.protobuf.StringValue signer_id = 4;
+}

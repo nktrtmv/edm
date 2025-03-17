@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Contracts/Rules/Keys/approval_rule_key.proto";
+import "vendor/Contracts/EntitiesTypes/Attributes/entity_type_attribute.proto";
+
+service ApprovalGroupsDetailsService {
+  rpc GetParticipantSourceAttributes(GetParticipantSourceAttributesApprovalGroupsDetailsQuery) returns (GetParticipantSourceAttributesApprovalGroupsDetailsQueryResponse);
+}
+
+message GetParticipantSourceAttributesApprovalGroupsDetailsQuery{
+  ApprovalRuleKeyDto approval_rule_key = 1;
+}
+
+message GetParticipantSourceAttributesApprovalGroupsDetailsQueryResponse{
+  repeated EntityTypeAttributeDto attributes = 1;
+}

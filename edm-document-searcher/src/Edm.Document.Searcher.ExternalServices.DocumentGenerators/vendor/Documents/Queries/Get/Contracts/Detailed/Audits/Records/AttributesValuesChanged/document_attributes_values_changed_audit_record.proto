@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/Documents/Queries/Get/Contracts/Detailed/Audits/Records/AttributesValuesChanged/Changes/document_attributes_values_changed_audit_record_change.proto";
+
+message DocumentAttributesValuesChangedAuditRecordDto {
+  repeated DocumentAttributesValuesChangedAuditRecordChangeDto change = 1;
+}

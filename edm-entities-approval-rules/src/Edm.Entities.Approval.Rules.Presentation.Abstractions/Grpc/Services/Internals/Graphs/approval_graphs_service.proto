@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Services/Internals/Graphs/Commands/Create/create_approval_graphs_command.proto";
+import "Grpc/Services/Internals/Graphs/Commands/Delete/delete_approval_graphs_command.proto";
+import "Grpc/Services/Internals/Graphs/Commands/Update/update_approval_graphs_command.proto";
+
+import "Grpc/Services/Internals/Graphs/Queries/Get/get_approval_graphs_query.proto";
+import "Grpc/Services/Internals/Graphs/Queries/GetAll/get_all_approval_graphs_query.proto";
+
+service ApprovalGraphsService {
+  rpc Create(CreateApprovalGraphsCommand) returns (CreateApprovalGraphsCommandResponse);
+  rpc Delete(DeleteApprovalGraphsCommand) returns (DeleteApprovalGraphsCommandResponse);
+  rpc Update(UpdateApprovalGraphsCommand) returns (UpdateApprovalGraphsCommandResponse);
+  rpc Get(GetApprovalGraphsQuery) returns (GetApprovalGraphsQueryResponse);
+  rpc GetAll(GetAllApprovalGraphsQuery) returns (GetAllApprovalGraphsQueryResponse);
+}

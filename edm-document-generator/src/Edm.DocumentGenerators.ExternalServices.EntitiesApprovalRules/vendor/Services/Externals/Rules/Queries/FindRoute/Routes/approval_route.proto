@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Services/Externals/Rules/Queries/FindRoute/Routes/Stages/approval_route_stage.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message ApprovalRouteDto {
+  string name = 1;
+  repeated ApprovalRouteStageDto stages = 2;
+  google.protobuf.Timestamp updated_date = 3;
+}

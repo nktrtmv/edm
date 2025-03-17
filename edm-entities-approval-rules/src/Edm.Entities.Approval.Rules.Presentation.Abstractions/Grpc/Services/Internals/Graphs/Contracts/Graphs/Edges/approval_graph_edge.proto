@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Services/Internals/Contracts/Entities/Conditions/entity_condition.proto";
+
+message ApprovalGraphEdgeDto {
+  string id = 1;
+  string fromNodeId = 2;
+  string toNodeId = 3;
+  EntityConditionDto condition = 4;
+}

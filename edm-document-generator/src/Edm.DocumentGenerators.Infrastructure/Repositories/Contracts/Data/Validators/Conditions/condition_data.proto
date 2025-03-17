@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Validators/Conditions/condition_target.proto";
+
+message ConditionDataDb {
+  string condition_id = 1;
+  repeated string linked_document_attribute_ids = 2;
+  OneOfConditionTargetDb condition_target = 3;
+  repeated string supported_document_status_ids = 4;
+}
+
+

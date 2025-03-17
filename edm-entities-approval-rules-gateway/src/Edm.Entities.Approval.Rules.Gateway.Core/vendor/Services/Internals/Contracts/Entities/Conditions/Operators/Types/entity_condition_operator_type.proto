@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+enum EntityConditionOperatorTypeDto {
+  EntityConditionOperatorTypeDto_None = 0;
+
+  EntityConditionOperatorTypeDto_AttributeValueEqual = 101;
+  EntityConditionOperatorTypeDto_AttributeValueGreater = 102;
+  EntityConditionOperatorTypeDto_AttributeValueGreaterOrEqual = 105;
+  EntityConditionOperatorTypeDto_AttributeValueLess = 103;
+  EntityConditionOperatorTypeDto_AttributeValueLessOrEqual = 104;
+
+  EntityConditionOperatorTypeDto_LogicalNaryAnd = 201;
+  EntityConditionOperatorTypeDto_LogicalNaryOr = 202;
+
+  EntityConditionOperatorTypeDto_LogicalUnaryNot = 301;
+}

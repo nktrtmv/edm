@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message SearchDocumentsQueryFilterValue {
+  oneof value {
+    SearchDocumentsQueryFilterBooleanValue as_boolean = 1;
+    SearchDocumentsQueryFilterDateValue as_date = 2;
+    SearchDocumentsQueryFilterNumberValue as_number = 3;
+    SearchDocumentsQueryFilterReferenceValue as_reference = 4;
+    SearchDocumentsQueryFilterStringValue as_string = 5;
+  }
+}
+
+message SearchDocumentsQueryFilterBooleanValue {
+  bool value = 1;
+}
+
+message SearchDocumentsQueryFilterDateValue {
+  google.protobuf.Timestamp value = 1;
+}
+
+message SearchDocumentsQueryFilterNumberValue {
+  int64 value = 1;
+}
+
+message SearchDocumentsQueryFilterReferenceValue {
+  string value = 1;
+}
+
+message SearchDocumentsQueryFilterStringValue {
+  string value = 1;
+}

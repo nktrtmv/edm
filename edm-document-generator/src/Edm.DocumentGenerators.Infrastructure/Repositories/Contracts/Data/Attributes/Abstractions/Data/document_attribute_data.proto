@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Attributes/Contracts/ApprovalData/document_attribute_approval_data.proto";
+import "Repositories/Contracts/Data/Attributes/Contracts/Permissions/document_attribute_permission.proto";
+import "Repositories/Contracts/Data/Attributes/Contracts/LinksKinds/document_link_kind.proto";
+
+message DocumentAttributeDataDb {
+  string id = 1;
+  bool is_array = 2;
+  string front_metadata = 3;
+  DocumentAttributeApprovalDataDb approval_data = 4;
+  repeated DocumentAttributePermissionDb permissions = 7;
+  repeated int32 documents_roles = 8;
+  repeated int32 registry_roles = 9;
+  optional DocumentLinkKindDb link_kind = 10;
+  string system_name = 5;
+  string display_name = 6;
+}

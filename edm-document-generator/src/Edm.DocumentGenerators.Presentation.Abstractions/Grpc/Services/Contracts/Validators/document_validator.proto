@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/Validators/Conditions/condition.proto";
+
+message DocumentValidatorDto {
+  string id = 1;
+  repeated OneOfConditionDto conditions = 2;
+  string Name = 3;
+}

@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+
+message DocumentStatusParameterDto {
+  DocumentStatusParameterKindDto kind = 1;
+  oneof value {
+    StringDocumentStatusParameterDto as_string = 2;
+    BooleanDocumentStatusParameterDto as_boolean = 3;
+    ReferenceAttributeDocumentStatusParameterDto as_reference_attribute = 4;
+    DocumentStatusDocumentStatusParameterDto as_document_status = 5;
+  }
+  string display = 10;
+  google.protobuf.StringValue description = 11;
+  google.protobuf.StringValue group = 12;
+}
+
+
+enum DocumentStatusParameterKindDto {
+  DocumentStatusParameterKindDto_None = 0;
+  DocumentStatusParameterKindDto_ApprovalGraphTag = 1;
+  DocumentStatusParameterKindDto_ApprovalExitApprovedWithRemarkIsOff = 3;
+  DocumentStatusParameterKindDto_StageOwner = 4;
+  DocumentStatusParameterKindDto_SetCurrentUserToAttribute = 5;
+  DocumentStatusParameterKindDto_IsBacklog = 6;
+  DocumentStatusParameterKindDto_BusinessErrorHandlingStatus = 7;
+  DocumentStatusParameterKindDto_UnifiedNextAutoStatus = 12;
+  DocumentStatusParameterKindDto_Watchers = 9;
+}
+
+message BooleanDocumentStatusParameterDto {
+  bool value = 1;
+}
+
+message StringDocumentStatusParameterDto {
+  string value = 1;
+}
+
+message ReferenceAttributeDocumentStatusParameterDto {
+  string reference_type = 1;
+  repeated string values = 3;
+  bool isArray = 4;
+
+  reserved 2;
+}
+
+message DocumentStatusDocumentStatusParameterDto {
+  google.protobuf.StringValue value = 1;
+}

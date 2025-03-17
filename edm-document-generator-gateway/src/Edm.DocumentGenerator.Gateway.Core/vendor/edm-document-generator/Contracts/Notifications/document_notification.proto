@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/edm-document-generator/Contracts/Notifications/Matches/document_notification_match.proto";
+import "vendor/edm-document-generator/Contracts/Notifications/Parameters/document_notification_parameter.proto";
+
+message DocumentNotificationDto {
+  string id = 1;
+  DocumentNotificationMatchDto match = 2;
+  string template_id = 3;
+  repeated DocumentNotificationParameterDto parameters = 4;
+  reserved 5;
+  repeated string recipient_attribute_ids = 6;
+  repeated string recipient_roles = 7;
+}

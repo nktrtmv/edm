@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Contracts/Rules/Keys/approval_rule_key.proto";
+import "Grpc/Services/Internals/Groups/Commands/Create/Kinds/create_approval_groups_command_kind.proto";
+
+message CreateApprovalGroupsCommand {
+  ApprovalRuleKeyDto approval_rule_key = 1;
+  CreateApprovalGroupsCommandKindDto kind = 2;
+  string display_name = 3;
+  string current_user_id = 4;
+}
+
+message CreateApprovalGroupsCommandResponse {
+  string group_id = 1;
+}

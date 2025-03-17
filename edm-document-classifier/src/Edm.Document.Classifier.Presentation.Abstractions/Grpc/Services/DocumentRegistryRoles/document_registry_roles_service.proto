@@ -1,0 +1,189 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+
+service DocumentRegistryRolesService {
+  rpc GetAllDomainsV2(GetAllDomainsV2.Query) returns (GetAllDomainsV2.Response);
+  rpc GetDomainById(GetDomainById.Query) returns (GetDomainById.Response);
+  rpc GetAllDocumentsAttributes(GetAllDocumentsAttributesDocumentRegistryRolesQuery) returns (GetAllDocumentsAttributesDocumentRegistryRolesQueryResponse);
+  rpc GetDomainRegistryRoles(GetDomainRegistryRoles.Query) returns (GetDomainRegistryRoles.Response);
+}
+
+message GetAllDocumentsAttributesDocumentRegistryRolesQuery {
+  string domain_id = 1;
+}
+
+message GetAllDocumentsAttributesDocumentRegistryRolesQueryResponse {
+  repeated DocumentAttributeDocumentRegistryRolesDto documents_attributes_roles = 1;
+}
+
+message DocumentAttributeDocumentRegistryRolesDto {
+  DocumentAttributeTypeDto attribute = 1;
+  repeated DocumentRegistryRoleDto roles = 2;
+}
+
+message DocumentRegistryRoleDto {
+  int32 id = 1;
+  string display_name = 2;
+  DocumentRegistryRoleTypeDto type = 3;
+  DocumentRegistryRoleKindDto kind = 4;
+  string system_name = 5;
+  string name = 6;
+}
+
+
+enum DocumentRegistryRoleKindDto {
+  DocumentRegistryRoleKindDto_None = 0;
+  DocumentRegistryRoleKindDto_Attribute = 1;
+  DocumentRegistryRoleKindDto_ComputedProperty = 2;
+  DocumentRegistryRoleKindDto_Watchers = 3;
+}
+
+message DocumentAttributeTypeDto {
+  oneof type {
+    BooleanDocumentAttributeTypeDto as_boolean = 1;
+    DateDocumentAttributeTypeDto as_date = 2;
+    NumberDocumentAttributeTypeDto as_number = 3;
+    ReferenceDocumentAttributeTypeDto as_reference = 4;
+    StringDocumentAttributeTypeDto as_string = 5;
+    AttachmentDocumentAttributeTypeDto as_attachment = 6;
+  }
+}
+
+message BooleanDocumentAttributeTypeDto {}
+
+message AttachmentDocumentAttributeTypeDto {}
+
+message DateDocumentAttributeTypeDto {}
+
+message NumberDocumentAttributeTypeDto {
+  int32 precision = 1;
+}
+
+message ReferenceDocumentAttributeTypeDto {
+  string reference_type_id = 1;
+}
+
+message StringDocumentAttributeTypeDto {}
+
+message DocumentRegistryRoleTypeDto {
+  oneof type {
+    DocumentBooleanRegistryRoleTypeDto as_boolean = 1;
+    DocumentDateRegistryRoleTypeDto as_date = 2;
+    DocumentNumberRegistryRoleTypeDto as_number = 3;
+    DocumentReferenceRegistryRoleTypeDto as_reference = 4;
+    DocumentStringRegistryRoleTypeDto as_string = 5;
+  }
+  reserved 6;
+  reserved 7;
+  DocumentRegistryRoleRegistrySettingsTypeDto registry_settings = 8;
+  DocumentRegistryRoleFilterSettingsTypeDto filter_settings = 9;
+}
+
+message DocumentRegistryRoleRegistrySettingsTypeDto {
+  bool show_in_registry = 1;
+  bool show_by_default = 2;
+}
+message DocumentRegistryRoleFilterSettingsTypeDto {
+  SearchKindDto search_kind = 1;
+  bool allow_multiple_values = 2;
+  bool show_in_filters = 3;
+  bool allow_for_search = 4;
+  google.protobuf.Int64Value order = 5;
+}
+
+enum SearchKindDto {
+  SEARCH_KIND_NONE = 0;
+  SEARCH_KIND_CONTAINS = 1;
+  SEARCH_KIND_MATCH = 2;
+  SEARCH_KIND_RANGE = 3;
+}
+
+message DocumentBooleanRegistryRoleTypeDto {
+}
+
+message DocumentDateRegistryRoleTypeDto {
+  DateRegistryRoleDisplayTypeDto display_type = 1;
+}
+
+message DocumentNumberRegistryRoleTypeDto {
+  int32 precision = 1;
+}
+
+message DocumentReferenceRegistryRoleTypeDto {
+  string reference_type = 1;
+  ReferenceRegistryRoleDisplayTypeDto display_type = 2;
+}
+
+message DocumentStringRegistryRoleTypeDto {
+}
+
+enum DateRegistryRoleDisplayTypeDto {
+  DateRegistryRoleDisplayTypeDto_None = 0;
+  DateRegistryRoleDisplayTypeDto_Date = 1;
+  DateRegistryRoleDisplayTypeDto_DateTime = 2;
+  DateRegistryRoleDisplayTypeDto_DueDate = 3;
+}
+enum ReferenceRegistryRoleDisplayTypeDto {
+  ReferenceRegistryRoleDisplayTypeDto_None = 0;
+  ReferenceRegistryRoleDisplayTypeDto_Common = 1;
+  ReferenceRegistryRoleDisplayTypeDto_Person = 2;
+}
+
+message DomainDto {
+  string domain_id = 1;
+  string domain_name = 2;
+  DocumentCreationTypeDto document_creation_type = 3;
+  DocumentsSettingsDto documents_settings = 7;
+  CommentsSettingsDto comments_settings = 9;
+  string url_alias = 10;
+}
+
+message DocumentsSettingsDto {
+  bool disable_manual_creation = 1;
+  string registry_title = 2;
+  string details_title = 3;
+  string creation_title = 4;
+}
+
+message CommentsSettingsDto {
+  string entity_type = 1;
+}
+
+enum DocumentCreationTypeDto {
+  DOCUMENT_CREATION_TYPE_NONE = 0;
+  DOCUMENT_CREATION_TYPE_BY_CLASSIFICATION = 1;
+  DOCUMENT_CREATION_TYPE_BY_TEMPLATE_NAME = 2;
+}
+
+
+message GetAllDomainsV2 {
+  message Query {
+  }
+  message Response {
+    repeated DomainDto domains = 1;
+  }
+}
+message GetDomainById {
+  message Query {
+    string domain_id = 1;
+  }
+  message Response {
+    DomainDto domain = 1;
+  }
+}
+
+message GetDomainRegistryRoles {
+  message Query {
+    string domain_id = 1;
+  }
+  message Response {
+    repeated DocumentAttributeDocumentRegistryRolesDto domain_attributes_roles = 1;
+  }
+}

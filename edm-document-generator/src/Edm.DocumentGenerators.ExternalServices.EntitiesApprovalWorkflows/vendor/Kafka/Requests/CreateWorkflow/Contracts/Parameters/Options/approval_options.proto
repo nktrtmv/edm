@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+message ApprovalOptionsDto {
+  bool approving_with_remark_is_disabled = 1;
+  bool auto_in_progress_assignments_is_disabled = 2;
+  bool auto_delegating_is_disabled = 3;
+  repeated string watchers_ids = 4;
+}

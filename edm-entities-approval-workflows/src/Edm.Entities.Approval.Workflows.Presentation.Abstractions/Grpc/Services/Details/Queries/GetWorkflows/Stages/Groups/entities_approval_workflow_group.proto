@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "Grpc/Services/Details/Queries/GetWorkflows/Stages/Groups/Assignments/entities_approval_workflow_assignment.proto";
+
+message EntitiesApprovalWorkflowGroupDto {
+  string id = 1;
+  string name = 2;
+  repeated EntitiesApprovalWorkflowAssignmentDto assignments = 3;
+  EntitiesApprovalWorkflowGroupStatusDto status = 4;
+}
+
+enum EntitiesApprovalWorkflowGroupStatusDto {
+  EntitiesApprovalWorkflowGroupStatusDto_None = 0;
+  EntitiesApprovalWorkflowGroupStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowGroupStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowGroupStatusDto_Completed = 3;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+enum SigningEdxArchiveTypeDto {
+  SigningEdxArchiveTypeDto_None = 0;
+  SigningEdxArchiveTypeDto_DigitallySignedDocuments = 1;
+  SigningEdxArchiveTypeDto_PrintForms = 2;
+}

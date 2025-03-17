@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option go_package = "document-generators-presentation-abstractions";
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+message DocumentParametersDto {
+  bool attachments_in_comments_is_allowed = 1;
+}

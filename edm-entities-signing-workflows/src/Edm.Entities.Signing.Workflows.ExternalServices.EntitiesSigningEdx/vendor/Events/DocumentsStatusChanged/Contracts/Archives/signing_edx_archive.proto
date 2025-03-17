@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+import "vendor/Events/DocumentsStatusChanged/Contracts/Archives/Types/signing_edx_archive_type.proto";
+
+message SigningEdxArchiveDto {
+  string attachment_id = 1;
+  SigningEdxArchiveTypeDto type = 2;
+}

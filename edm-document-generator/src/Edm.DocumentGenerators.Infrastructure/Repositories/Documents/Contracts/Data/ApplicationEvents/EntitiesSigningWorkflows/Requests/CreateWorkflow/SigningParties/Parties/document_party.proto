@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesSigningWorkflows/Requests/CreateWorkflow/SigningParties/Parties/Types/document_party_type.proto";
+
+message DocumentPartyDb {
+  DocumentPartyTypeDb type = 1;
+  string company_id = 2;
+}

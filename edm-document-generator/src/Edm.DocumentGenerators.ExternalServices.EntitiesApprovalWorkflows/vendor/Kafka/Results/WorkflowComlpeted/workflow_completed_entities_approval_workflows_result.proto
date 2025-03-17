@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+
+message WorkflowCompletedEntitiesApprovalWorkflowsResult {
+  string entity_id = 1;
+  string workflow_id = 2;
+  WorkflowCompletedEntitiesApprovalWorkflowsResultState state = 3;
+  string completed_by_user_id = 4;
+  google.protobuf.StringValue completion_comment = 5;
+}
+
+message WorkflowCompletedEntitiesApprovalWorkflowsResultState {
+  WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus status = 1;
+}
+
+enum WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus {
+  WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus_None = 0;
+  WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus_Approved = 3;
+  WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus_Rejected = 4;
+  WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus_ApprovedWithRemark = 6;
+  WorkflowCompletedEntitiesApprovalWorkflowsResultStateStatus_ReturnedToRework = 7;
+}

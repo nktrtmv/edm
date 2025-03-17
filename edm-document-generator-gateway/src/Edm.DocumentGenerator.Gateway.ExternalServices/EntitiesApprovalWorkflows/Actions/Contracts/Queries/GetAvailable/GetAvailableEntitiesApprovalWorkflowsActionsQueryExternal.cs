@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerator.Gateway.ExternalServices.EntitiesApprovalWorkflows.Actions.Contracts.Queries.GetAvailable;
+
+public sealed record GetAvailableEntitiesApprovalWorkflowsActionsQueryExternal(string WorkflowId, string CurrentUserId, bool CurrentUserIsAdmin);

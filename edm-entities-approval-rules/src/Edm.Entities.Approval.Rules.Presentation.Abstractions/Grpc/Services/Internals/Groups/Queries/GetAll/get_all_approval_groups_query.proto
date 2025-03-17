@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Contracts/Rules/Keys/approval_rule_key.proto";
+import "Grpc/Services/Internals/Groups/Queries/GetAll/Contracts/QueryParams/get_all_approval_groups_query_params.proto";
+
+import "Grpc/Services/Internals/Groups/Queries/GetAll/Contracts/Groups/get_all_approval_groups_query_response_group.proto";
+
+message GetAllApprovalGroupsQuery {
+  ApprovalRuleKeyDto approval_rule_key = 1;
+  optional GetAllApprovalGroupsQueryParamsDto query_params = 2;
+}
+
+message GetAllApprovalGroupsQueryResponse {
+  repeated GetAllApprovalGroupsQueryResponseGroup groups = 1;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Entities/Types/Attributes/entity_type_attribute.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/approval_graph.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Groups/approval_group.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Audits/Records/approval_rule_audit_record.proto";
+
+message ApprovalRuleDataDb {
+  repeated EntityTypeAttributeDb attributes = 1;
+  repeated ApprovalGraphDb graphs = 2;
+  repeated ApprovalGroupDb groups = 3;
+  repeated ApprovalRuleAuditRecordDb audit_records = 4;
+}

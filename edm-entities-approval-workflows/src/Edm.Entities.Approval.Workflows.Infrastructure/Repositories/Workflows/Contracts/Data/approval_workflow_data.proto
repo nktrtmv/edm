@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/Parameters/approval_workflow_parameters.proto";
+import "Repositories/Workflows/Contracts/Data/States/approval_workflow_state.proto";
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/approval_workflow_application_event.proto";
+
+message ApprovalWorkflowDataDb {
+  ApprovalWorkflowParametersDb parameters = 1;
+  ApprovalWorkflowStateDb state = 2;
+  repeated ApprovalWorkflowApplicationEventDb application_events = 5;
+}

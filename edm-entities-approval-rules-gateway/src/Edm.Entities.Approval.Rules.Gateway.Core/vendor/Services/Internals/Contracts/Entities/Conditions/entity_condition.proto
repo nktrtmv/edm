@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Contracts/Entities/AttributesValues/entity_attribute_value.proto";
+
+import "vendor/Services/Internals/Contracts/Entities/Conditions/Operators/entity_condition_operator.proto";
+
+message EntityConditionDto {
+  oneof value {
+    EntityAttributeValueConditionDto as_attribute_value = 1;
+    EntityLogicalNaryConditionDto as_logical_nary = 2;
+    EntityLogicalUnaryConditionDto as_logical_unary = 3;
+    EntityNoneConditionDto as_none = 4;
+  }
+}
+
+message EntityAttributeValueConditionDto {
+  EntityConditionOperatorDto operator = 1;
+  EntityAttributeValueDto attribute_value = 2;
+}
+
+message EntityLogicalNaryConditionDto {
+  EntityConditionOperatorDto operator = 1;
+  repeated EntityConditionDto inner_conditions = 2;
+}
+
+message EntityLogicalUnaryConditionDto {
+  EntityConditionOperatorDto operator = 1;
+  EntityConditionDto inner_condition = 2;
+}
+
+message EntityNoneConditionDto {}

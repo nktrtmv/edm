@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/Audits/Records/StatusChanged/StatusesTransitionsParametersValues/Comments/document_comment_status_transition_parameter_value.proto";
+import "Repositories/Documents/Contracts/Data/Audits/Records/StatusChanged/StatusesTransitionsParametersValues/CommentsWithAttachments/document_comment_with_attachments_status_transition_parameter_value.proto";
+
+message DocumentStatusTransitionParameterValueDb {
+  oneof value {
+    DocumentCommentStatusTransitionParameterValueDb comment = 1;
+    DocumentCommentWithAttachmentsStatusTransitionParameterValueDb comment_with_attachments = 2;
+  }
+}
+

@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger"/>
+    <PackageReference Include="Google.Protobuf"/>
+    <PackageReference Include="Google.Api.CommonProtos"/>
+    <PackageReference Include="Grpc.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="**/*.proto"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Document.Classifier.Application\Edm.Document.Classifier.Application.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.ExternalServices.Categories\Edm.Document.Classifier.ExternalServices.Categories.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.ExternalServices.Contractors\Edm.Document.Classifier.ExternalServices.Contractors.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.ExternalServices.DocumentGenerators\Edm.Document.Classifier.ExternalServices.DocumentGenerators.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.ExternalServices.DocumentsSearchers\Edm.Document.Classifier.ExternalServices.DocumentsSearchers.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.ExternalServices.Employees\Edm.Document.Classifier.ExternalServices.Employees.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.Infrastructure\Edm.Document.Classifier.Infrastructure.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.Presentation.Abstractions\Edm.Document.Classifier.Presentation.Abstractions.csproj"/>
+  </ItemGroup>
+
+</Project>

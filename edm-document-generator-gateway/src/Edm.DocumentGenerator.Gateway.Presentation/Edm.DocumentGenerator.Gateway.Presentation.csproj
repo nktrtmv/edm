@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+    <PackageReference Include="Hellang.Middleware.ProblemDetails"/>
+    <PackageReference Include="Swashbuckle.AspNetCore"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.DocumentGenerator.Gateway.Core\Edm.DocumentGenerator.Gateway.Core.csproj"/>
+    <ProjectReference Include="..\Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier\Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier.csproj" />
+    <ProjectReference Include="..\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Approval.Workflows\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Approval.Workflows.csproj" />
+    <ProjectReference Include="..\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Counters\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Counters.csproj" />
+    <ProjectReference Include="..\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Signing.Workflows\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Signing.Workflows.csproj" />
+  </ItemGroup>
+
+</Project>

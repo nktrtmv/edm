@@ -1,0 +1,168 @@
+{
+  "$schema": "rules-schema.json",
+  "DomainId": "8a3d776c-906a-4de2-9c20-1df638f1545b",
+  "Name": "Договорная работа",
+  "RolesActions": {
+    "CreateDocument": [
+      "commercial_initiator",
+      "non_commercial_initiator",
+      "intragroup_initiator",
+      "investment_initiator"
+    ],
+    "ReadDocument": [
+      "auditor"
+    ],
+    "UpdateDocument": [
+      "commercial_initiator",
+      "commercial_responsible_manager",
+      "commercial_docflow_head",
+      "commercial_docflow_employee",
+      "commercial_authorized_signatory",
+      "non_commercial_initiator",
+      "non_commercial_responsible_manager",
+      "non_commercial_docflow_employee",
+      "non_commercial_docflow_head",
+      "non_commercial_authorized_signatory",
+      "non_commercial_accounting_specialist",
+      "non_commercial_budget_controller",
+      "intragroup_initiator",
+      "intragroup_responsible_manager",
+      "intragroup_docflow_employee",
+      "intragroup_docflow_head",
+      "intragroup_authorized_signatory",
+      "intragroup_sighting",
+      "investment_initiator",
+      "investment_responsible_manager",
+      "investment_docflow_employee",
+      "investment_authorized_signatory"
+    ],
+    "UpdateDocumentsClerks": [
+      "commercial_docflow_head",
+      "intragroup_docflow_head",
+      "investment_docflow_head",
+      "non_commercial_docflow_head"
+    ],
+    "UploadCommentAttachmentToDocument": [
+      "commercial_docflow_head",
+      "intragroup_docflow_head",
+      "investment_docflow_head",
+      "non_commercial_docflow_head",
+      "commercial_docflow_employee",
+      "intragroup_docflow_employee",
+      "investment_docflow_employee",
+      "non_commercial_docflow_employee"
+    ],
+    "ExportToExcel": [
+      "auditor",
+      "commercial_docflow_head",
+      "commercial_docflow_employee",
+      "non_commercial_docflow_employee",
+      "non_commercial_docflow_head",
+      "intragroup_docflow_employee",
+      "intragroup_docflow_head",
+      "investment_docflow_employee",
+      "investment_docflow_head",
+      "commercial_initiator",
+      "non_commercial_initiator"
+    ],
+    "ExportDocumentsSlas": [
+      "auditor",
+      "commercial_docflow_head",
+      "commercial_docflow_employee",
+      "non_commercial_docflow_employee",
+      "non_commercial_docflow_head",
+      "intragroup_docflow_employee",
+      "intragroup_docflow_head",
+      "investment_docflow_employee",
+      "investment_docflow_head"
+    ],
+    "ReadTemplate": [
+      "auditor"
+    ],
+    "UpdateTemplate": [],
+    "ReadDocumentNotificationTemplate": [
+      "auditor"
+    ],
+    "UpdateDocumentNotificationTemplate": [],
+    "ReadDocumentCounter": [
+      "auditor"
+    ],
+    "UpdateDocumentCounter": [],
+    "ReadReference": [
+      "auditor"
+    ],
+    "UpdateReference": []
+  },
+  "Reports": {
+    "1": [
+      "auditor",
+      "report_view"
+    ],
+    "2": [
+      "auditor",
+      "report_view"
+    ],
+    "3": [
+      "allow_all_no_access_check"
+    ],
+    "4": [
+      "auditor",
+      "report_view"
+    ],
+    "5": [
+      "auditor",
+      "report_view"
+    ]
+  },
+  "Dashboards": {
+    "10": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "11": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "20": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "21": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "30": [
+      "allow_all_no_access_check"
+    ],
+    "31": [
+      "allow_all_no_access_check"
+    ],
+    "32": [
+      "allow_all_no_access_check"
+    ],
+    "40": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "41": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "50": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "51": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "60": [
+      "auditor",
+      "dashboard_view"
+    ],
+    "61": [
+      "auditor",
+      "dashboard_view"
+    ]
+  }
+}

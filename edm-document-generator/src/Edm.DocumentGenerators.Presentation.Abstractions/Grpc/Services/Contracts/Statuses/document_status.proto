@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/Statuses/Types/document_status_type.proto";
+import "Grpc/Services/Contracts/Statuses/Parameters/document_status_parameter.proto";
+
+message DocumentStatusDto {
+  string id = 1;
+  DocumentStatusTypeDto type = 2;
+  repeated DocumentStatusParameterDto parameters = 5;
+  string system_name = 3;
+  string display_name = 4;
+}

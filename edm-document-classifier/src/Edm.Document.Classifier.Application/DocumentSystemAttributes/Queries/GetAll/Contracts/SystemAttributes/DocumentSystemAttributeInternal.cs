@@ -1,0 +1,5 @@
+using Edm.Document.Classifier.Application.DocumentSystemAttributes.Queries.GetAll.Contracts.SystemAttributes.Abstractions.Data;
+
+namespace Edm.Document.Classifier.Application.DocumentSystemAttributes.Queries.GetAll.Contracts.SystemAttributes;
+
+public abstract record DocumentSystemAttributeInternal(DocumentSystemAttributeDataInternal Data);

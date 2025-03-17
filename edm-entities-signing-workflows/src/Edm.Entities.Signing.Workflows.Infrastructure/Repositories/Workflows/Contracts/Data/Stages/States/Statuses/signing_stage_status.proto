@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+enum SigningStageStatusDb {
+  SigningStageStatusDb_None = 0;
+  SigningStageStatusDb_NotStarted = 1;
+  SigningStageStatusDb_InProgress = 2;
+  SigningStageStatusDb_Completed = 3;
+  SigningStageStatusDb_Signed = 4;
+  SigningStageStatusDb_Rejected = 5;
+  SigningStageStatusDb_ReturnedToRework = 6;
+  SigningStageStatusDb_Withdrawn = 7;
+  SigningStageStatusDb_Cancelled = 8;
+  SigningStageStatusDb_Error = 9;
+  SigningStageStatusDb_Revocation = 10;
+  SigningStageStatusDb_Revoked = 11;
+}

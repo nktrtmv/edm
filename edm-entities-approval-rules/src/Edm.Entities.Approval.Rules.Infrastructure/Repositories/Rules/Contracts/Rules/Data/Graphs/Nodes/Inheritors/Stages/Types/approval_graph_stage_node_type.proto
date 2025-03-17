@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+enum ApprovalGraphStageTypeDb {
+  ApprovalGraphStageTypeDb_None = 0;
+  ApprovalGraphStageTypeDb_ParallelAny = 1;
+  ApprovalGraphStageTypeDb_ParallelAll = 2;
+  ApprovalGraphStageTypeDb_Sequential = 3;
+}

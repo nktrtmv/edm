@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "Grpc/Services/Actions/Contracts/Contexts/signing_action_context.proto";
+
+message WithdrawBySelfSigningActionCommand {
+  SigningActionContextDto context = 1;
+  string comment = 2;
+}
+
+message WithdrawBySelfSigningActionCommandResponse {
+}

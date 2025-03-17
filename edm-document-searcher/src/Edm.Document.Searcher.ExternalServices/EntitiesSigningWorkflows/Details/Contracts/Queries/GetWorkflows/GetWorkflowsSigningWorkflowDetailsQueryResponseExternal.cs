@@ -1,0 +1,5 @@
+using Edm.Document.Searcher.ExternalServices.EntitiesSigningWorkflows.Details.Contracts.Queries.GetWorkflows.Workflows;
+
+namespace Edm.Document.Searcher.ExternalServices.EntitiesSigningWorkflows.Details.Contracts.Queries.GetWorkflows;
+
+public sealed record GetWorkflowsSigningWorkflowDetailsQueryResponseExternal(SigningWorkflowExternal[] Workflows);

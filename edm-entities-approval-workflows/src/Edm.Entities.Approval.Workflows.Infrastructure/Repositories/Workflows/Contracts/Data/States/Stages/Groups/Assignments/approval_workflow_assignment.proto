@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/Assignments/Statuses/approval_workflow_assignment_status.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/Assignments/CompletionDetails/approval_workflow_assignment_completion_details.proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+message ApprovalWorkflowAssignmentDb {
+    string id = 1;
+    string executor_id = 2;
+    ApprovalWorkflowAssignmentStatusDb status = 3;
+    google.protobuf.Timestamp created_date = 7;
+    optional ApprovalWorkflowAssignmentCompletionDetailsDb completion_details = 9;
+    google.protobuf.StringValue author_id = 10;
+    bool is_fixed = 11;
+}

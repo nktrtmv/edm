@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+import "vendor/SearchDocuments/Contracts/SortParameters/Orders/search_documents_query_sort_parameters_sort_order.proto";
+
+message SearchDocumentsQuerySortParameters {
+  int32 registry_role_id = 1;
+  SearchDocumentsQuerySortParametersSortOrder sort_order = 2;
+}

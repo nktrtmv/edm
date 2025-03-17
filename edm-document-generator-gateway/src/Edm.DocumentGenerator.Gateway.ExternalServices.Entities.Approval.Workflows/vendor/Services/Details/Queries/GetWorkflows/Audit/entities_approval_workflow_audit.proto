@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+import "google/protobuf/timestamp.proto";
+
+message EntitiesApprovalWorkflowAuditDto {
+  google.protobuf.Timestamp created_at = 1;
+  google.protobuf.Timestamp updated_at = 2;
+}

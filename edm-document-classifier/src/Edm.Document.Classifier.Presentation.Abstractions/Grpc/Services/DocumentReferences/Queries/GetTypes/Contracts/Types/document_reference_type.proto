@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentReferences/Queries/GetTypes/Contracts/Types/SearchKinds/document_reference_search_kind.proto";
+
+message DocumentReferenceTypeDto {
+  string id = 1;
+  string display_name = 2;
+  DocumentReferenceSearchKindDto search_kind = 3;
+  repeated string parent_ids = 4;
+  string domain_id = 5;
+}
+

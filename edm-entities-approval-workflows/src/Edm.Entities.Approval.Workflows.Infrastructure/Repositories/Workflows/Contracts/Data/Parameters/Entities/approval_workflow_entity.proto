@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+message WorkflowEntityDb {
+  string id = 1;
+  string domain_id = 2;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+import "vendor/Events/DocumentsStatusChanged/Contracts/DocumentsDetails/States/signing_edx_document_state.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message SigningEdxDocumentDetailsDto {
+  google.protobuf.StringValue edo_id = 1;
+  string document_attachment_id = 2;
+  string signature_attachment_id = 3;
+  SigningEdxDocumentStateDto state = 4;
+}

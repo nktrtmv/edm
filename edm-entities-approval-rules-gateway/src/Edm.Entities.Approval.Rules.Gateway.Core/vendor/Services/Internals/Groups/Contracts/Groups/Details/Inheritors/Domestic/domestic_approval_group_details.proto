@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Groups/Contracts/Groups/Details/Inheritors/Domestic/Options/domestic_approval_group_options.proto";
+import "vendor/Services/Internals/Groups/Contracts/Groups/Details/Inheritors/Domestic/Participants/domestic_approval_group_participant.proto";
+
+message DomesticApprovalGroupDetailsDto {
+  DomesticApprovalGroupOptionsDto options = 1;
+  repeated DomesticApprovalGroupParticipantDto participants = 2;
+}
+

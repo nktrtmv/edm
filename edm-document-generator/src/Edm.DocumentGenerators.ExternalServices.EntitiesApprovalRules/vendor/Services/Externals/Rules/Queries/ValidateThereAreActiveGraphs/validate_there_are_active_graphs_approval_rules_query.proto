@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Contracts/EntitiesTypes/Keys/entity_type_key.proto";
+
+message ValidateThereAreActiveGraphsApprovalRulesQuery {
+  EntityTypeKeyDto entity_type_key = 1;
+  repeated string approval_graphs_tags = 2;
+}
+
+message ValidateThereAreActiveGraphsApprovalRulesQueryResponse {
+}

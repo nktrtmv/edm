@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerators.Application.Documents.Commands.Contracts.AttributesValues.Inheritors.InnerValues;
+
+public sealed record TupleInnerValueDocumentAttributeValueInternal(DocumentAttributeValueInternal[] InnerValues);

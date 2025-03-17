@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+enum DocumentSigningWorkflowStatusDb {
+  DocumentSigningWorkflowStatusDb_None = 0;
+  DocumentSigningWorkflowStatusDb_InProgress = 1;
+  DocumentSigningWorkflowStatusDb_Finished = 2;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+message GetBusinessSegmentsQuery {
+}
+
+message GetBusinessSegmentsQueryResponse {
+  repeated GetBusinessSegmentsQueryResponseBusinessSegment business_segments = 1;
+}
+
+message GetBusinessSegmentsQueryResponseBusinessSegment {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+}

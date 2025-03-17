@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "Grpc/Contracts/EntitiesTypes/Keys/entity_type_key.proto";
+import "Grpc/Contracts/EntitiesTypes/Attributes/entity_type_attribute.proto";
+
+message EntityTypeDto {
+  EntityTypeKeyDto key = 1;
+  repeated EntityTypeAttributeDto attributes = 2;
+  string display_name = 3;
+}

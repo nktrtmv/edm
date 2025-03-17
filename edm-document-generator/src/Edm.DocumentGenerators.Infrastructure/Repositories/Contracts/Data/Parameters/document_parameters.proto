@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+message DocumentParametersDb{
+  bool attachments_in_comments_is_allowed = 1;
+}

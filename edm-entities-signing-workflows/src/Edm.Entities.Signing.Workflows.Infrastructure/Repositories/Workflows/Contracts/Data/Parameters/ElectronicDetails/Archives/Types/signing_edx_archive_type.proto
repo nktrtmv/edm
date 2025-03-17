@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+enum SigningArchiveTypeDb {
+  SigningArchiveTypeDb_None = 0;
+  SigningArchiveTypeDb_DigitallySignedDocuments = 1;
+  SigningArchiveTypeDb_PrintForms = 2;
+}

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+    <PackageReference Include="Google.Protobuf"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder"/>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter*.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        'Converter(From|To)?$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

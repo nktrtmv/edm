@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerators.Domain.Entities.Documents.ValueObjects.ApplicationEvents.Inheritors.DocumentGenerator.Events;
+
+public abstract record DocumentGeneratorEventDocumentApplicationEvent : DocumentApplicationEvent;

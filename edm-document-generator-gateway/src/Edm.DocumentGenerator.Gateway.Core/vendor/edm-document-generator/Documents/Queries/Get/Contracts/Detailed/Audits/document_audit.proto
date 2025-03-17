@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/edm-document-generator/Contracts/Audits/Briefs/audit_brief.proto";
+
+import "vendor/edm-document-generator/Documents/Queries/Get/Contracts/Detailed/Audits/Records/document_audit_record.proto";
+
+message DocumentAuditDto {
+  AuditBriefDto brief = 1;
+  repeated DocumentAuditRecordDto records = 2;
+}

@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions";
+
+import "Grpc/Contracts/EntitiesTypes/Attributes/Abstractions/Data/entity_type_attribute_data.proto";
+
+message EntityTypeAttributeDto {
+  EntityTypeAttributeDataDto data = 1;
+  oneof value {
+    EntityTypeBooleanAttributeDto as_boolean = 2;
+    EntityTypeDateAttributeDto as_date = 3;
+    EntityTypeNumberAttributeDto as_number = 4;
+    EntityTypeReferenceAttributeDto as_reference = 5;
+    EntityTypeStringAttributeDto as_string = 6;
+  }
+}
+
+message EntityTypeBooleanAttributeDto {}
+
+message EntityTypeDateAttributeDto {}
+
+message EntityTypeNumberAttributeDto {
+  int32 precision = 1;
+}
+
+message EntityTypeReferenceAttributeDto {
+  string reference_type_id = 1;
+}
+
+message EntityTypeStringAttributeDto {}

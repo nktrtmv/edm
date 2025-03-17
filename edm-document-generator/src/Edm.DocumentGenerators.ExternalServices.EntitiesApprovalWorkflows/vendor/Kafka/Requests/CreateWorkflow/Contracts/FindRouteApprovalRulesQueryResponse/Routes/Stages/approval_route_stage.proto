@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Kafka/Requests/CreateWorkflow/Contracts/FindRouteApprovalRulesQueryResponse/Routes/Stages/Types/approval_route_stage_type.proto";
+import "vendor/Kafka/Requests/CreateWorkflow/Contracts/FindRouteApprovalRulesQueryResponse/Routes/Stages/Groups/approval_route_group.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message ApprovalRouteStageDto {
+  google.protobuf.StringValue id = 4;
+  string name = 1;
+  ApprovalRouteStageTypeDto type = 2;
+  repeated ApprovalRouteGroupDto groups = 3;
+}

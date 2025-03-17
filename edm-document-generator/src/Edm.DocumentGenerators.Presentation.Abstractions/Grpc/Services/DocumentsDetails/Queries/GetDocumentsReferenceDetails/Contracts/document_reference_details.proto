@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/DocumentsStagesTypes/document_stage_type.proto";
+
+message DocumentReferenceDetailsDto {
+  string document_id = 1;
+  string registration_number = 2;
+  DocumentStageTypeDto stage_type = 3;
+}

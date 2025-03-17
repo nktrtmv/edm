@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/SigningData/Workflows/document_signing_workflow.proto";
+
+message DocumentSigningDataDb {
+  repeated DocumentSigningWorkflowDb workflows = 1;
+}
+

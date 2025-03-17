@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "google/protobuf/timestamp.proto";
+
+message AuditRecordHeadingDb {
+  string updated_by_id = 1;
+  google.protobuf.Timestamp updated_date_time = 2;
+}

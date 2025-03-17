@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+enum ApprovalWorkflowAssignmentCompletionReasonDb {
+  ApprovalWorkflowAssignmentCompletionReasonDb_None = 0;
+  ApprovalWorkflowAssignmentCompletionReasonDb_Approved = 1;
+  ApprovalWorkflowAssignmentCompletionReasonDb_ApprovedWithRemark = 2;
+  ApprovalWorkflowAssignmentCompletionReasonDb_Delegated = 3;
+  ApprovalWorkflowAssignmentCompletionReasonDb_ReturnedToRework = 4;
+  ApprovalWorkflowAssignmentCompletionReasonDb_Rejected = 5;
+  ApprovalWorkflowAssignmentCompletionReasonDb_CompletedAutomatically = 6;
+}
+

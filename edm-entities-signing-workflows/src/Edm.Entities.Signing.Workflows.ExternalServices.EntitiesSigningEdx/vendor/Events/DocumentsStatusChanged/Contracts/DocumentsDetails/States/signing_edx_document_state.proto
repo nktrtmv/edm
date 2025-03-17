@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+import "vendor/Events/DocumentsStatusChanged/Contracts/DocumentsDetails/States/Statuses/signing_edx_document_status.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message SigningEdxDocumentStateDto {
+  SigningEdxDocumentStatusDto status = 1;
+  string status_description = 2;
+  google.protobuf.Timestamp status_changed_at = 3;
+}

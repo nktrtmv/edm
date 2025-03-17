@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/edm-document-generator/Documents/Queries/Get/Contracts/Detailed/SigningData/Workflows/Statuses/document_signing_workflow_status.proto";
+
+message DocumentSigningWorkflowDto {
+  string id = 1;
+  DocumentSigningWorkflowStatusDto status = 2;
+}

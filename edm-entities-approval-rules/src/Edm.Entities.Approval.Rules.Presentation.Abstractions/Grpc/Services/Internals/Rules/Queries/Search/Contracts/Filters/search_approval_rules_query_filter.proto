@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+message SearchApprovalRulesQueryFilter {
+  oneof filter {
+    SearchApprovalRulesQueryFilterByPersonInGroups by_person_in_groups = 1;
+  }
+}
+
+message SearchApprovalRulesQueryFilterByPersonInGroups {
+  string person_id = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Details/Queries/GetWorkflows/Stages/Groups/Assignments/CompletionDetails/DelegationDetails/Kinds/entities_approval_workflow_assignment_auto_delegation_kind.proto";
+
+message EntitiesApprovalWorkflowAssignmentDelegationDetailsDto {
+  string delegated_to_id = 1;
+  optional EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto auto_delegation_kind = 2;
+}

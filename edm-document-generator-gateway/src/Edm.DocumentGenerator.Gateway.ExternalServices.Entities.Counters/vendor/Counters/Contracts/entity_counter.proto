@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "entities-counters-presentation-abstractions";
+
+package Edm.Entities.Counters.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Counters.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+
+message EntityCounterDto {
+  string id = 1;
+  string domain_id = 2;
+  google.protobuf.StringValue entity_type_id = 3;
+  string name = 4;
+  int32 value = 5;
+}

@@ -1,0 +1,237 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+service DocumentsDetailsService {
+  rpc GetStepper(GetStepperQuery) returns (GetStepperQueryResponse);
+}
+
+message GetStepperQuery {
+  string id = 1;
+  string domain_id = 2;
+}
+
+message GetStepperQueryResponse {
+  repeated DocumentWorkflowStepDto steps = 1;
+  string id = 2;
+  string domain_id = 3;
+}
+
+message DocumentWorkflowStepDto {
+  google.protobuf.Timestamp date = 1;
+  DocumentStatusDto status = 2;
+  DocumentStepProcessedDto processed = 3;
+  int32 number = 4;
+
+  oneof step {
+    DocumentWorkflowApprovalStepDto as_approval = 6;
+    DocumentWorkflowSigningStepDto as_signing = 7;
+    DocumentWorkflowSimpleStepDto as_simple = 8;
+  }
+}
+
+message DocumentStatusDto {
+  string id = 1;
+  DocumentStatusTypeDto type = 2;
+  repeated DocumentStatusParameterDto parameters = 3;
+  string system_name = 4;
+  string display_name = 5;
+}
+
+enum DocumentStatusTypeDto {
+  DocumentStatusTypeDto_None = 0;
+  DocumentStatusTypeDto_Initial = 1;
+  DocumentStatusTypeDto_Backlog = 2;
+  DocumentStatusTypeDto_Simple = 3;
+  DocumentStatusTypeDto_Approval = 4;
+  DocumentStatusTypeDto_Signing = 5;
+  DocumentStatusTypeDto_Completed = 6;
+  DocumentStatusTypeDto_Cancelled = 7;
+}
+
+message DocumentStatusParameterDto {
+  string kind = 1;
+  string display_name = 2;
+
+  oneof value {
+    BooleanDocumentStatusParameterDto as_boolean = 3;
+    StringDocumentStatusParameterDto as_string = 4;
+    ReferenceAttributeDocumentStatusParameterDto as_reference_attribute = 5;
+    DocumentStatusDocumentStatusParameterDto as_document_status = 6;
+  }
+}
+
+message BooleanDocumentStatusParameterDto {
+  bool value = 1;
+}
+
+message StringDocumentStatusParameterDto {
+  string value = 1;
+}
+
+message ReferenceAttributeDocumentStatusParameterDto {
+  string reference_type = 1;
+  repeated string values = 3;
+  bool is_array = 4;
+
+  reserved 2;
+}
+
+message DocumentStatusDocumentStatusParameterDto {
+  string value = 1;
+}
+
+message DocumentStepProcessedDto {
+  string processed_by = 1;
+  google.protobuf.Timestamp processed_date_time = 2;
+  DocumentStatusDto next_status = 3;
+}
+
+message DocumentWorkflowSimpleStepDto {
+  repeated string responsible = 1;
+}
+
+message DocumentWorkflowSigningStepDto {
+  repeated DocumentSigningStageDetailsDto stages = 1;
+}
+
+message DocumentSigningStageDetailsDto {
+  int32 number = 1;
+  DocumentSigningStageTypeDto stage_type = 2;
+  string executor = 3;
+  DocumentSigningStageStatusDto status = 4;
+  google.protobuf.Timestamp status_changed_at = 5;
+  string completion_comment = 6;
+  ContractorDto contractor = 7;
+  string id = 8;
+}
+
+enum DocumentSigningStageTypeDto {
+  DocumentSigningStageTypeDto_None = 0;
+  DocumentSigningStageTypeDto_Self = 1;
+  DocumentSigningStageTypeDto_Contractor = 2;
+}
+
+enum DocumentSigningStageStatusDto {
+  DocumentSigningStageStatusDto_None = 0;
+  DocumentSigningStageStatusDto_NotStarted = 1;
+  DocumentSigningStageStatusDto_InProgress = 2;
+  DocumentSigningStageStatusDto_Completed = 3;
+  DocumentSigningStageStatusDto_Signed = 4;
+  DocumentSigningStageStatusDto_Rejected = 5;
+  DocumentSigningStageStatusDto_ReturnedToRework = 6;
+  DocumentSigningStageStatusDto_Withdrawn = 7;
+  DocumentSigningStageStatusDto_Cancelled = 8;
+  DocumentSigningStageStatusDto_Error = 9;
+  DocumentSigningStageStatusDto_Revocation = 10;
+  DocumentSigningStageStatusDto_Revoked = 11;
+}
+
+message ContractorDto {
+  string id = 1;
+  string display_value = 2;
+  string display_sub_value = 3;
+}
+
+message ApprovalRuleKeyDto {
+  EntityTypeKeyDto entity_type_key = 1;
+  int32 version = 2;
+}
+
+message EntityTypeKeyDto {
+  string domain_id = 1;
+  string entity_type_id = 2;
+  google.protobuf.Timestamp entity_type_updated_date = 3;
+}
+
+message DocumentWorkflowApprovalStepDto {
+  repeated EntitiesApprovalWorkflowStageDto stages = 1;
+  ApprovalRuleKeyDto approval_rule_key = 2;
+}
+
+message EntitiesApprovalWorkflowStageDto {
+  string id = 1;
+  int32 number = 2;
+  EntitiesApprovalWorkflowStageStatusDto status = 3;
+  repeated EntitiesApprovalWorkflowGroupDto groups = 4;
+  google.protobuf.Timestamp started_date = 6;
+}
+
+enum EntitiesApprovalWorkflowStageStatusDto {
+  EntitiesApprovalWorkflowStageStatusDto_None = 0;
+  EntitiesApprovalWorkflowStageStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowStageStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowStageStatusDto_Approved = 3;
+  EntitiesApprovalWorkflowStageStatusDto_Rejected = 4;
+  EntitiesApprovalWorkflowStageStatusDto_ApprovedWithRemark = 5;
+  EntitiesApprovalWorkflowStageStatusDto_ReturnedToRework = 6;
+}
+
+message EntitiesApprovalWorkflowGroupDto {
+  string id = 1;
+  repeated EntitiesApprovalWorkflowAssignmentDto assignments = 2;
+  string name = 3;
+  EntitiesApprovalWorkflowGroupStatusDto status = 4;
+}
+
+enum EntitiesApprovalWorkflowGroupStatusDto {
+  EntitiesApprovalWorkflowGroupStatusDto_None = 0;
+  EntitiesApprovalWorkflowGroupStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowGroupStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowGroupStatusDto_Completed = 3;
+}
+
+message EntitiesApprovalWorkflowAssignmentDto {
+  string id = 1;
+  int32 number = 2;
+  string executor = 3;
+  EntitiesApprovalWorkflowAssignmentStatusDto status = 4;
+  google.protobuf.Timestamp created_date = 5;
+  EntitiesApprovalWorkflowAssignmentCompletionDetailsDto completion_details = 6;
+  string author = 7;
+  bool is_fixed = 8;
+}
+
+enum EntitiesApprovalWorkflowAssignmentStatusDto {
+  EntitiesApprovalWorkflowAssignmentStatusDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowAssignmentStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowAssignmentStatusDto_Completed = 3;
+}
+
+message EntitiesApprovalWorkflowAssignmentCompletionDetailsDto {
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto completion_reason = 1;
+  google.protobuf.Timestamp completed_date = 2;
+  google.protobuf.StringValue completion_comment = 3;
+  EntitiesApprovalWorkflowAssignmentDelegationDetailsDto delegation_details = 4;
+}
+
+enum EntitiesApprovalWorkflowAssignmentCompletionReasonDto {
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_Approved = 1;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_ApprovedWithRemark = 2;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_ReturnedToRework = 3;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_Rejected = 4;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_Delegated = 5;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_CompletedAutomatically = 6;
+}
+
+message EntitiesApprovalWorkflowAssignmentDelegationDetailsDto {
+  string delegated_to_id = 1;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto auto_delegation_kind = 2;
+}
+
+
+enum EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto {
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_Executor = 1;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_Approval = 2;
+  EntitiesApprovalWorkflowAssignmentAutoDelegationKindDto_Chief = 3;
+}

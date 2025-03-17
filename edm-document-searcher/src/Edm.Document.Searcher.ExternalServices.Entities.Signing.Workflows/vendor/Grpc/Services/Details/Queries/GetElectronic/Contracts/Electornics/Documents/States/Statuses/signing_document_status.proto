@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+enum SigningDocumentStatusDto {
+  SigningDocumentStatusDto_None = 0;
+  SigningDocumentStatusDto_PendingSelfSigning = 1;
+  SigningDocumentStatusDto_SignedBySelf = 2;
+  SigningDocumentStatusDto_ReadyForSending = 3;
+  SigningDocumentStatusDto_RequiredToSign = 4;
+  SigningDocumentStatusDto_Sent = 5;
+  SigningDocumentStatusDto_InProcess = 6;
+  SigningDocumentStatusDto_Signed = 7;
+  SigningDocumentStatusDto_Rejected = 8;
+  SigningDocumentStatusDto_Error = 9;
+  SigningDocumentStatusDto_RevocationRequested = 10;
+  SigningDocumentStatusDto_RevocationRequired = 11;
+  SigningDocumentStatusDto_Revoked = 12;
+}

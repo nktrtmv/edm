@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+service DocumentSystemAttributesService {
+  rpc GetAll(GetAllDocumentSystemAttributesQuery) returns (GetAllDocumentSystemAttributesQueryResponse);
+}
+
+message GetAllDocumentSystemAttributesQuery {
+  reserved 1;
+  string domain_id = 2;
+}
+
+message GetAllDocumentSystemAttributesQueryResponse {
+  repeated DocumentSystemAttributeDto attributes = 1;
+}
+
+message DocumentSystemAttributeDto {
+  DocumentSystemAttributeDataDto data = 1;
+  oneof value {
+    DocumentAttachmentSystemAttributeDto as_attachment = 2;
+    DocumentBooleanSystemAttributeDto as_boolean = 3;
+    DocumentDateSystemAttributeDto as_date = 4;
+    DocumentNumberSystemAttributeDto as_number = 5;
+    DocumentReferenceSystemAttributeDto as_reference = 6;
+    DocumentStringSystemAttributeDto as_string = 7;
+  }
+}
+
+message DocumentAttachmentSystemAttributeDto {
+}
+
+message DocumentBooleanSystemAttributeDto {
+}
+
+message DocumentDateSystemAttributeDto {
+}
+
+message DocumentNumberSystemAttributeDto {
+  int32 precision = 1;
+}
+
+message DocumentReferenceSystemAttributeDto {
+  string reference_type = 2;
+}
+
+message DocumentStringSystemAttributeDto {
+}
+
+message DocumentSystemAttributeDataDto {
+  string id = 1;
+  bool is_array = 2;
+  string system_name = 3;
+  string display_name = 4;
+  repeated int32 registry_roles_ids = 5;
+  repeated int32 document_roles_ids = 6;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+enum DocumentPermissionTypeDto {
+  DocumentPermissionTypeDto_None = 0;
+  DocumentPermissionTypeDto_View = 1;
+  DocumentPermissionTypeDto_Edit = 2;
+}

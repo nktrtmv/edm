@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+service DomainActionsService {
+  rpc GetDomainActions(GetDomainActionsQuery) returns (GetDomainActionsQueryResponse);
+}
+
+message GetDomainActionsQuery{
+  string domain_id = 1;
+}
+
+message GetDomainActionsQueryResponse{
+  repeated int32 document_actions = 1;
+}

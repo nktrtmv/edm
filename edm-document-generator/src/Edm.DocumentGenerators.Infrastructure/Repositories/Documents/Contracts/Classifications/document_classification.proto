@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+message DocumentClassificationDb {
+  string business_segment_id = 1;
+  string document_category_id = 2;
+  string document_type_id = 3;
+  string document_kind_id = 4;
+}

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.GenericSubdomain\Edm.Entities.Approval.Rules.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+</Project>

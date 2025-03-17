@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message DocumentAttributeValueDto {
+  string attribute_id = 1;
+  oneof value {
+    AttachmentDocumentAttributeValueDto as_attachment = 2;
+    BooleanDocumentAttributeValueDto as_boolean = 3;
+    DateDocumentAttributeValueDto as_date = 4;
+    NumberDocumentAttributeValueDto as_number = 5;
+    ReferenceDocumentAttributeValueDto as_reference = 6;
+    StringDocumentAttributeValueDto as_string = 7;
+    TupleDocumentAttributeValueDto as_tuple = 8;
+  }
+}
+
+message AttachmentDocumentAttributeValueDto {
+  repeated string values = 1;
+}
+
+message BooleanDocumentAttributeValueDto {
+  repeated bool values = 1;
+}
+
+message DateDocumentAttributeValueDto {
+  repeated google.protobuf.Timestamp values = 1;
+}
+
+message NumberDocumentAttributeValueDto {
+  repeated int64 values = 1;
+}
+
+message ReferenceDocumentAttributeValueDto {
+  repeated string values = 1;
+}
+
+message StringDocumentAttributeValueDto {
+  repeated string values = 1;
+}
+
+message TupleDocumentAttributeValueDto {
+  repeated TupleInnerValueDocumentAttributeValueDto values = 2;
+}
+
+message TupleInnerValueDocumentAttributeValueDto {
+  repeated DocumentAttributeValueDto inner_values = 1;
+}

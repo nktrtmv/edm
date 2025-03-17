@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/approval_workflow_group.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Statuses/approval_workflow_stage_status.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Types/approval_workflow_stage_type.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message ApprovalWorkflowStageDb {
+  string id = 1;
+  ApprovalWorkflowStageTypeDb type = 2;
+  ApprovalWorkflowStageStatusDb status = 4;
+  repeated ApprovalWorkflowGroupDb groups = 3;
+  optional google.protobuf.Timestamp started_date = 5;
+  string name = 6;
+}

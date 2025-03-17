@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+enum DocumentSigningWorkflowStatusDto {
+  DocumentSigningWorkflowStatusDto_None = 0;
+  DocumentSigningWorkflowStatusDto_InProgress = 1;
+  DocumentSigningWorkflowStatusDto_Finished = 2;
+}

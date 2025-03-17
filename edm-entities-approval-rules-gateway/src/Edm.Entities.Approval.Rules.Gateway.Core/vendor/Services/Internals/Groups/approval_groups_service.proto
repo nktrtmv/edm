@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Groups/Commands/Create/create_approval_groups_command.proto";
+import "vendor/Services/Internals/Groups/Commands/Delete/delete_approval_groups_command.proto";
+import "vendor/Services/Internals/Groups/Commands/Update/update_approval_groups_command.proto";
+
+import "vendor/Services/Internals/Groups/Queries/Get/get_approval_groups_query.proto";
+import "vendor/Services/Internals/Groups/Queries/GetAll/get_all_approval_groups_query.proto";
+
+service ApprovalGroupsService {
+  rpc Create(CreateApprovalGroupsCommand) returns (CreateApprovalGroupsCommandResponse);
+  rpc Delete(DeleteApprovalGroupsCommand) returns (DeleteApprovalGroupsCommandResponse);
+  rpc Update(UpdateApprovalGroupsCommand) returns (UpdateApprovalGroupsCommandResponse);
+  rpc Get(GetApprovalGroupsQuery) returns (GetApprovalGroupsQueryResponse);
+  rpc GetAll(GetAllApprovalGroupsQuery) returns (GetAllApprovalGroupsQueryResponse);
+}

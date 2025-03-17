@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Generator.Equals"/>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Edm.DocumentGenerators.Infrastructure.Tests"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.DocumentGenerators.GenericSubdomain\Edm.DocumentGenerators.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+</Project>
+

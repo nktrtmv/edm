@@ -1,0 +1,5 @@
+namespace Edm.DocumentGenerators.Application.Documents.Commands.Update.Contracts.Parameters.StatusChanges.StatusesTransitionsParametersValues;
+
+public abstract class DocumentStatusTransitionParameterValueInternal
+{
+}

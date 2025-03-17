@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+enum SigningEdxStatusDto {
+  SigningEdxStatusDto_None = 0;
+  SigningEdxStatusDto_InProgress = 1;
+  SigningEdxStatusDto_Signed = 2;
+  SigningEdxStatusDto_Rejected = 3;
+  SigningEdxStatusDto_Error = 4;
+  SigningEdxStatusDto_Revocation = 5;
+  SigningEdxStatusDto_Revoked = 6;
+}

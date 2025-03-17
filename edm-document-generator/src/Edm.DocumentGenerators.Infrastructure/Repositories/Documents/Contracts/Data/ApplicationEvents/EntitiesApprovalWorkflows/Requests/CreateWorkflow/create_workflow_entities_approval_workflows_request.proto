@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Requests/CreateWorkflow/Options/create_workflow_entities_approval_workflows_request_options.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Requests/CreateWorkflow/Parameters/create_workflow_entities_approval_workflows_request_parameters.proto";
+
+message CreateWorkflowEntitiesApprovalWorkflowsRequestDb {
+  CreateWorkflowEntitiesApprovalWorkflowsRequestOptionsDb options = 1;
+  CreateWorkflowEntitiesApprovalWorkflowsRequestParametersDb parameters = 2;
+  string current_user_id = 3;
+  bytes route = 4;
+}

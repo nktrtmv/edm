@@ -1,0 +1,89 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32922.545
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{A06F1F5D-247B-45AC-92E2-9CCBDBF08982}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edm.DocumentGenerator.Gateway.Core", "src\Edm.DocumentGenerator.Gateway.Core\Edm.DocumentGenerator.Gateway.Core.csproj", "{C5E11EE2-A0C0-40F5-BE0F-91BDE29ED80B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Edm.DocumentGenerator.Gateway.Presentation", "src\Edm.DocumentGenerator.Gateway.Presentation\Edm.DocumentGenerator.Gateway.Presentation.csproj", "{7FC8B45B-DA18-4151-91FD-7BCF5BA99DE5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalServices", "ExternalServices", "{67F1979F-4674-4E69-81CD-8E91E52557A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.DocumentGenerator.Gateway.ExternalServices", "src\Edm.DocumentGenerator.Gateway.ExternalServices\Edm.DocumentGenerator.Gateway.ExternalServices.csproj", "{72CEB974-EA75-4E70-9380-1D77396C1F4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.DocumentGenerator.Gateway.GenericSubdomain", "src\Edm.DocumentGenerator.Gateway.GenericSubdomain\Edm.DocumentGenerator.Gateway.GenericSubdomain.csproj", "{84237D69-C4B5-41FD-B036-9138C262F340}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Approval.Workflows", "src\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Approval.Workflows\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Approval.Workflows.csproj", "{0D248DEE-1DCA-4485-9C14-602E7CEB93E2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{D8BB250B-115A-4DCD-8633-1B7191253553}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Counters", "src\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Counters\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Counters.csproj", "{D4EB2FEA-5497-4D33-8FB4-DA2AD9F06797}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Signing.Workflows", "src\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Signing.Workflows\Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Signing.Workflows.csproj", "{21B6DDF7-C326-4D0D-8FF3-B893F0468DAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier", "src\Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier\Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier.csproj", "{7B3CD73F-D776-48A8-ADA8-B3B8B71253FF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5E11EE2-A0C0-40F5-BE0F-91BDE29ED80B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E11EE2-A0C0-40F5-BE0F-91BDE29ED80B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E11EE2-A0C0-40F5-BE0F-91BDE29ED80B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E11EE2-A0C0-40F5-BE0F-91BDE29ED80B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7FC8B45B-DA18-4151-91FD-7BCF5BA99DE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FC8B45B-DA18-4151-91FD-7BCF5BA99DE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FC8B45B-DA18-4151-91FD-7BCF5BA99DE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FC8B45B-DA18-4151-91FD-7BCF5BA99DE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72CEB974-EA75-4E70-9380-1D77396C1F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72CEB974-EA75-4E70-9380-1D77396C1F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72CEB974-EA75-4E70-9380-1D77396C1F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72CEB974-EA75-4E70-9380-1D77396C1F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84237D69-C4B5-41FD-B036-9138C262F340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84237D69-C4B5-41FD-B036-9138C262F340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84237D69-C4B5-41FD-B036-9138C262F340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84237D69-C4B5-41FD-B036-9138C262F340}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D248DEE-1DCA-4485-9C14-602E7CEB93E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D248DEE-1DCA-4485-9C14-602E7CEB93E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D248DEE-1DCA-4485-9C14-602E7CEB93E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D248DEE-1DCA-4485-9C14-602E7CEB93E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4EB2FEA-5497-4D33-8FB4-DA2AD9F06797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4EB2FEA-5497-4D33-8FB4-DA2AD9F06797}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4EB2FEA-5497-4D33-8FB4-DA2AD9F06797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4EB2FEA-5497-4D33-8FB4-DA2AD9F06797}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21B6DDF7-C326-4D0D-8FF3-B893F0468DAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21B6DDF7-C326-4D0D-8FF3-B893F0468DAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21B6DDF7-C326-4D0D-8FF3-B893F0468DAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21B6DDF7-C326-4D0D-8FF3-B893F0468DAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B3CD73F-D776-48A8-ADA8-B3B8B71253FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3CD73F-D776-48A8-ADA8-B3B8B71253FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3CD73F-D776-48A8-ADA8-B3B8B71253FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3CD73F-D776-48A8-ADA8-B3B8B71253FF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C5E11EE2-A0C0-40F5-BE0F-91BDE29ED80B} = {A06F1F5D-247B-45AC-92E2-9CCBDBF08982}
+		{7FC8B45B-DA18-4151-91FD-7BCF5BA99DE5} = {A06F1F5D-247B-45AC-92E2-9CCBDBF08982}
+		{67F1979F-4674-4E69-81CD-8E91E52557A1} = {A06F1F5D-247B-45AC-92E2-9CCBDBF08982}
+		{72CEB974-EA75-4E70-9380-1D77396C1F4D} = {67F1979F-4674-4E69-81CD-8E91E52557A1}
+		{84237D69-C4B5-41FD-B036-9138C262F340} = {A06F1F5D-247B-45AC-92E2-9CCBDBF08982}
+		{0D248DEE-1DCA-4485-9C14-602E7CEB93E2} = {67F1979F-4674-4E69-81CD-8E91E52557A1}
+		{D4EB2FEA-5497-4D33-8FB4-DA2AD9F06797} = {67F1979F-4674-4E69-81CD-8E91E52557A1}
+		{21B6DDF7-C326-4D0D-8FF3-B893F0468DAC} = {67F1979F-4674-4E69-81CD-8E91E52557A1}
+		{7B3CD73F-D776-48A8-ADA8-B3B8B71253FF} = {67F1979F-4674-4E69-81CD-8E91E52557A1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {627695A4-1AFD-4561-8BCE-73220A6B8B83}
+	EndGlobalSection
+EndGlobal

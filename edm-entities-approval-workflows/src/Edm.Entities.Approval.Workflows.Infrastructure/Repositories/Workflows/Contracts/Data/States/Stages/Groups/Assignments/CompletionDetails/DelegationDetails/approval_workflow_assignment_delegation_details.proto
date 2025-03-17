@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/Assignments/CompletionDetails/DelegationDetails/AutoDelegationKinds/approval_workflow_assignment_auto_delegation_kind.proto";
+
+message ApprovalWorkflowAssignmentDelegationDetailsDb {
+  string delegated_to_id = 1;
+  optional ApprovalWorkflowAssignmentAutoDelegationKindDb auto_delegation_kind = 2;
+}

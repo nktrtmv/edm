@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/Audits/Records/Headings/audit_record_heading.proto";
+
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/Audits/Records/AttributesValuesChanged/document_attributes_values_changed_audit_record.proto";
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/Audits/Records/DocumentCreated/document_created_audit_record.proto";
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/Audits/Records/StatusChanged/document_status_changed_audit_record.proto";
+
+message DocumentAuditRecordDto {
+  AuditRecordHeadingDto heading = 1;
+  oneof value {
+    DocumentAttributesValuesChangedAuditRecordDto as_attribute_values_changed = 2;
+    DocumentCreatedAuditRecordDto as_document_created = 3;
+    DocumentStatusChangedAuditRecordDto as_status_changed = 4;
+  }
+}

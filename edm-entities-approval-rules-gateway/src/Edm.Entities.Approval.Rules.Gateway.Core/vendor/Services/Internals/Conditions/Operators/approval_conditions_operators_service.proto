@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Conditions/Operators/Queries/GetAttributesOperators/get_attributes_operotors_approval_conditions_operators_query.proto";
+import "vendor/Services/Internals/Conditions/Operators/Queries/GetLogicalOperators/get_logical_operators_approval_conditions_operators_query.proto";
+
+service ApprovalConditionsOperatorsService {
+  rpc GetAttributesOperators(GetAttributesOperatorsApprovalConditionsOperatorsQuery)
+    returns (GetAttributesOperatorsApprovalConditionsOperatorsQueryResponse);
+  rpc GetLogicalOperators(GetLogicalOperatorsApprovalConditionsOperatorsQuery)
+      returns (GetLogicalOperatorsApprovalConditionsOperatorsQueryResponse);
+}

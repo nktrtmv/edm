@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+message UpdateApprovalRulesCommandAction {
+  oneof action {
+    UpdateApprovalRulesCommandReplacePersonAction replace_person = 1;
+  }
+}
+
+message UpdateApprovalRulesCommandReplacePersonAction {
+  string person_from_id = 1;
+  string person_to_id = 2;
+}

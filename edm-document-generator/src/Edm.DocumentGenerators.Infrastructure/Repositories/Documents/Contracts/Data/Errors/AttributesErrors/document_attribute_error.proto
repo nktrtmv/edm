@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+message DocumentAttributeErrorDb {
+  string attribute_id = 1;
+  string message = 2;
+}

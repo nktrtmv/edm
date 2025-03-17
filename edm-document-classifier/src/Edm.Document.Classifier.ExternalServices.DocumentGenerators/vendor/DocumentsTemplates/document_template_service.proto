@@ -1,0 +1,89 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+import "vendor/DocumentsTemplates/Queries/GetAll/Contracts/Slim/document_template_slim.proto";
+import "vendor/DocumentsTemplates/Commands/Update/Contracts/Bare/document_template_bare.proto";
+import "vendor/DocumentsTemplates/Queries/Get/Contracts/Detailed/document_template_detailed.proto";
+
+service DocumentTemplateService {
+  rpc Create(CreateDocumentTemplateCommand) returns (CreateDocumentTemplateCommandResponse);
+  rpc Delete(DeleteDocumentTemplateCommand) returns (DeleteDocumentTemplateCommandResponse);
+  rpc MigrateAll(MigrateAllDocumentsTemplatesCommand) returns (MigrateAllDocumentsTemplatesCommandResponse);
+  rpc Update(UpdateDocumentTemplateCommand) returns (UpdateDocumentTemplateCommandResponse);
+  rpc Get(GetDocumentTemplateQuery) returns (GetDocumentTemplateQueryResponse);
+  rpc GetAll(GetAllDocumentTemplatesQuery) returns (GetAllDocumentTemplatesQueryResponse);
+  rpc GetAllDocumentsStatuses(GetAllDocumentsStatusesDocumentTemplatesQuery) returns (GetAllDocumentsStatusesDocumentTemplatesQueryResponse);
+}
+
+message CreateDocumentTemplateCommand {
+  string template_id = 1;
+  string name = 2;
+  string current_user = 3;
+  string domain_id = 4;
+  google.protobuf.StringValue system_name = 5;
+}
+
+message CreateDocumentTemplateCommandResponse {
+}
+
+message GetDocumentTemplateQuery {
+  string id = 1;
+  string domain_id = 2;
+}
+
+message GetDocumentTemplateQueryResponse {
+  optional DocumentTemplateDetailedDto template = 1;
+}
+
+message GetAllDocumentTemplatesQuery {
+  GetAllDocumentsTemplatesQueryParamsDto query_params = 1;
+  string domain_id = 2;
+}
+
+message GetAllDocumentsTemplatesQueryParamsDto {
+  google.protobuf.StringValue query = 1;
+  int32 Limit = 2;
+  int32 Skip = 3;
+}
+
+message GetAllDocumentTemplatesQueryResponse {
+  repeated DocumentTemplateSlimDto templates = 1;
+}
+
+message GetAllDocumentsStatusesDocumentTemplatesQuery {
+  string domain_id = 1;
+}
+
+message GetAllDocumentsStatusesDocumentTemplatesQueryResponse {
+  repeated string statuses = 1;
+}
+
+message DeleteDocumentTemplateCommand {
+  string id = 1;
+  string current_user = 2;
+  string domain_id = 3;
+}
+
+message DeleteDocumentTemplateCommandResponse {
+}
+
+message MigrateAllDocumentsTemplatesCommand {
+  string domain_id = 1;
+}
+
+message MigrateAllDocumentsTemplatesCommandResponse {
+}
+
+message UpdateDocumentTemplateCommand {
+  DocumentTemplateBareDto template = 1;
+  string current_user = 2;
+}
+
+message UpdateDocumentTemplateCommandResponse {
+}

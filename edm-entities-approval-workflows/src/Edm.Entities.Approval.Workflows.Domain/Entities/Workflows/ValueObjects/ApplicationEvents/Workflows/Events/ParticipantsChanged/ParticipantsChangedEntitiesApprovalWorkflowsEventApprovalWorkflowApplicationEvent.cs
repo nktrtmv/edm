@@ -1,0 +1,6 @@
+namespace Edm.Entities.Approval.Workflows.Domain.Entities.Workflows.ValueObjects.ApplicationEvents.Workflows.Events.ParticipantsChanged;
+
+public sealed class ParticipantsChangedEntitiesApprovalWorkflowsEventApprovalWorkflowApplicationEvent
+    : EntitiesApprovalWorkflowsEventApprovalWorkflowApplicationEvent
+{
+}

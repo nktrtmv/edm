@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+import "vendor/edm-document-generator/Contracts/Attributes/document_attribute.proto";
+
+message DocumentAttributeValueDetailedDto {
+  DocumentAttributeDto attribute = 1;
+  oneof value {
+    DocumentAttachmentAttributeValueDetailedDto as_attachment = 2;
+    DocumentBooleanAttributeValueDetailedDto as_boolean = 3;
+    DocumentDateAttributeValueDetailedDto as_date = 4;
+    DocumentNumberAttributeValueDetailedDto as_number = 5;
+    DocumentReferenceAttributeValueDetailedDto as_reference = 6;
+    DocumentStringAttributeValueDetailedDto as_string = 7;
+    DocumentTupleAttributeValueDetailedDto as_tuple = 8;
+  }
+}
+
+message DocumentAttachmentAttributeValueDetailedDto {
+  repeated string values = 1;
+}
+
+message DocumentBooleanAttributeValueDetailedDto {
+  repeated bool values = 1;
+}
+
+message DocumentDateAttributeValueDetailedDto {
+  repeated google.protobuf.Timestamp values = 1;
+}
+
+message DocumentNumberAttributeValueDetailedDto {
+  repeated int64 values = 1;
+}
+
+message DocumentReferenceAttributeValueDetailedDto {
+  repeated string values = 1;
+}
+
+message DocumentStringAttributeValueDetailedDto {
+  repeated string values = 1;
+}
+
+message DocumentTupleAttributeValueDetailedDto {
+  repeated DocumentTupleAttributeValueInnerValueDetailedDto values = 1;
+}
+
+message DocumentTupleAttributeValueInnerValueDetailedDto {
+  repeated DocumentAttributeValueDetailedDto inner_values = 1;
+}

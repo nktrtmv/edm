@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Notifications/Matches/AttributeValueChanged/document_attribute_value_changed_notification_match.proto";
+import "Repositories/Contracts/Data/Notifications/Matches/StatusChanged/document_status_changed_notification_match.proto";
+
+message DocumentNotificationMatchDb {
+  oneof value {
+    DocumentAttributeValueChangedNotificationMatchDb as_attribute_value_changed = 1;
+    DocumentStatusChangedNotificationMatchDb as_status_changed = 2;
+  }
+}
+

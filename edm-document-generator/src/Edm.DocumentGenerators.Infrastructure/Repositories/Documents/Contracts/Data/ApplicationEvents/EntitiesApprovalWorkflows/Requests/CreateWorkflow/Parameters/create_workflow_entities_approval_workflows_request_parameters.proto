@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+message CreateWorkflowEntitiesApprovalWorkflowsRequestParametersDb {
+  string title = 1;
+  string description = 2;
+  string clerk_id = 3;
+  string document_author_id = 5;
+
+  reserved 4;
+}

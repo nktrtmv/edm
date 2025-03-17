@@ -1,0 +1,5 @@
+using Edm.Entities.Approval.Rules.Application.Contracts.EntitiesTypes.Attributes;
+
+namespace Edm.Entities.Approval.Rules.Application.Internal.GroupsDetails.Queries.GetParticipantSourceAttributes.Contracts;
+
+public sealed record GetParticipantSourceAttributesApprovalGroupsDetailsQueryResponseInternal(EntityTypeAttributeInternal[] Attributes);

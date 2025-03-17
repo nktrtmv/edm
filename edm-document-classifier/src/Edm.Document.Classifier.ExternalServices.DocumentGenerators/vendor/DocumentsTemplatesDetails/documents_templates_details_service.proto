@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/DocumentsTemplatesDetails/Queries/GetDetails/get_details_documents_templates_details_query.proto";
+
+service DocumentsTemplatesDetailsService {
+  rpc GetDetails(GetDetailsDocumentsTemplatesDetailsQuery) returns (GetDetailsDocumentsTemplatesDetailsQueryResponse);
+}

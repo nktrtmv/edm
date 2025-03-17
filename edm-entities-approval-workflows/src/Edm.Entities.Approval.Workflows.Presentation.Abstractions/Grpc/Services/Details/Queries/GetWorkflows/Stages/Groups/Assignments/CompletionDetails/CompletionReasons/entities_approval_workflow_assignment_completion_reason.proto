@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+enum EntitiesApprovalWorkflowAssignmentCompletionReasonDto {
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_Approved = 1;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_ApprovedWithRemark = 2;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_ReturnedToRework = 3;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_Rejected = 4;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_Delegated = 5;
+  EntitiesApprovalWorkflowAssignmentCompletionReasonDto_CompletedAutomatically = 6;
+}
+

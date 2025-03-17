@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+message ApprovalInfoDto {
+  string title = 1;
+  string description = 2;
+  repeated string owners_ids = 3;
+  string document_author_id = 5;
+
+  reserved 4;
+}

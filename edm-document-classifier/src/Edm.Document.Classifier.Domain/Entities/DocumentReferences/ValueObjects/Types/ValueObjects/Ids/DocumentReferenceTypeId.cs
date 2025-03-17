@@ -1,0 +1,35 @@
+namespace Edm.Document.Classifier.Domain.Entities.DocumentReferences.ValueObjects.Types.ValueObjects.Ids;
+
+public enum DocumentReferenceTypeId
+{
+    None = 0,
+    Currencies = 100,
+    CalendarTypes = 200,
+    Employees = 300,
+    BusinessUnit = 400,
+    SelfCompanies = 500,
+    SelfCompanyPaymentDetails = 505,
+    Contractors = 600,
+    ContractorPaymentDetails = 605,
+    ContractorSegments = 700,
+    ContractSigningTypes = 800,
+    DocumentCategories = 900,
+    DocumentTypes = 1000,
+    DocumentKinds = 1100,
+    BusinessSegments = 1200,
+    Taxation = 1300,
+    MacroBusinessUnit = 1800,
+    CategoryFirstLevel = 1820,
+    CategorySecondLevel = 1830,
+    Contracts = 1900,
+    DocumentsLinks = 2000,
+    DocumentStages = 2200,
+    DocumentStatuses = 2300,
+    CountriesByAlphaCode = 2500,
+    CountriesByNumberCode = 2501,
+    SupplierTypes = 3400,
+    WeekDays = 3500,
+    DocumentStates = 3700,
+    PurchaseAgreementsClassification = 11400,
+    ApprovalBusinessUnit = 16000
+}

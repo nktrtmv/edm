@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/Statuses/approval_graph_status.proto";
+
+message GetAllApprovalGraphsQueryResponseGraph {
+  string id = 1;
+  ApprovalGraphStatusDto status = 2;
+  string display_name = 3;
+  string tag = 4;
+}

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Contracts/Rules/Keys/approval_rule_key.proto";
+
+message CreateNewVersionApprovalRulesCommand {
+  ApprovalRuleKeyDto original_approval_rule_key = 1;
+  string current_user_id = 2;
+}
+
+message CreateNewVersionApprovalRulesCommandResponse {
+  ApprovalRuleKeyDto key = 1;
+}

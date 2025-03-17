@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Attributes/document_attribute.proto";
+
+// TODO: REMOVE: This is for backward compatibility, remove in version 2.
+
+message DocumentAttributeValueDataDb {
+  DocumentAttributeDb attribute = 1;
+}
+
+

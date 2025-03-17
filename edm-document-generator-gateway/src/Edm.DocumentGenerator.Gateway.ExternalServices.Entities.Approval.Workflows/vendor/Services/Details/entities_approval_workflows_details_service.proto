@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Services/Details/Queries/GetWorkflows/get_workflows_entities_approval_workflows_details_query.proto";
+import "vendor/Services/Details/Queries/GetWorkflows/get_workflows_entities_approval_workflows_details_query_response_workflow.proto";
+
+service EntitiesApprovalWorkflowsDetailsService {
+  rpc GetWorkflow(GetWorkflowsEntitiesApprovalWorkflowsDetailsQuery) returns (GetWorkflowsEntitiesApprovalWorkflowsDetailsQueryResponseWorkflow);
+  rpc GetWorkflows(GetWorkflowsEntitiesApprovalWorkflowsDetailsQuery) returns (stream GetWorkflowsEntitiesApprovalWorkflowsDetailsQueryResponseWorkflow);
+  rpc GetAllExecutors(GetAllExecutorsEntitiesApprovalWorkflowsDetailsQuery) returns (GetAllExecutorsEntitiesApprovalWorkflowsDetailsQueryResponse);
+  rpc GetCurrentExecutors(GetCurrentExecutorsEntitiesApprovalWorkflowsDetailsQuery) returns (GetCurrentExecutorsEntitiesApprovalWorkflowsDetailsQueryResponse);
+}
+
+message GetAllExecutorsEntitiesApprovalWorkflowsDetailsQuery {
+  string entity_id = 1;
+  bool is_processing_required = 2;
+}
+
+message GetAllExecutorsEntitiesApprovalWorkflowsDetailsQueryResponse {
+  repeated string executors = 1;
+}
+
+message GetCurrentExecutorsEntitiesApprovalWorkflowsDetailsQuery {
+  string entity_id = 1;
+  bool is_processing_required = 2;
+}
+
+message GetCurrentExecutorsEntitiesApprovalWorkflowsDetailsQueryResponse {
+  repeated string executors = 1;
+}

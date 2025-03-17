@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+import "Repositories/Workflows/Contracts/Data/Statuses/signing_status.proto";
+import "Repositories/Workflows/Contracts/Data/Stages/signing_stage.proto";
+import "Repositories/Workflows/Contracts/Data/Parameters/signing_parameters.proto";
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/signing_application_event.proto";
+
+message SigningWorkflowDataDb {
+  SigningStatusDb status = 4;
+  repeated SigningStageDb stages = 1;
+  SigningParametersDb parameters = 6;
+  repeated SigningApplicationEventDb application_events = 3;
+}

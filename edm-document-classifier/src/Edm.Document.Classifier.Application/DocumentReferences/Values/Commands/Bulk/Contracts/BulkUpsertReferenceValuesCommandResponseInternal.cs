@@ -1,0 +1,3 @@
+namespace Edm.Document.Classifier.Application.DocumentReferences.Values.Commands.Bulk.Contracts;
+
+public sealed record BulkUpsertReferenceValuesCommandResponseInternal;

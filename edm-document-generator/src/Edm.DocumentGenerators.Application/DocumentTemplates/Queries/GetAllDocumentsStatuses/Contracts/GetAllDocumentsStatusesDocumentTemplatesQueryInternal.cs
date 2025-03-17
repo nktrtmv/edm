@@ -1,0 +1,5 @@
+using MediatR;
+
+namespace Edm.DocumentGenerators.Application.DocumentTemplates.Queries.GetAllDocumentsStatuses.Contracts;
+
+public sealed record GetAllDocumentsStatusesDocumentTemplatesQueryInternal(string DomainId) : IRequest<GetAllDocumentsStatusesDocumentTemplatesQueryResponseInternal>;

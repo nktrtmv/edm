@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+import "vendor/edm-document-classifier/DocumentClassifications/Queries/Contracts/ReadModels/document_classification_read_model.proto";
+import "vendor/edm-document-classifier/DocumentClassifications/Contracts/Subsets/document_classifier_subset.proto";
+
+service DocumentClassificationService {
+  rpc Create(CreateDocumentClassificationCommand) returns (CreateDocumentClassificationCommandResponse);
+  rpc Get(GetDocumentClassificationQuery) returns (GetDocumentClassificationQueryResponse);
+  rpc Search(SearchDocumentClassificationQuery) returns (SearchDocumentClassificationQueryResponse);
+}
+
+message CreateDocumentClassificationCommand {
+  string name = 1;
+  DocumentClassifierSubsetDto classifier_subset = 2;
+}
+
+message CreateDocumentClassificationCommandResponse {
+  string document_template_id = 1;
+}
+
+message GetDocumentClassificationQuery {
+  string document_template_id = 1;
+}
+
+message GetDocumentClassificationQueryResponse {
+  DocumentClassificationReadModelDto document_classification = 1;
+}
+
+message SearchDocumentClassificationQuery {
+  string business_segment_id = 1;
+  string document_category_id = 2;
+  string document_type_id = 3;
+  string document_kind_id = 4;
+}
+
+message SearchDocumentClassificationQueryResponse {
+  repeated DocumentClassificationReadModelDto document_classifications = 1;
+}

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+message CreateWorkflowEntitiesApprovalWorkflowsRequestOptionsDb {
+  bool approving_with_remark_is_disabled = 1;
+  bool auto_in_progress_assignments_is_disabled = 2;
+  repeated string watchers_ids = 3;
+}

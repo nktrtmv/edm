@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-Abstractions";
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+import "google/protobuf/wrappers.proto";
+
+service EntitiesApprovalWorkflowsActionsService {
+  rpc Complete(CompleteEntitiesApprovalWorkflowsActionsCommand) returns (CompleteEntitiesApprovalWorkflowsActionsCommandResponse);
+  rpc AddParticipant(AddParticipantEntitiesApprovalWorkflowsActionsCommand) returns (AddParticipantEntitiesApprovalWorkflowsActionsCommandResponse);
+  rpc Delegate(DelegateEntitiesApprovalWorkflowsActionsCommand) returns (DelegateEntitiesApprovalWorkflowsActionsCommandResponse);
+  rpc TakeInWork(TakeInWorkEntitiesApprovalWorkflowsActionsCommand) returns (TakeInWorkEntitiesApprovalWorkflowsActionsCommandResponse);
+  rpc GetAvailable(GetAvailableEntitiesApprovalWorkflowsActionsQuery) returns (GetAvailableEntitiesApprovalWorkflowsActionsQueryResponse);
+}
+
+message TakeInWorkEntitiesApprovalWorkflowsActionsCommand {
+  EntitiesApprovalWorkflowsActionContextDto context = 1;
+  optional bool dry_run_and_lock = 2;
+}
+
+message TakeInWorkEntitiesApprovalWorkflowsActionsCommandResponse {}
+
+message AddParticipantEntitiesApprovalWorkflowsActionsCommand {
+  EntitiesApprovalWorkflowsActionContextDto context = 1;
+  string new_participant_id = 2;
+  optional google.protobuf.StringValue group_id = 3;
+  optional google.protobuf.StringValue group_name = 6;
+  string comment = 4;
+  optional bool dry_run_and_lock = 5;
+}
+
+message AddParticipantEntitiesApprovalWorkflowsActionsCommandResponse {}
+
+message DelegateEntitiesApprovalWorkflowsActionsCommand {
+  EntitiesApprovalWorkflowsActionContextDto context = 1;
+  string executor_from_id = 2;
+  string executor_to_id = 3;
+  string comment = 4;
+  optional bool dry_run_and_lock = 5;
+}
+
+message DelegateEntitiesApprovalWorkflowsActionsCommandResponse {}
+
+message CompleteEntitiesApprovalWorkflowsActionsCommand {
+  EntitiesApprovalWorkflowsActionContextDto context = 1;
+  EntitiesApprovalWorkflowAssignmentCompleteReasonDto completion_reason = 2;
+  optional google.protobuf.StringValue comment = 3;
+  optional bool dry_run_and_lock = 4;
+}
+
+message CompleteEntitiesApprovalWorkflowsActionsCommandResponse {}
+
+enum EntitiesApprovalWorkflowAssignmentCompleteReasonDto {
+  EntitiesApprovalWorkflowAssignmentCompleteReasonDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentCompleteReasonDto_Approved = 1;
+  EntitiesApprovalWorkflowAssignmentCompleteReasonDto_ApprovedWithRemark = 2;
+  EntitiesApprovalWorkflowAssignmentCompleteReasonDto_ReturnedToRework = 3;
+  EntitiesApprovalWorkflowAssignmentCompleteReasonDto_Rejected = 4;
+}
+
+message GetAvailableEntitiesApprovalWorkflowsActionsQuery {
+  string workflow_id = 1;
+  string current_user_id = 2;
+  bool current_user_is_owner = 3;
+  bool current_user_is_admin = 4;
+}
+
+message GetAvailableEntitiesApprovalWorkflowsActionsQueryResponse {
+  repeated EntitiesApprovalWorkflowsActionKindDto actions = 1;
+}
+
+enum EntitiesApprovalWorkflowsActionKindDto {
+  EntitiesApprovalWorkflowsActionKindDto_None = 0;
+  EntitiesApprovalWorkflowsActionKindDto_Approve = 1;
+  EntitiesApprovalWorkflowsActionKindDto_ApproveWithRemark = 2;
+  EntitiesApprovalWorkflowsActionKindDto_ReturnToRework = 3;
+  EntitiesApprovalWorkflowsActionKindDto_Reject = 4;
+  EntitiesApprovalWorkflowsActionKindDto_Delegate = 5;
+  EntitiesApprovalWorkflowsActionKindDto_TakeInWork = 6;
+  EntitiesApprovalWorkflowsActionKindDto_AddParticipant = 7;
+}
+
+message EntitiesApprovalWorkflowsActionContextDto {
+  string workflow_id = 1;
+  string stage_id = 2;
+  string current_user_id = 3;
+  bool current_user_is_owner = 4;
+  bool current_user_is_admin = 5;
+}

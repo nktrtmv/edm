@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/StatusesTransitions/Parameters/Kinds/document_status_transition_parameter_kind.proto";
+
+message DocumentStatusTransitionParameterDto {
+  DocumentStatusTransitionParameterKindDto kind = 1;
+}

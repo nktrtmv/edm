@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message EntityTypeKeyDto {
+  string domain_id = 1;
+  string entity_type_id = 2;
+  google.protobuf.Timestamp entity_type_updated_date = 3;
+}

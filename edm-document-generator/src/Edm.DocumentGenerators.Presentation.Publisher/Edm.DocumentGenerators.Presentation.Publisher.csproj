@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="KafkaFlow"/>
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.DocumentGenerators.Application\Edm.DocumentGenerators.Application.csproj"/>
+    <ProjectReference Include="..\Edm.DocumentGenerators.Infrastructure.Abstractions\Edm.DocumentGenerators.Infrastructure.Abstractions.csproj"/>
+    <ProjectReference Include="..\Edm.DocumentGenerators.Infrastructure\Edm.DocumentGenerators.Infrastructure.csproj"/>
+    <ProjectReference Include="..\Edm.DocumentGenerators.Presentation.Abstractions\Edm.DocumentGenerators.Presentation.Abstractions.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Registrar.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        'Registrar',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

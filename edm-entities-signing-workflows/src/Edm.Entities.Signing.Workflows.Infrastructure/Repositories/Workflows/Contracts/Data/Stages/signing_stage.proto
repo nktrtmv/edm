@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+import "Repositories/Workflows/Contracts/Data/Stages/Parties/signing_party.proto";
+import "Repositories/Workflows/Contracts/Data/Stages/States/signing_stage_state.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message SigningStageDb {
+  string id = 1;
+  SigningPartyDb party = 2;
+  SigningStageStateDb state = 3;
+  google.protobuf.StringValue completion_comment = 4;
+}

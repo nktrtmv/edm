@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Permissions/Types/document_permission_type.proto";
+
+message DocumentPermissionDb {
+  DocumentPermissionTypeDb type = 1;
+  repeated string role_ids = 2;
+  repeated string attribute_ids = 3;
+}

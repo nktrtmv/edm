@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/StatusesTransitions/Parameters/Inheritors/Customs/Types/document_custom_status_transition_parameter_type.proto";
+
+message DocumentCustomStatusTransitionParameterDb { // TODO: OBSOLETE
+  DocumentCustomStatusTransitionParameterTypeDb type = 1;
+}

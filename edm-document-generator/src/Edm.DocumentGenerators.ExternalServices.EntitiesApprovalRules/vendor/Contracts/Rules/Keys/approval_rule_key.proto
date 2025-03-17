@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions";
+
+import "vendor/Contracts/EntitiesTypes/Keys/entity_type_key.proto";
+
+message ApprovalRuleKeyDto {
+  EntityTypeKeyDto entity_type_key = 1;
+  int32 version = 2;
+}

@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "google/protobuf/wrappers.proto";
+
+message ApprovalGroupDataDto {
+  string id = 1;
+  string display_name = 2;
+  optional google.protobuf.StringValue label = 3;
+}

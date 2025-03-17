@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Services/Internals/Graphs/Contracts/Graphs/Nodes/Inheritors/Stages/Types/approval_graph_stage_node_type.proto";
+import "Grpc/Services/Internals/Graphs/Contracts/Graphs/Nodes/Inheritors/Stages/Sets/approval_graph_stage_set.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message ApprovalGraphStageNodeDto {
+  string display_name = 3;
+  optional google.protobuf.StringValue label = 4;
+  ApprovalGraphStageTypeDto type = 1;
+  repeated ApprovalGraphStageSetDto sets = 2;
+}

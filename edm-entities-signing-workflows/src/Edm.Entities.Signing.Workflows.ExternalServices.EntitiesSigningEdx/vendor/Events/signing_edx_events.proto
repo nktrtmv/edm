@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+import "vendor/Events/DocumentsStatusChanged/Contracts/documents_status_changed_signing_edx_event.proto";
+
+message SigningEdxEventKey {
+  string key = 1;
+}
+
+message SigningEdxEventValue {
+  string event_id = 1;
+  oneof event {
+    DocumentsStatusChangedSigningEdxEventDto as_documents_status_changed = 2;
+  }
+}

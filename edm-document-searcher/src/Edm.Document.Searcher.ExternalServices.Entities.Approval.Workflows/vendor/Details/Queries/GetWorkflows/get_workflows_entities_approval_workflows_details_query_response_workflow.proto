@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Details/Queries/GetWorkflows/Stages/entities_approval_workflow_stage.proto";
+import "vendor/Contracts/ApprovalRules/Keys/approval_rule_key.proto";
+import "vendor/Details/Queries/GetWorkflows/Audit/entities_approval_workflow_audit.proto";
+import "vendor/Details/Queries/GetWorkflows/Statuses/entities_approval_workflow_status.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message GetWorkflowsEntitiesApprovalWorkflowsDetailsQueryResponseWorkflow {
+  string id = 1;
+  repeated EntitiesApprovalWorkflowStageDto stages = 2;
+  repeated string owners_ids = 3;
+  optional ApprovalRuleKeyDto approval_rule_key = 4;
+  EntitiesApprovalWorkflowAuditDto audit = 5;
+  optional google.protobuf.Timestamp route_updated_date = 6;
+  EntitiesApprovalWorkflowStatusDto status = 7;
+}

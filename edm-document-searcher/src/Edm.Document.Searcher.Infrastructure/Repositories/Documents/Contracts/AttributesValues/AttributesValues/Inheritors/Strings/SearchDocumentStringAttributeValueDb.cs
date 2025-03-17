@@ -1,0 +1,3 @@
+namespace Edm.Document.Searcher.Infrastructure.Repositories.Documents.Contracts.AttributesValues.AttributesValues.Inheritors.Strings;
+
+internal sealed class SearchDocumentStringAttributeValueDb : SearchDocumentAttributeValueDbGeneric<string>;

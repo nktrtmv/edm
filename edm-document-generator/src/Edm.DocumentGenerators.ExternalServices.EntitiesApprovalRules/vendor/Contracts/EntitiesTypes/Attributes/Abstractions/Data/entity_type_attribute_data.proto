@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions";
+
+message EntityTypeAttributeDataDto {
+  int32 id = 1;
+  string display_name = 2;
+}

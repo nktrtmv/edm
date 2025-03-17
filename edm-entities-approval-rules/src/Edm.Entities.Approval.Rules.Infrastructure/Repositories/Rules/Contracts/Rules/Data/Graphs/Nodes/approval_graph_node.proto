@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/Nodes/Inheritors/Stages/approval_graph_stage_node.proto";
+
+message ApprovalGraphNodeDb {
+  ApprovalGraphNodeDataDbObsolete data = 1; // TODO: OBSOLETE REMOVE
+  string id = 6;
+  oneof value {
+    ApprovalGraphEndNodeDb as_end = 2;
+    ApprovalGraphStageNodeDb as_stage = 3;
+    ApprovalGraphStartNodeDb as_start = 4;
+    ApprovalGraphTransitNodeDb as_transit = 5;
+  }
+}
+
+message ApprovalGraphEndNodeDb {}
+
+message ApprovalGraphStartNodeDb {}
+
+message ApprovalGraphTransitNodeDb {}
+
+
+message ApprovalGraphNodeDataDbObsolete {
+  string id = 1;
+  string display_name = 2;
+}
+

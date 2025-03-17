@@ -1,0 +1,15 @@
+using System.Text.Json.Serialization;
+
+using Edm.DocumentGenerator.Gateway.Core.Documents.Commands.Update.Contracts.Bare.StatusTransitionParametersValues.Inheritors.Comments;
+using Edm.DocumentGenerator.Gateway.Core.Documents.Commands.Update.Contracts.Bare.StatusTransitionParametersValues.Inheritors.CommentsWithAttachments;
+using Edm.DocumentGenerator.Gateway.Core.Documents.Commands.Update.Contracts.Bare.StatusTransitionParametersValues.Types;
+using Edm.DocumentGenerator.Gateway.GenericSubdomain.Swagger.Attributes;
+
+namespace Edm.DocumentGenerator.Gateway.Core.Documents.Commands.Update.Contracts.Bare.StatusTransitionParametersValues;
+
+[DiscriminatorType<DocumentStatusTransitionParameterValueBffType>]
+[JsonDerivedType(typeof(DocumentCommentStatusTransitionParameterValueBff), nameof(DocumentStatusTransitionParameterValueBffType.Comment))]
+[JsonDerivedType(typeof(DocumentCommentWithAttachmentsStatusTransitionParameterValueBff), nameof(DocumentStatusTransitionParameterValueBffType.CommentWithAttachments))]
+public abstract class DocumentStatusTransitionParameterValueBff
+{
+}

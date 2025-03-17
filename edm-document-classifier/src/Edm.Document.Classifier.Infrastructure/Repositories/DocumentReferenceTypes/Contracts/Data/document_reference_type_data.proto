@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-infrastructure";
+
+package Edm.Entities.Document.Classifier.Infrastructure;
+
+option csharp_namespace = "Edm.Document.Classifier.Infrastructure";
+
+message DocumentReferenceTypeDataDb {
+  repeated int32 parent_ids = 1;
+  DocumentReferenceSearchKindDb search_kind = 2;
+}
+
+enum DocumentReferenceSearchKindDb {
+  DocumentReferenceSearchKindDb_None = 0;
+  DocumentReferenceSearchKindDb_FixedList = 1;
+  DocumentReferenceSearchKindDb_Search = 2;
+}
