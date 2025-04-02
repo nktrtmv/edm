@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Results/WorkflowCompleted/workflow_completed_entities_approval_workflows_result_approval_workflow_application_event.proto";
+
+message EntitiesApprovalWorkflowsResultApprovalWorkflowApplicationEventDb {
+  oneof result {
+    WorkflowCompletedEntitiesApprovalWorkflowsResultApprovalWorkflowApplicationEventDb as_workflow_completed = 1;
+  }
+}

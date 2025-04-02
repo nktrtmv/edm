@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+enum DocumentTemplateStatusDb {
+  DocumentTemplateStatusDb_None = 0;
+  DocumentTemplateStatusDb_Draft = 1;
+  DocumentTemplateStatusDb_ReadyForApprovalGraphCreation = 2;
+  DocumentTemplateStatusDb_ReadyForDocumentCreation = 3;
+}

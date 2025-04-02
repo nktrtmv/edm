@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Statuses/document_status.proto";
+import "Repositories/Contracts/Data/StatusesTransitions/Types/document_status_transition_type.proto";
+import "Repositories/Contracts/Data/StatusesTransitions/Parameters/document_status_transition_parameter.proto";
+import "Repositories/Contracts/Data/Permissions/document_permission.proto";
+
+
+message DocumentStatusTransitionDb {
+  string id = 1;
+  DocumentStatusTransitionTypeDb type = 2;
+  DocumentStatusDb from = 3;
+  DocumentStatusDb to = 4;
+  repeated DocumentStatusTransitionParameterDb parameters = 8;
+  repeated DocumentPermissionDb permissions = 7;
+  string system_name = 5;
+  string display_name = 6;
+}

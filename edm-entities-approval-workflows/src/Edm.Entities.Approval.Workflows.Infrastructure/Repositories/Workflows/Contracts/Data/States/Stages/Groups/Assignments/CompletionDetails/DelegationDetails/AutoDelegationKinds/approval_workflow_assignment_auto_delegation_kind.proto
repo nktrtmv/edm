@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+enum ApprovalWorkflowAssignmentAutoDelegationKindDb {
+  ApprovalWorkflowAssignmentAutoDelegationKindDb_None = 0;
+  ApprovalWorkflowAssignmentAutoDelegationKindDb_Executor = 1;
+  ApprovalWorkflowAssignmentAutoDelegationKindDb_Approval = 2;
+  ApprovalWorkflowAssignmentAutoDelegationKindDb_Chief = 3;
+}
+

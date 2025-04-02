@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/Inheritors/SendDocumentsToEdx/send_documents_to_edx_signing_application_event.proto";
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/Inheritors/SendSelfSigned/send_self_signed_signing_application_event.proto";
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/Inheritors/SendContractorSigned/send_contractor_signed_signing_application_event.proto";
+import "Repositories/Workflows/Contracts/Data/ApplicationEvents/Inheritors/SendWorkflowCompleted/send_workflow_completed_signing_application_event.proto";
+
+message SigningApplicationEventDb {
+  oneof value {
+    SendDocumentsToEdxSigningApplicationEventDb as_send_documents_to_edx = 2;
+    SendSelfSignedSigningApplicationEventDb as_send_self_signed = 4;
+    SendWorkflowCompletedSigningApplicationEventDb as_send_sign_entity_result = 5;
+    SendContractorSignedSigningApplicationEventDb as_send_contractor_signed = 6;
+  }
+}

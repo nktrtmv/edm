@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+enum DocumentLinkKindDto {
+  DocumentLinkKindDto_None = 0;
+  DocumentLinkKindDto_Parent = 1;
+  DocumentLinkKindDto_Master = 2;
+  DocumentLinkKindDto_External = 3;
+}

@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerators.Domain.Entities.Documents.ValueObjects.ApplicationEvents.Inheritors.EntitiesApprovalWorkflows.Requests;
+
+public abstract record EntitiesApprovalWorkflowsRequestDocumentApplicationEvent : DocumentApplicationEvent;

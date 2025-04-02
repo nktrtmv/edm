@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Kafka/Results/WorkflowComlpeted/workflow_completed_entities_approval_workflows_result.proto";
+
+message EntitiesApprovalWorkflowsResultsKey {
+  string key = 1;
+}
+
+message EntitiesApprovalWorkflowsResultsValue {
+  string domain_id = 2;
+  oneof result {
+    WorkflowCompletedEntitiesApprovalWorkflowsResult workflow_completed = 4;
+  }
+}
+

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+enum ApprovalGraphStatusDto {
+  ApprovalGraphStatusDto_None = 0;
+  ApprovalGraphStatusDto_Draft = 1;
+  ApprovalGraphStatusDto_Active = 2;
+}

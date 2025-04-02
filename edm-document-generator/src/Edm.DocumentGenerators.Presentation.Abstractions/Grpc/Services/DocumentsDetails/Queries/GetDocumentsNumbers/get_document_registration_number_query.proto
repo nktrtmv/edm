@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+
+message GetDocumentRegistrationNumberQuery {
+  string document_id = 1;
+}
+
+message GetDocumentRegistrationNumberQueryResponse {
+  google.protobuf.StringValue registration_number = 1;
+}

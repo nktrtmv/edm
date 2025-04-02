@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/edm-entities-approval-workflows/Kafka/Events/ParticipantsChanged/participants_changed_entities_approval_workflows_event.proto";
+import "vendor/edm-entities-approval-workflows/Kafka/Events/StageChanged/stage_changed_entities_approval_workflows_event.proto";
+
+message EntitiesApprovalWorkflowsEventsKey {
+  string key = 1;
+}
+
+message EntitiesApprovalWorkflowsEventsValue {
+  string domain_id = 3;
+  oneof event {
+    ParticipantsChangedEntitiesApprovalWorkflowsEvent as_participants_changed = 4;
+    StageChangedEntitiesApprovalWorkflowsEvent as_stage_changed = 6;
+  }
+}

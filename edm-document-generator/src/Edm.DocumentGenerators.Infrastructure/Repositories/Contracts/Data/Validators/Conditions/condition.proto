@@ -1,0 +1,59 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Validators/Conditions/condition_data.proto";
+import "Repositories/Contracts/Data/Validators/Conditions/Types/condition_compare_type.proto";
+import "Repositories/Contracts/Data/Validators/Conditions/Types/condition_compare_reference_value_type.proto";
+
+message OneOfConditionDb {
+  oneof value {
+    ConditionSumEqualsDb as_sum_equals = 1;
+    ConditionRegexDb as_regex = 2;
+    ConditionExistsDb as_exist = 3;
+    ConditionEmptyDb as_is_empty = 4;
+    ConditionCompareDb as_compare = 5;
+    ConditionExistsAnyDb as_exists_any = 6;
+    ConditionExistsWithReferencePreconditionDb as_exists_with_reference_precondition = 7;
+    ConditionCompareReferenceValueDb as_compare_reference_value = 8;
+  }
+}
+
+message ConditionSumEqualsDb{
+  ConditionDataDb data = 1;
+}
+
+message ConditionRegexDb{
+  ConditionDataDb data = 1;
+}
+
+message ConditionExistsDb{
+  ConditionDataDb data = 1;
+}
+
+message ConditionExistsAnyDb {
+  ConditionDataDb data = 1;
+}
+
+message ConditionExistsWithReferencePreconditionDb {
+  ConditionDataDb data = 1;
+  string precondition_reference_id = 2;
+}
+
+message ConditionEmptyDb{
+  ConditionDataDb data = 1;
+}
+
+message ConditionCompareDb{
+  ConditionDataDb data = 1;
+  ConditionCompareTypeDb compare_type = 2;
+}
+
+message ConditionCompareReferenceValueDb {
+  ConditionDataDb data = 1;
+  ConditionCompareReferenceValueTypeDb compare_type = 2;
+}

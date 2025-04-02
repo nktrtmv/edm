@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message OneOfConditionTargetDto {
+  oneof value {
+    OneOfConditionTargetConstantValueDto target_constant_value = 1;
+    ConditionTargetDocumentAttributeDto target_document_attribute = 2;
+  }
+}
+
+message OneOfConditionTargetConstantValueDto {
+  oneof value{
+    int64 number = 1;
+    bool boolean = 2;
+    google.protobuf.Timestamp date_time = 3;
+    string string = 4;
+    ReferenceValuesDto reference_values = 5;
+  }
+}
+
+message ConditionTargetDocumentAttributeDto {
+  string id = 1;
+}
+
+message ReferenceValuesDto {
+  repeated string values = 1;
+}

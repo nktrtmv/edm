@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Services/Internals/Rules/Queries/GetAll/Contracts/Rules/get_all_approval_rules_query_response_approval_rule.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message GetAllApprovalRulesQuery {
+  string domain_id = 1;
+  google.protobuf.StringValue search = 2;
+}
+
+message GetAllApprovalRulesQueryResponse {
+  repeated GetAllApprovalRulesQueryResponseApprovalRule rules = 1;
+}

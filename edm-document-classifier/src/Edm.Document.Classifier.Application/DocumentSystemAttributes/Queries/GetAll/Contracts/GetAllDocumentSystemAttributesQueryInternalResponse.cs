@@ -1,0 +1,5 @@
+using Edm.Document.Classifier.Application.DocumentSystemAttributes.Queries.GetAll.Contracts.SystemAttributes;
+
+namespace Edm.Document.Classifier.Application.DocumentSystemAttributes.Queries.GetAll.Contracts;
+
+public sealed record GetAllDocumentSystemAttributesQueryInternalResponse(DocumentSystemAttributeInternal[] Attributes);

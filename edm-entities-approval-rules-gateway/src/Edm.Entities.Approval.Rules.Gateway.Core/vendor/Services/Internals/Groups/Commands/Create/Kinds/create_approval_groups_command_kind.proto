@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+enum CreateApprovalGroupsCommandKindDto {
+  CreateApprovalGroupsCommandKindDto_None = 0;
+  CreateApprovalGroupsCommandKindDto_Domestic = 1;
+}

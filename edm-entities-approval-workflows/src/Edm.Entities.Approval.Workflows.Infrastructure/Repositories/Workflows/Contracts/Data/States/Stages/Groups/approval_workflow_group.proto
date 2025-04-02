@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/Assignments/approval_workflow_assignment.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/approval_workflow_approval_group.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/Statuses/approval_workflow_group_status.proto";
+
+message ApprovalWorkflowGroupDb {
+  string id = 5;
+  string name = 2;
+  repeated ApprovalWorkflowAssignmentDb assignments = 3;
+  ApprovalWorkflowApprovalGroupDb approval_group = 6;
+  ApprovalWorkflowGroupStatusDb status = 7;
+}

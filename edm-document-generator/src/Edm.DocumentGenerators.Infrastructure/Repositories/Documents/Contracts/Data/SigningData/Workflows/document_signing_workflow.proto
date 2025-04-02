@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/SigningData/Workflows/Statuses/document_signing_workflow_status.proto";
+
+message DocumentSigningWorkflowDb {
+  string id = 1;
+  DocumentSigningWorkflowStatusDb status = 2;
+  bool is_self_signed = 3;
+}

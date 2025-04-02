@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+message DocumentCommentWithAttachmentsStatusTransitionParameterValueDto {
+  string comment = 1;
+  repeated string attachments_ids = 2;
+}

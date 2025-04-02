@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+message DocumentNotificationParameterDb {
+  string template_parameter_id = 1;
+  string value_attribute_id = 2;
+}
+

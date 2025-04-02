@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+enum DocumentPartyTypeDb {
+  DocumentPartyTypeDb_None = 0;
+  DocumentPartyTypeDb_Self = 1;
+  DocumentPartyTypeDb_Contractor = 2;
+}

@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/edm-document-generator/Contracts/Attributes/Permissions/document_attribute_permission.proto";
+import "vendor/edm-document-generator/Contracts/Attributes/DocumentsLinks/Kinds/document_link_kind.proto";
+
+message DocumentAttributeDataDto {
+  string id = 1;
+  bool is_array = 2;
+  string front_metadata = 3;
+  bool is_approval_participant = 4;
+  repeated DocumentAttributePermissionDto permissions = 5;
+  repeated int32 documents_roles = 6;
+  repeated int32 registry_roles = 9;
+  optional DocumentLinkKindDto link_kind = 10;
+  string system_name = 7;
+  string display_name = 8;
+}

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "google/protobuf/timestamp.proto";
+
+message OneOfConditionTargetDb {
+  oneof value {
+    OneOfConditionTargetConstantValueDb target_constant_value = 1;
+    ConditionTargetDocumentAttributeDb target_document_attribute = 2;
+  }
+}
+
+message OneOfConditionTargetConstantValueDb {
+  oneof value{
+    int32 int = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+    int64 number = 5;
+    bool boolean = 2;
+    google.protobuf.Timestamp date_time = 3;
+    string string = 4;
+    ReferenceValuesDb reference_values = 6;
+  }
+}
+
+message ConditionTargetDocumentAttributeDb {
+  string id = 1;
+}
+
+message ReferenceValuesDb {
+  repeated string values = 1;
+}

@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/Contracts/Statuses/document_status.proto";
+
+message GetDocumentsAllowedStatusesQuery {
+  repeated string documents_ids = 1;
+}
+
+message GetDocumentsAllowedStatusesQueryResponse {
+  repeated DocumentStatusDto statuses = 1;
+}

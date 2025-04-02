@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/edm-entities-approval-rules/Interfaces/References/Queries/GetTypes/Types/approval_reference_type.proto";
+
+message GetTypesApprovalReferencesQuery {
+}
+
+message GetTypesApprovalReferencesQueryResponse {
+  repeated ApprovalReferenceTypeDto types = 1;
+}

@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options"/>
+    <PackageReference Include="Google.Protobuf"/>
+    <PackageReference Include="Google.Api.CommonProtos"/>
+    <PackageReference Include="Grpc.AspNetCore"/>
+    <PackageReference Include="Grpc.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="**/*.proto"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)(Bff|External))?Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+    <Compile Update="**\*EnricherTarget.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)Bff)?EnricherTarget$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Gateway.ExternalServices.ApprovalRules\Edm.Entities.Approval.Rules.Gateway.ExternalServices.ApprovalRules.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Gateway.ExternalServices.DocumentClassifier\Edm.Entities.Approval.Rules.Gateway.ExternalServices.DocumentClassifier.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Gateway.GenericSubdomain\Edm.Entities.Approval.Rules.Gateway.GenericSubdomain.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Gateway.ExternalServices\Edm.Entities.Approval.Rules.Gateway.ExternalServices.csproj"/>
+  </ItemGroup>
+
+</Project>

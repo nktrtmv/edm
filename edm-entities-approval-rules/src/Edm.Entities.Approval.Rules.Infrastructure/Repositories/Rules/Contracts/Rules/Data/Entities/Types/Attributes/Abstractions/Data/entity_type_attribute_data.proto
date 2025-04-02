@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+message EntityTypeAttributeDataDb {
+  int32 id = 1;
+  string display_name = 2;
+}

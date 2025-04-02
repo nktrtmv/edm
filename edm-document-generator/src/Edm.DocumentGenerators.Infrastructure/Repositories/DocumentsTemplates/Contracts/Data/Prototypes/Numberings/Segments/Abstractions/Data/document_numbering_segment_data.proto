@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+ 
+message DocumentNumberingSegmentDataDb {
+  string id = 1;
+  string format = 2;
+}

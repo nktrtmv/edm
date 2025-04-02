@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesSigningWorkflows/Requests/CreateWorkflow/Parameters/Electronics/create_workflow_entities_signing_workflows_request_electronic_parameters.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message CreateWorkflowEntitiesSigningWorkflowsRequestParametersDb {
+  optional google.protobuf.StringValue document_clerk_id = 1;
+  optional CreateWorkflowEntitiesSigningWorkflowsRequestElectronicParametersDb electronic = 2;
+}

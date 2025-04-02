@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "google/protobuf/timestamp.proto";
+
+message ApprovalWorkflowForeignApprovalGroupArgumentDb {
+  string id = 1;
+  oneof value {
+    BooleanApprovalWorkflowForeignApprovalGroupArgumentDb as_boolean = 2;
+    DateApprovalWorkflowForeignApprovalGroupArgumentDb as_date = 3;
+    NumberApprovalWorkflowForeignApprovalGroupArgumentDb as_number = 4;
+    ReferenceApprovalWorkflowForeignApprovalGroupArgumentDb as_reference = 5;
+    StringApprovalWorkflowForeignApprovalGroupArgumentDb as_string = 6;
+  }
+}
+
+message BooleanApprovalWorkflowForeignApprovalGroupArgumentDb {
+  repeated bool value = 1;
+}
+
+message DateApprovalWorkflowForeignApprovalGroupArgumentDb {
+  repeated google.protobuf.Timestamp value = 1;
+}
+
+message NumberApprovalWorkflowForeignApprovalGroupArgumentDb {
+  repeated int64 value = 1;
+}
+
+message ReferenceApprovalWorkflowForeignApprovalGroupArgumentDb {
+  repeated string value = 1;
+}
+
+message StringApprovalWorkflowForeignApprovalGroupArgumentDb {
+  repeated string value = 1;
+}
+

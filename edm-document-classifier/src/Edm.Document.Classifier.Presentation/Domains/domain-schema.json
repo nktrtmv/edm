@@ -1,0 +1,441 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "Id": {
+      "type": "string",
+      "description": "Unique id of domain",
+      "pattern": "[({]?[a-fA-F0-9]{8}[-]?([a-fA-F0-9]{4}[-]?){3}[a-fA-F0-9]{12}[})]?"
+    },
+    "ShowInProduction": {
+      "type": "boolean",
+      "description": "Should be domain displayed in production"
+    },
+    "InstructionLink": {
+      "type": "string",
+      "pattern": "[A-Za-z0-9-?:/]+"
+    },
+    "DocumentsSettings": {
+      "additionalProperties": false,
+      "properties": {
+        "DisableManualCreation": {
+          "type": "boolean",
+          "description": "Disable creation from template registry and button create in document registry"
+        },
+        "RegistryTitle": {
+          "type": "string"
+        },
+        "DetailsTitle": {
+          "type": "string"
+        },
+        "CreationTitle": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "RegistryTitle",
+        "DetailsTitle",
+        "CreationTitle"
+      ]
+    },
+    "CommentsSettings": {
+      "properties": {
+        "EntityType": {
+          "type": "string"
+        }
+      }
+    },
+    "DocumentCreationType": {
+      "type": "string",
+      "description": "Document creation type",
+      "enum": [
+        "ByClassification",
+        "ByTemplateName"
+      ]
+    },
+    "Name": {
+      "type": "string",
+      "description": "Display value for domain",
+      "pattern": "^[A-Za-zА-Яа-яёЁ() ]+$"
+    },
+    "UrlAlias": {
+      "type": "string",
+      "description": "Domain alias for url",
+      "pattern": "^[-A-Za-z]+$"
+    },
+    "RegistryRoles": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "description": "Unique id (per domain) of role. Can't change",
+            "minimum": 1
+          },
+          "Name": {
+            "type": "string",
+            "description": "Name of role in english",
+            "pattern": "^[A-Za-z]+$"
+          },
+          "Display": {
+            "type": "string",
+            "description": "Display value for user"
+          },
+          "Kind": {
+            "anyOf": [
+              {
+                "const": "Attribute",
+                "title": "Can be added for attribute in document template"
+              },
+              {
+                "const": "ComputedProperty",
+                "title": "Can be added for attribute only by programming"
+              },
+              {
+                "const": "Watchers",
+                "title": "List of users for future notifications, added only by programming"
+              }
+            ]
+          },
+          "SystemName": {
+            "type": "string",
+            "description": "Name for processes in code. Can't change",
+            "pattern": "^[A-Za-z]+$"
+          },
+          "RegistrySettings": {
+            "type": "object",
+            "properties": {
+              "ShowInRegistry": {
+                "type": "boolean",
+                "description": "Should value be displayed in main documents list"
+              },
+              "ShowByDefault": {
+                "type": "boolean",
+                "default": false,
+                "description": "New user will see this role in registry"
+              }
+            },
+            "required": [
+              "ShowInRegistry"
+            ]
+          },
+          "FilterSettings": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "AllowForSearch": {
+                "type": "boolean",
+                "description": "Should value be included in search line"
+              },
+              "ShowInFilters": {
+                "type": "boolean",
+                "description": "Should value be displayed in side filters menu"
+              },
+              "AllowMultipleValues": {
+                "type": "boolean",
+                "default": false,
+                "description": "Can user search for many values in side menu. Always true for references"
+              },
+              "SearchKind": {
+                "enum": [
+                  "Match",
+                  "Contains",
+                  "Range"
+                ]
+              },
+              "Order": {
+                "type": "number"
+              }
+            },
+            "if": {
+              "properties": {
+                "ShowInFilters": {
+                  "const": true
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "SearchKind"
+              ]
+            }
+          },
+          "TypeSettings": {
+            "$ref": "#/$defs/RegistryRoleAndSystemRoleTypeSettings"
+          },
+          "AdditionMarkAttributeWithRoleConditions": {
+            "$ref": "#/$defs/MarkAttributeWithRoleCondition"
+          }
+        },
+        "required": [
+          "Id",
+          "Name",
+          "Display",
+          "Kind",
+          "TypeSettings"
+        ]
+      }
+    },
+    "SystemAttributes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "TypeSettings": {
+            "$ref": "#/$defs/RegistryRoleAndSystemRoleTypeSettings"
+          },
+          "Id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "IsArray": {
+            "type": "boolean"
+          },
+          "SystemName": {
+            "type": "string",
+            "pattern": "^[a-zA-Z_]+$"
+          },
+          "Display": {
+            "type": "string"
+          },
+          "RegistryRolesIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          },
+          "DocumentRolesIds": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "required": [
+          "TypeSettings",
+          "Id",
+          "Display",
+          "SystemName",
+          "IsArray"
+        ]
+      }
+    },
+    "DocumentRoles": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "Id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "Name": {
+            "type": "string",
+            "pattern": "^[A-Za-z]+$"
+          },
+          "Display": {
+            "type": "string"
+          },
+          "MarkAttributeWithRoleConditions": {
+            "$ref": "#/$defs/MarkAttributeWithRoleCondition"
+          }
+        }
+      }
+    },
+    "DocumentActions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "UpdateDocumentsStatuses",
+          "UpdateDocumentsClerks",
+          "ExportDocumentToExcel",
+          "ExportDocumentsSlas",
+          "ExportPassesForms",
+          "ExportPassesExcel"
+        ]
+      }
+    }
+  },
+  "required": [
+    "Id",
+    "ShowInProduction",
+    "Name",
+    "RegistryRoles",
+    "DocumentCreationType",
+    "SystemAttributes",
+    "DocumentRoles",
+    "DocumentsSettings",
+    "UrlAlias"
+  ],
+  "$defs": {
+    "RegistryRoleAndSystemRoleTypeSettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "$type": {
+              "const": "Date"
+            },
+            "DisplayType": {
+              "type": "string",
+              "enum": [
+                "Date",
+                "DateTime",
+                "DueDate"
+              ]
+            }
+          },
+          "required": [
+            "DisplayType",
+            "$type"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$type": {
+              "const": "Number"
+            },
+            "Precision": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "Precision",
+            "$type"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$type": {
+              "const": "Boolean"
+            }
+          },
+          "required": [
+            "$type"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$type": {
+              "const": "Reference"
+            },
+            "ReferenceId": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "DisplayType": {
+              "type": "string",
+              "enum": [
+                "Common",
+                "Person"
+              ]
+            }
+          },
+          "required": [
+            "ReferenceId",
+            "DisplayType",
+            "$type"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "$type": {
+              "const": "String"
+            }
+          },
+          "required": [
+            "$type"
+          ]
+        }
+      ]
+    },
+    "MarkAttributeWithRoleCondition": {
+      "type": "array",
+      "items": {
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "properties": {
+              "$type": {
+                "const": "Reference"
+              },
+              "ReferenceId": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "required": [
+              "$type"
+            ]
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "Date"
+              }
+            },
+            "required": [
+              "$type"
+            ]
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "Boolean"
+              }
+            },
+            "required": [
+              "$type"
+            ]
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "String"
+              }
+            },
+            "required": [
+              "$type"
+            ]
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "Number"
+              }
+            },
+            "required": [
+              "$type"
+            ]
+          },
+          {
+            "properties": {
+              "$type": {
+                "const": "Attachment"
+              }
+            },
+            "required": [
+              "$type"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Details/Queries/GetWorkflows/Stages/Groups/Assignments/CompletionDetails/entities_approval_workflow_assignment_completion_details.proto";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+message EntitiesApprovalWorkflowAssignmentDto {
+  string id = 1;
+  string executor_id = 2;
+  EntitiesApprovalWorkflowAssignmentStatusDto status = 3;
+  google.protobuf.Timestamp created_date = 4;
+  optional EntitiesApprovalWorkflowAssignmentCompletionDetailsDto completion_details = 5;
+  optional google.protobuf.StringValue author_id = 6;
+  bool is_fixed = 7;
+}
+
+enum EntitiesApprovalWorkflowAssignmentStatusDto {
+  EntitiesApprovalWorkflowAssignmentStatusDto_None = 0;
+  EntitiesApprovalWorkflowAssignmentStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowAssignmentStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowAssignmentStatusDto_Completed = 3;
+}

@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Conditions/entity_condition.proto";
+
+message DomesticApprovalGroupParticipantDb {
+  DomesticApprovalGroupParticipantSourceDb main_participant_source = 5;
+  repeated DomesticApprovalGroupParticipantSourceDb substitute_participants_sources = 6;
+  EntityConditionDb condition = 3;
+  bool is_substitution_disabled = 4;
+
+
+  string main_user_id = 1 [deprecated=true];
+  repeated string substitute_users_ids = 2 [deprecated=true];
+}
+
+message DomesticApprovalGroupParticipantSourceDb {
+  oneof value {
+    UserDomesticApprovalGroupParticipantSourceDb as_user = 1;
+    AttributeDomesticApprovalGroupParticipantSourceDb as_attribute = 2;
+  }
+}
+
+message UserDomesticApprovalGroupParticipantSourceDb {
+  string user_id = 1;
+}
+
+message AttributeDomesticApprovalGroupParticipantSourceDb {
+  int32 attribute_id = 1;
+}
+

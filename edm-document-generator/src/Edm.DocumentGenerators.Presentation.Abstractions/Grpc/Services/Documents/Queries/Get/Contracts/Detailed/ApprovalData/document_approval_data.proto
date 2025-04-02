@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/ApprovalData/Workflows/document_approval_workflow.proto";
+
+message DocumentApprovalDataDto {
+  google.protobuf.Timestamp attributes_version = 1;
+  repeated DocumentApprovalWorkflowDto workflows = 2;
+}

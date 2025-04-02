@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Entities/Types/Attributes/Abstractions/Data/entity_type_attribute_data.proto";
+
+message EntityTypeAttributeDb {
+  EntityTypeAttributeDataDb data = 1;
+  oneof value {
+    EntityTypeBooleanAttributeDb as_boolean = 2;
+    EntityTypeDateAttributeDb as_date = 3;
+    // TODO: OBSOLETE START - MAKE SURE ALL MIGRATIONS ARE DONE - Int value as long.
+    EntityTypeIntAttributeDb as_int = 4;
+    // TODO: REMOVE: END
+    EntityTypeNumberAttributeDb as_number = 7;
+    EntityTypeReferenceAttributeDb as_reference = 5;
+    EntityTypeStringAttributeDb as_string = 6;
+  }
+}
+
+message EntityTypeBooleanAttributeDb {}
+
+message EntityTypeDateAttributeDb {}
+
+message EntityTypeNumberAttributeDb {
+  int32 precision = 1;
+}
+
+// TODO: OBSOLETE START - MAKE SURE ALL MIGRATIONS ARE DONE - Int value as long.
+message EntityTypeIntAttributeDb {}
+// TODO: REMOVE: END
+
+message EntityTypeReferenceAttributeDb {
+  string reference_type_id = 1;
+}
+
+message EntityTypeStringAttributeDb {}
+

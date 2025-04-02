@@ -1,0 +1,16 @@
+#!/bin/bash
+
+COMMIT_MESSAGE=$(<$1)
+COMMIT_MESSAGE_REGEX="\[[a-zA-Z0-9]+-[0-9]+\]"
+
+if [[ $COMMIT_MESSAGE =~ $COMMIT_MESSAGE_REGEX ]]; then
+    exit 0
+fi
+
+BRANCH_NAME=$(git symbolic-ref --short HEAD)
+BRANCH_NAME_REGEX="^((feature)\/)?([a-zA-Z0-9]+-([0-9]+))([_\-\/].+)?$"
+
+if [[ $BRANCH_NAME =~ $BRANCH_NAME_REGEX ]]; then
+    ISSUE="${BASH_REMATCH[3]}"
+    echo "[${ISSUE^^}] $COMMIT_MESSAGE" >$1
+fi

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+message ApprovalWorkflowApprovalParticipantDb {
+  string main_employee_id = 1;
+  repeated string substitute_employees_ids = 2;
+  bool isSubstitutionDisabled = 3;
+}
+

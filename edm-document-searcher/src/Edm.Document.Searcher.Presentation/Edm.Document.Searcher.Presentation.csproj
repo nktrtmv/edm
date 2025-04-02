@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore"/>
+    <PackageReference Include="KafkaFlow"/>
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger"/>
+    <PackageReference Include="Microsoft.Extensions.Options"/>
+    <PackageReference Include="Google.Protobuf"/>
+    <PackageReference Include="Google.Api.CommonProtos"/>
+    <PackageReference Include="Grpc.Tools">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="**/*.proto"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Document.Searcher.Application\Edm.Document.Searcher.Application.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Searcher.ExternalServices.DocumentClassifier\Edm.Document.Searcher.ExternalServices.DocumentClassifier.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Searcher.ExternalServices.DocumentGenerators\Edm.Document.Searcher.ExternalServices.DocumentGenerators.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Searcher.Infrastructure\Edm.Document.Searcher.Infrastructure.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Searcher.Presentation.Abstractions\Edm.Document.Searcher.Presentation.Abstractions.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Searcher.ExternalServices.Entities.Approval.Workflows\Edm.Document.Searcher.ExternalServices.Entities.Approval.Workflows.csproj" />
+    <ProjectReference Include="..\Edm.Document.Searcher.ExternalServices.Entities.Signing.Workflows\Edm.Document.Searcher.ExternalServices.Entities.Signing.Workflows.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        'Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="appsettings.*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </None>
+    <None Include="appsettings.Local.*.json">
+      <DependentUpon>appsettings.Local.json</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="vendor\edm-entities-approval-workflows\Kafka\" />
+    <Folder Include="vendor\edm-entities-signing-workflows\" />
+  </ItemGroup>
+</Project>

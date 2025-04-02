@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+import "Grpc/Services/SearchDocuments/Contracts/Filters/Values/search_documents_query_filter_value.proto";
+
+message SearchDocumentsQueryFilter {
+  repeated int32 registry_roles_ids = 1;
+  oneof value {
+    SearchDocumentsQueryContainsFilter contains = 2;
+    SearchDocumentsQueryMatchFilter match = 3;
+    SearchDocumentsQueryRangeFilter range = 4;
+  }
+}
+
+message SearchDocumentsQueryContainsFilter {
+  repeated SearchDocumentsQueryFilterValue values = 2;
+}
+
+message SearchDocumentsQueryMatchFilter {
+  repeated SearchDocumentsQueryFilterValue values = 1;
+}
+
+message SearchDocumentsQueryRangeFilter {
+  SearchDocumentsQueryFilterValue start_value = 1;
+  SearchDocumentsQueryFilterValue end_value = 2;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Rules/Queries/Search/Contracts/Filters/search_approval_rules_query_filter.proto";
+import "vendor/Services/Internals/Rules/Queries/Search/Contracts/Rules/search_approval_rules_query_response_approval_rule.proto";
+
+message SearchApprovalRulesQuery {
+  string domain_id = 1;
+  bool is_active_required = 2;
+  repeated SearchApprovalRulesQueryFilter filters = 3;
+}
+
+message SearchApprovalRulesQueryResponse {
+  repeated SearchApprovalRulesQueryResponseApprovalRule rules = 1;
+}

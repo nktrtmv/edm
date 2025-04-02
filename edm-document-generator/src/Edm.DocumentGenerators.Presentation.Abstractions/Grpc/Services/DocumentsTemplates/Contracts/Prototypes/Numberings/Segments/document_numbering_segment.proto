@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentsTemplates/Contracts/Prototypes/Numberings/Segments/Abstractions/Data/document_numbering_segment_data.proto";
+
+message DocumentNumberingSegmentDto {
+  DocumentNumberingSegmentDataDto data = 1;
+  oneof value {
+    DocumentConstantNumberingSegmentDto as_constant = 2;
+    DocumentCounterNumberingSegmentDto as_counter = 3;
+    DocumentDateNumberingSegmentDto as_date = 4;
+  }
+}
+
+message DocumentConstantNumberingSegmentDto {
+  string value = 1;
+}
+
+message DocumentCounterNumberingSegmentDto {
+  string counter_id = 1;
+}
+
+message DocumentDateNumberingSegmentDto {
+}

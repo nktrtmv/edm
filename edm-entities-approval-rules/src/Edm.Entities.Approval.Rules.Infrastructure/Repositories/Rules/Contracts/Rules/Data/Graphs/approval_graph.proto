@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/ChiefApprovals/chief_approval_stage.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/Edges/approval_graph_edge.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/Nodes/approval_graph_node.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/Statuses/approval_graph_status.proto";
+
+message ApprovalGraphDb {
+  string id = 1;
+  ApprovalGraphStatusDb status = 2;
+  repeated ApprovalGraphEdgeDb edges = 3;
+  repeated ApprovalGraphNodeDb nodes = 4;
+  ChiefApprovalStageDb chief_approval = 7;
+  string front_metadata = 5;
+  string display_name = 6;
+  string tag = 8;
+}

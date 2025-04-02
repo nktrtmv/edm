@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="KafkaFlow"/>
+    <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection"/>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Application\Edm.Entities.Signing.Workflows.Application.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx\Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Infrastructure.Abstractions\Edm.Entities.Signing.Workflows.Infrastructure.Abstractions.csproj"/>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Presentation.Abstractions\Edm.Entities.Signing.Workflows.Presentation.Abstractions.csproj"/>
+  </ItemGroup>
+
+</Project>

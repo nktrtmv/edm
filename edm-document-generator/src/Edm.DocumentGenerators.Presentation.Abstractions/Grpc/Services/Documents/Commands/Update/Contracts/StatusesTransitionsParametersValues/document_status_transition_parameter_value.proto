@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Documents/Commands/Update/Contracts/StatusesTransitionsParametersValues/Comments/document_comment_status_transition_parameter_value.proto";
+import "Grpc/Services/Documents/Commands/Update/Contracts/StatusesTransitionsParametersValues/CommentsWithAttachments/document_comment_with_attachments_status_transition_parameter_value.proto";
+
+message DocumentStatusTransitionParameterValueDto {
+  oneof value {
+    DocumentCommentStatusTransitionParameterValueDto comment = 2;
+    DocumentCommentWithAttachmentsStatusTransitionParameterValueDto comment_with_attachments = 3;
+  }
+}
+

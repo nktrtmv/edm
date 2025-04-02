@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+import "google/protobuf/timestamp.proto";
+
+message SigningElectronicSummaryDb {
+  string entity_name = 1;
+  string entity_number = 2;
+  google.protobuf.Timestamp entity_date = 3;
+}

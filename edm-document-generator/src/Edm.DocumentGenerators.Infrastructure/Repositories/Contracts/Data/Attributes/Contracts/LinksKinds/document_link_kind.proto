@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+enum DocumentLinkKindDb {
+  DocumentLinkKindDb_None = 0;
+  DocumentLinkKindDb_Parent = 1;
+  DocumentLinkKindDb_Master = 2;
+  DocumentLinkKindDb_External = 3;
+}

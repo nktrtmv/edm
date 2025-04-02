@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Kafka/Requests/CreateWorkflow/Contracts/FindRouteApprovalRulesQueryResponse/Routes/Stages/Groups/Inheritors/Domestic/Participants/approval_route_participant.proto";
+
+message DomesticApprovalRouteGroupDto {
+  repeated ApprovalRouteParticipantDto participants = 1;
+}
+

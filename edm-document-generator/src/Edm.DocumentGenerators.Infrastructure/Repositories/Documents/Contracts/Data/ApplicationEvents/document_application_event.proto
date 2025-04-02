@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/DocumentGenerator/Events/document_generator_event_document_application_event.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/DocumentNotifier/Requests/document_notifier_request_document_application_event.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesApprovalWorkflows/Requests/entities_approval_workflows_request_document_application_event.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesSigningWorkflows/Requests/entities_signing_workflows_request_document_application_event.proto";
+
+message DocumentApplicationEventDb {
+  oneof event {
+    DocumentGeneratorEventDocumentApplicationEventDb as_document_generator_event = 1;
+    DocumentNotifierRequestDocumentApplicationEventDb as_document_notifier_request = 2;
+    EntitiesApprovalWorkflowsRequestDocumentApplicationEventDb as_entities_approval_workflows_request = 3;
+    EntitiesSigningWorkflowsRequestDocumentApplicationEventDb as_entities_signing_workflows_request = 4;
+  }
+}

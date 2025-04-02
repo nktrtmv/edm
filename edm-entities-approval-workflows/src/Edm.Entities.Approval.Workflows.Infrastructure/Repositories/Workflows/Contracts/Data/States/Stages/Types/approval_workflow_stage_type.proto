@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+enum ApprovalWorkflowStageTypeDb {
+  ApprovalWorkflowStageTypeDb_None = 0;
+  ApprovalWorkflowStageTypeDb_ParallelAny = 1;
+  ApprovalWorkflowStageTypeDb_ParallelAll = 2;
+  ApprovalWorkflowStageTypeDb_Sequential = 3;
+}

@@ -1,0 +1,58 @@
+syntax = "proto3";
+
+option go_package = "entities-counters-presentation-abstractions";
+
+package Edm.Entities.Counters.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Counters.Presentation.Abstractions";
+
+import "vendor/Counters/Contracts/entity_counter.proto";
+
+import "google/protobuf/wrappers.proto";
+
+service EntitiesCountersService {
+  rpc GetAll(GetAllEntitiesCountersQuery) returns (GetAllEntitiesCountersQueryResponse);
+  rpc Get(GetEntityCounterQuery) returns (GetEntityCounterQueryResponse);
+  rpc Create(CreateEntityCounterQuery) returns (CreateEntityCounterQueryResponse);
+  rpc Update(UpdateEntityCounterQuery) returns (UpdateEntityCounterQueryResponse);
+}
+
+message GetAllEntitiesCountersQuery {
+  string domain_id = 1;
+}
+
+message GetAllEntitiesCountersQueryResponse {
+  repeated EntityCounterDto entities_counters = 1;
+}
+
+message GetEntityCounterQuery {
+  string domain_id = 1;
+  string id = 2;
+}
+
+message GetEntityCounterQueryResponse {
+  EntityCounterDto counter = 1;
+}
+
+message CreateEntityCounterQuery {
+  string domain_id = 1;
+  google.protobuf.StringValue entity_type_id = 2;
+  string name = 3;
+  int32 value = 4;
+}
+
+message CreateEntityCounterQueryResponse {
+  string id = 1;
+}
+
+message UpdateEntityCounterQuery {
+  string id = 1;
+  string domain_id = 2;
+  google.protobuf.StringValue entity_type_id = 3;
+  string name = 4;
+  int32 value = 5;
+}
+
+message UpdateEntityCounterQueryResponse {
+  string id = 1;
+}

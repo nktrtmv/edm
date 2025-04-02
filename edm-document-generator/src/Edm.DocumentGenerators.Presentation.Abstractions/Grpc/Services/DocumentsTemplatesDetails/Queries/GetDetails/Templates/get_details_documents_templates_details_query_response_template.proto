@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentsTemplates/Contracts/Statuses/document_template_status.proto";
+
+message GetDetailsDocumentsTemplatesDetailsQueryResponseTemplate {
+  string id = 1;
+  string name = 2;
+  string last_updated_by_user_id = 3;
+  DocumentTemplateStatusDto status = 4;
+}

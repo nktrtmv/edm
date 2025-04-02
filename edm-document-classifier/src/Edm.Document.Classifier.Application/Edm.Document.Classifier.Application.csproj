@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="MediatR"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Document.Classifier.Domain\Edm.Document.Classifier.Domain.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.ExternalServices\Edm.Document.Classifier.ExternalServices.csproj"/>
+    <ProjectReference Include="..\Edm.Document.Classifier.Infrastructure.Abstractions\Edm.Document.Classifier.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)',
+        '((From|To)Domain)?Converter$',
+        '.cs'))
+      </DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

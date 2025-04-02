@@ -1,0 +1,96 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{7C003DE4-1CC7-4323-BDED-D2B7AF1EB258}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
+		Directory.Packages.props = Directory.Packages.props
+		Dockerfile = Dockerfile
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C40169B5-AF4D-460E-8274-CF3628C26F48}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Application", "src\Edm.Entities.Signing.Workflows.Application\Edm.Entities.Signing.Workflows.Application.csproj", "{0B333959-410E-4148-9A29-AB89A32DBF1F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Domain", "src\Edm.Entities.Signing.Workflows.Domain\Edm.Entities.Signing.Workflows.Domain.csproj", "{8AC47B8B-55F3-4D08-B318-465DA38A6B15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Infrastructure", "src\Edm.Entities.Signing.Workflows.Infrastructure\Edm.Entities.Signing.Workflows.Infrastructure.csproj", "{04D4A7A2-720A-48CB-82A9-FA5163AE4A99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Infrastructure.Abstractions", "src\Edm.Entities.Signing.Workflows.Infrastructure.Abstractions\Edm.Entities.Signing.Workflows.Infrastructure.Abstractions.csproj", "{0F3C0482-8811-4CE3-A4D5-E0ED49923B20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Presentation.Abstractions", "src\Edm.Entities.Signing.Workflows.Presentation.Abstractions\Edm.Entities.Signing.Workflows.Presentation.Abstractions.csproj", "{568D235A-6A07-4047-85B3-16951B4455E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.GenericSubdomain", "src\Edm.Entities.Signing.Workflows.GenericSubdomain\Edm.Entities.Signing.Workflows.GenericSubdomain.csproj", "{CFA5BC52-637F-4182-844D-8C858B7EC67F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Presentation", "src\Edm.Entities.Signing.Workflows.Presentation\Edm.Entities.Signing.Workflows.Presentation.csproj", "{CC6B3871-4B18-4447-81B0-6277F187AFC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.Presentation.Publisher", "src\Edm.Entities.Signing.Workflows.Presentation.Publisher\Edm.Entities.Signing.Workflows.Presentation.Publisher.csproj", "{241D7357-421B-403C-9EDE-E7FA0DCB6D79}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExternalServices", "ExternalServices", "{57545BB7-FBAF-43EC-A106-D30C27F060E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx", "src\Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx\Edm.Entities.Signing.Workflows.ExternalServices.EntitiesSigningEdx.csproj", "{8D8C21B6-276A-4286-B11A-A6B02C19C0FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Signing.Workflows.ExternalServices", "src\Edm.Entities.Signing.Workflows.ExternalServices\Edm.Entities.Signing.Workflows.ExternalServices.csproj", "{63C5AB18-595D-4895-8B9D-D883EF809A2B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0B333959-410E-4148-9A29-AB89A32DBF1F} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{8AC47B8B-55F3-4D08-B318-465DA38A6B15} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{04D4A7A2-720A-48CB-82A9-FA5163AE4A99} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{0F3C0482-8811-4CE3-A4D5-E0ED49923B20} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{568D235A-6A07-4047-85B3-16951B4455E9} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{CFA5BC52-637F-4182-844D-8C858B7EC67F} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{CC6B3871-4B18-4447-81B0-6277F187AFC1} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{241D7357-421B-403C-9EDE-E7FA0DCB6D79} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{57545BB7-FBAF-43EC-A106-D30C27F060E7} = {C40169B5-AF4D-460E-8274-CF3628C26F48}
+		{8D8C21B6-276A-4286-B11A-A6B02C19C0FA} = {57545BB7-FBAF-43EC-A106-D30C27F060E7}
+		{63C5AB18-595D-4895-8B9D-D883EF809A2B} = {57545BB7-FBAF-43EC-A106-D30C27F060E7}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B333959-410E-4148-9A29-AB89A32DBF1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B333959-410E-4148-9A29-AB89A32DBF1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B333959-410E-4148-9A29-AB89A32DBF1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B333959-410E-4148-9A29-AB89A32DBF1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AC47B8B-55F3-4D08-B318-465DA38A6B15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AC47B8B-55F3-4D08-B318-465DA38A6B15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AC47B8B-55F3-4D08-B318-465DA38A6B15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AC47B8B-55F3-4D08-B318-465DA38A6B15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D4A7A2-720A-48CB-82A9-FA5163AE4A99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D4A7A2-720A-48CB-82A9-FA5163AE4A99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D4A7A2-720A-48CB-82A9-FA5163AE4A99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D4A7A2-720A-48CB-82A9-FA5163AE4A99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F3C0482-8811-4CE3-A4D5-E0ED49923B20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F3C0482-8811-4CE3-A4D5-E0ED49923B20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F3C0482-8811-4CE3-A4D5-E0ED49923B20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F3C0482-8811-4CE3-A4D5-E0ED49923B20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{568D235A-6A07-4047-85B3-16951B4455E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{568D235A-6A07-4047-85B3-16951B4455E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{568D235A-6A07-4047-85B3-16951B4455E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{568D235A-6A07-4047-85B3-16951B4455E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFA5BC52-637F-4182-844D-8C858B7EC67F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFA5BC52-637F-4182-844D-8C858B7EC67F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFA5BC52-637F-4182-844D-8C858B7EC67F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFA5BC52-637F-4182-844D-8C858B7EC67F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6B3871-4B18-4447-81B0-6277F187AFC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6B3871-4B18-4447-81B0-6277F187AFC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6B3871-4B18-4447-81B0-6277F187AFC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6B3871-4B18-4447-81B0-6277F187AFC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{241D7357-421B-403C-9EDE-E7FA0DCB6D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{241D7357-421B-403C-9EDE-E7FA0DCB6D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{241D7357-421B-403C-9EDE-E7FA0DCB6D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{241D7357-421B-403C-9EDE-E7FA0DCB6D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D8C21B6-276A-4286-B11A-A6B02C19C0FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D8C21B6-276A-4286-B11A-A6B02C19C0FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D8C21B6-276A-4286-B11A-A6B02C19C0FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D8C21B6-276A-4286-B11A-A6B02C19C0FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63C5AB18-595D-4895-8B9D-D883EF809A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63C5AB18-595D-4895-8B9D-D883EF809A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63C5AB18-595D-4895-8B9D-D883EF809A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63C5AB18-595D-4895-8B9D-D883EF809A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

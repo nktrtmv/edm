@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "Grpc/Services/Externals/Rules/Queries/FindRoute/Routes/Stages/Groups/Inheritors/Domestic/Participants/approval_route_participant.proto";
+
+message DomesticApprovalRouteGroupDto {
+  repeated ApprovalRouteParticipantDto participants = 1;
+}
+

@@ -1,0 +1,5 @@
+namespace Edm.DocumentGenerator.Gateway.Core.DocumentsWorkflows.Signing.Actions.Commands.WithdrawByContractor.Contracts;
+
+public sealed class WithdrawByContractorDocumentWorkflowSigningActionCommandBffResponse
+{
+}

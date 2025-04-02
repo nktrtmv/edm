@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.DocumentGenerators.Domain\Edm.DocumentGenerators.Domain.csproj"/>
+  </ItemGroup>
+
+</Project>

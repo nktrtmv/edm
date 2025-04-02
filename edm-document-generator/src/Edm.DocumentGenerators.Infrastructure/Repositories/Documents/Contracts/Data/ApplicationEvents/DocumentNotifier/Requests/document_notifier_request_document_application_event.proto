@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/DocumentNotifier/Requests/SendNotification/send_notification_document_notifier_request.proto";
+
+message DocumentNotifierRequestDocumentApplicationEventDb {
+  oneof request {
+    SendNotificationDocumentNotifierRequestDb as_send_notification = 1;
+  }
+}

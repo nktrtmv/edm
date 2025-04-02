@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+message DocumentAttributeValueChangedNotificationMatchDto {
+  string attribute_id = 1;
+}
+
+message DocumentStatusChangedNotificationMatchDto {
+  string status_from_id = 1;
+  string status_to_id = 2;
+}
+
+message DocumentNotificationMatchDto {
+  oneof value {
+    DocumentAttributeValueChangedNotificationMatchDto as_attribute_value_changed = 1;
+    DocumentStatusChangedNotificationMatchDto as_status_changed = 2;
+  }
+}
+

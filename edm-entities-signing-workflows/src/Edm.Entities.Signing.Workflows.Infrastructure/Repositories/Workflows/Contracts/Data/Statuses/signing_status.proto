@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+enum SigningStatusDb {
+  SigningStatusDb_None = 0;
+  SigningStatusDb_NotStarted = 1;
+  SigningStatusDb_InProgress = 2;
+  SigningStatusDb_Completed = 3;
+}

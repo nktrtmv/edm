@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentReferences/Queries/SearchValues/Keys/document_reference_key.proto";
+
+import "Grpc/Services/DocumentReferences/Queries/SearchValues/Values/document_reference_value.proto";
+
+message SearchValuesDocumentReferencesQuery {
+  DocumentReferenceKeyDto key = 1;
+  repeated string ids = 2;
+  string search = 3;
+  int32 skip = 4;
+  int32 limit = 5;
+}
+
+message SearchValuesDocumentReferencesQueryResponse {
+  repeated DocumentReferenceValueDto values = 1;
+}

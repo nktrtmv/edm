@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+enum ConditionCompareReferenceValueTypeDto{
+  ConditionCompareReferenceValueTypeDto_None = 0;
+  ConditionCompareReferenceValueTypeDto_OneOf = 1;
+  ConditionCompareReferenceValueTypeDto_NoOneOf = 2;
+}

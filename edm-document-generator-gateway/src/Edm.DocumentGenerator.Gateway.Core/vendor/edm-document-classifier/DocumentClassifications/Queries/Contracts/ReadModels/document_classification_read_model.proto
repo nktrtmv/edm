@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "vendor/edm-document-classifier/DocumentClassifications/Contracts/Subsets/document_classifier_subset.proto";
+
+message DocumentClassificationReadModelDto {
+  string document_template_id = 1;
+  string name = 2;
+  DocumentClassifierSubsetDto classifier_subset = 3;
+}

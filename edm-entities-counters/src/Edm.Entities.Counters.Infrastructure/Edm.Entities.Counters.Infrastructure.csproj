@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Dapper"/>
+    <PackageReference Include="Microsoft.Extensions.Options"/>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions"/>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions"/>
+    <PackageReference Include="Npgsql"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Queries.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'Queries\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+    <Compile Update="**\*Db*Converter.cs">
+      <DependentUpon>
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        $([System.Text.RegularExpressions.Regex]::Replace(
+        '%(Filename)%(Extension)',
+        'Db(((From)|(To))(Domain)?)?Converter\.cs$',
+        '.proto' )),
+        '(\p{Ll})(\p{Lu})',
+        '$1_$2' ))
+      </DependentUpon>
+    </Compile>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'Converter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+    <Compile Update="**\*FromDomainConverter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'FromDomainConverter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+    <Compile Update="**\*ToDomainConverter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'ToDomainConverter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Counters.Infrastructure.Abstractions\Edm.Entities.Counters.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "vendor/DocumentRegistryRoles/document_registry_roles_service.proto";
+
+service DocumentRolesService {
+  rpc GetAll(GetAllDocumentRoles.Request) returns (GetAllDocumentRoles.Response);
+}
+
+message GetAllDocumentRoles {
+  message Request {
+    string domain_id = 1;
+  }
+  message Response {
+    repeated ResponseItem items = 1;
+  }
+  message ResponseItem {
+    DocumentAttributeTypeDto attribute = 1;
+    repeated DocumentRole roles = 2;
+  }
+  message DocumentRole {
+    int32 id = 1;
+    string name = 2;
+    string display = 3;
+  }
+}

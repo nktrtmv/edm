@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentsTemplatesDetails/Queries/GetDetails/Templates/get_details_documents_templates_details_query_response_template.proto";
+
+message GetDetailsDocumentsTemplatesDetailsQuery {
+  repeated string templates_ids = 1;
+  string domain_id = 2;
+}
+
+message GetDetailsDocumentsTemplatesDetailsQueryResponse {
+  repeated GetDetailsDocumentsTemplatesDetailsQueryResponseTemplate templates = 1;
+}

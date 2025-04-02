@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Contracts/Rules/Keys/approval_rule_key.proto";
+import "Grpc/Services/Internals/Graphs/Contracts/Graphs/approval_graph.proto";
+
+message UpdateApprovalGraphsCommand {
+  ApprovalRuleKeyDto approval_rule_key = 1;
+  ApprovalGraphDto graph = 2;
+  string current_user_id = 3;
+  string concurrency_token = 4;
+}
+
+message UpdateApprovalGraphsCommandResponse {
+}

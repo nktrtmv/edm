@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/Inheritors/Chief/approval_workflow_chief_approval_group.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/Inheritors/Custom/approval_workflow_custom_approval_group.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/Inheritors/Domestic/approval_workflow_domestic_approval_group.proto";
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/Inheritors/Foreign/approval_workflow_foreign_approval_group.proto";
+
+message ApprovalWorkflowApprovalGroupDb {
+  oneof group {
+    ApprovalWorkflowChiefApprovalGroupDb as_chief = 1;
+    ApprovalWorkflowCustomApprovalGroupDb as_custom = 4;
+    ApprovalWorkflowDomesticApprovalGroupDb as_domestic = 2;
+    ApprovalWorkflowForeignApprovalGroupDb as_foreign = 3;
+  }
+}
+

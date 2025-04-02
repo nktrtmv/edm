@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/States/Stages/Groups/ApprovalGroups/Inheritors/Foreign/Arguments/approval_workflow_foreign_approval_group_argument.proto";
+
+message ApprovalWorkflowForeignApprovalGroupDb {
+  string group_id = 1;
+  repeated ApprovalWorkflowForeignApprovalGroupArgumentDb arguments = 2;
+}
+

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/Nodes/Inheritors/Stages/Types/approval_graph_stage_node_type.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Graphs/Nodes/Inheritors/Stages/Sets/approval_graph_stage_node_set.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message ApprovalGraphStageNodeDb {
+  string display_name = 3;
+  optional google.protobuf.StringValue label = 4;
+  ApprovalGraphStageTypeDb type = 1;
+  repeated ApprovalGraphStageSetDb sets = 2;
+}

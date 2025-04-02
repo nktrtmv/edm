@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Gateway.GenericSubdomain\Edm.Entities.Approval.Rules.Gateway.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+</Project>

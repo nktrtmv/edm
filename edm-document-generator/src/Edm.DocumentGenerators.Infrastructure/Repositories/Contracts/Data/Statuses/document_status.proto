@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Statuses/Types/document_status_type.proto";
+import "Repositories/Contracts/Data/Statuses/Parameters/document_status_parameter.proto";
+
+message DocumentStatusDb {
+  string id = 1;
+  DocumentStatusTypeDb type = 2;
+  repeated DocumentStatusParameterDb parameters = 5;
+  string system_name = 3;
+  string display_name = 4;
+}

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+enum DocumentStatusParameterKindDb {
+  DocumentStatusParameterKindDb_None = 0;
+  DocumentStatusParameterKindDb_ApprovalGraphTag = 1;
+  DocumentStatusParameterKindDb_ApprovalExitApprovedWithRemarkIsOff = 3;
+  DocumentStatusParameterKindDb_StageOwner = 4;
+  DocumentStatusParameterKindDb_SetCurrentUserToAttribute = 5;
+  DocumentStatusParameterKindDb_IsBacklog = 6;
+  DocumentStatusParameterKindDb_BusinessErrorHandlingStatus = 7;
+  DocumentStatusParameterKindDb_UnifiedNextAutoStatus = 12;
+  DocumentStatusParameterKindDb_Watchers = 9;
+}

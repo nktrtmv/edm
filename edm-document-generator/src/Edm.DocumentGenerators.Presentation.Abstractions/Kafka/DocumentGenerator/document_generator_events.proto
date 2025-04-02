@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "edm-document-generators-presentation-abstractions";
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+message DocumentGeneratorEventsKey {
+  string key = 1;
+}
+
+message DocumentGeneratorEventsValue {
+  oneof event {
+    DocumentChangedDocumentGeneratorEventDto as_document_changed = 2;
+  }
+}
+
+message DocumentChangedDocumentGeneratorEventDto {
+  string document_id = 1;
+  string domain_id = 2;
+}

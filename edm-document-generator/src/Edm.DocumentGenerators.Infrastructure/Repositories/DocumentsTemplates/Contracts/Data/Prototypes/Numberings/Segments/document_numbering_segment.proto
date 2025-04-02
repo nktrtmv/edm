@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/DocumentsTemplates/Contracts/Data/Prototypes/Numberings/Segments/Abstractions/Data/document_numbering_segment_data.proto";
+
+message DocumentNumberingSegmentDb {
+  DocumentNumberingSegmentDataDb data = 1;
+  oneof value {
+    DocumentConstantNumberingSegmentDb as_constant = 2;
+    DocumentCounterNumberingSegmentDb as_counter = 3;
+    DocumentDateNumberingSegmentDb as_date = 4;
+  }
+}
+
+message DocumentConstantNumberingSegmentDb {
+  string value = 1;
+}
+
+message DocumentCounterNumberingSegmentDb {
+  string counter_id = 1;
+}
+
+message DocumentDateNumberingSegmentDb {
+}

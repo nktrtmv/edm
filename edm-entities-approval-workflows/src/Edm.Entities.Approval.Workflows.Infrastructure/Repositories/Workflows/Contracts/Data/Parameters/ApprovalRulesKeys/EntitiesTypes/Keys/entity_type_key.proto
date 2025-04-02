@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "google/protobuf/timestamp.proto";
+
+message EntityTypeKeyDb {
+  string domain_id = 1;
+  string entity_type_id = 2;
+  google.protobuf.Timestamp entity_type_updated_date = 3;
+}

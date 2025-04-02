@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Counters.Domain\Edm.Entities.Counters.Domain.csproj"/>
+  </ItemGroup>
+
+</Project>

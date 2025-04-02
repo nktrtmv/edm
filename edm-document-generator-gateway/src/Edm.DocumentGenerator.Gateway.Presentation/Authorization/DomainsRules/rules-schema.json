@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "DomainId": {
+      "type": "string"
+    },
+    "Name": {
+      "type": "string"
+    },
+    "RolesActions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ReadDocument": {
+          "$ref": "#/$defs/Roles",
+          "description": "Role ids with access to action. Will be combined with UpdateDocument roles"
+        },
+        "UpdateDocument": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UpdateDocumentsClerks": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UpdateDocumentsStatuses": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UploadCommentAttachmentToDocument": {
+          "$ref": "#/$defs/Roles"
+        },
+        "CreateDocument": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ExportToExcel": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ReadTemplate": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UpdateTemplate": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ExportPassesForms": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ExportPassesExcel": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ExportDocumentsSlas": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ReadDocumentNotificationTemplate": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UpdateDocumentNotificationTemplate": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ReadDocumentCounter": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UpdateDocumentCounter": {
+          "$ref": "#/$defs/Roles"
+        },
+        "ReadReference": {
+          "$ref": "#/$defs/Roles"
+        },
+        "UpdateReference": {
+          "$ref": "#/$defs/Roles"
+        }
+      },
+      "required": [
+        "ReadDocument",
+        "UpdateDocument",
+        "UploadCommentAttachmentToDocument",
+        "CreateDocument",
+        "ExportToExcel",
+        "ReadTemplate",
+        "UpdateTemplate",
+        "ReadDocumentNotificationTemplate",
+        "UpdateDocumentNotificationTemplate",
+        "ReadDocumentCounter",
+        "UpdateDocumentCounter",
+        "ReadReference",
+        "UpdateReference"
+      ]
+    },
+    "Reports": {
+      "type": "object"
+    },
+    "Dashboards": {
+      "type": "object"
+    }
+  },
+  "required": [
+    "DomainId",
+    "Name",
+    "RolesActions",
+    "Reports",
+    "Dashboards"
+  ],
+  "$defs": {
+    "Roles": {
+      "type": "array",
+      "description": "Role ids with access to action",
+      "items": {
+        "type": "string",
+        "pattern": "[a-zA-Z_-]+"
+      }
+    }
+  }
+}

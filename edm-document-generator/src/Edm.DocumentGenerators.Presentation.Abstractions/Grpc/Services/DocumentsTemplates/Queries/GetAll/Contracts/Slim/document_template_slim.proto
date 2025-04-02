@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentsTemplates/Contracts/Statuses/document_template_status.proto";
+import "Grpc/Services/Contracts/Audits/Briefs/audit_brief.proto";
+
+message DocumentTemplateSlimDto {
+  string id = 1;
+  string name = 3;
+  DocumentTemplateStatusDto status = 4;
+  AuditBriefDto audit = 5;
+}

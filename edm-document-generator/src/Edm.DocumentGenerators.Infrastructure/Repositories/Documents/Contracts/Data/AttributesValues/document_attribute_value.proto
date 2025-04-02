@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "google/protobuf/timestamp.proto";
+
+import "Repositories/Contracts/Data/Attributes/document_attribute.proto";
+import "Repositories/Documents/Contracts/Data/AttributesValues/Abstractions/Data/document_attribute_value_data.proto";
+
+message DocumentAttributeValueDb {
+  DocumentAttributeDb attribute = 9;
+  oneof value {
+    AttachmentDocumentAttributeValueDb as_attachment = 1;
+    BooleanDocumentAttributeValueDb as_boolean = 2;
+    DateDocumentAttributeValueDb as_date = 3;
+    IntDocumentAttributeValueDb as_int = 4; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+    NumberDocumentAttributeValueDb as_number = 8;
+    ReferenceDocumentAttributeValueDb as_reference = 5;
+    StringDocumentAttributeValueDb as_string = 6;
+    TupleDocumentAttributeValueDb as_tuple = 7;
+  }
+}
+
+message AttachmentDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated string values = 2;
+}
+
+message BooleanDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated bool values = 2;
+}
+
+message DateDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated google.protobuf.Timestamp values = 2;
+}
+
+message IntDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated int32 values = 2;
+}
+
+message NumberDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated int64 values = 2;
+}
+
+message ReferenceDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated string values = 2;
+}
+
+message StringDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated string values = 2;
+}
+
+message TupleDocumentAttributeValueDb {
+  DocumentAttributeValueDataDb data = 1; // TODO: REMOVE: This is for backward compatibility, remove in version 2.
+  repeated TupleInnerDocumentAttributeValueDb values = 3;
+}
+
+message TupleInnerDocumentAttributeValueDb {
+  repeated DocumentAttributeValueDb inner_values = 1;
+}

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Interfaces/References/Queries/GetTypes/Types/SearchKinds/approval_reference_search_kind.proto";
+
+message ApprovalReferenceTypeDto {
+  string id = 1;
+  string display_name = 2;
+  ApprovalReferenceSearchKindDto search_kind = 3;
+  repeated string parent_ids = 4;
+}

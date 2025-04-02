@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+message DocumentAttributeTypeDto {
+  oneof value {
+    DocumentAttachmentAttributeTypeDto as_attachment = 1;
+    DocumentBooleanAttributeTypeDto as_boolean = 2;
+    DocumentDateAttributeTypeDto as_date = 3;
+    DocumentNumberAttributeTypeDto as_number = 4;
+    DocumentReferenceAttributeTypeDto as_reference = 5;
+    DocumentStringAttributeTypeDto as_string = 6;
+    DocumentTupleAttributeTypeDto as_tuple = 7;
+  }
+}
+
+message DocumentAttachmentAttributeTypeDto {
+}
+
+message DocumentBooleanAttributeTypeDto {
+}
+
+message DocumentDateAttributeTypeDto {
+}
+
+message DocumentNumberAttributeTypeDto {
+}
+
+message DocumentReferenceAttributeTypeDto {
+  string reference_type = 2;
+}
+
+message DocumentStringAttributeTypeDto {
+}
+
+message DocumentTupleAttributeTypeDto {
+}

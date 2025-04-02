@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "vendor/Services/Details/Queries/GetElectronic/Contracts/Electornics/Archives/signing_archive.proto";
+import "vendor/Services/Details/Queries/GetElectronic/Contracts/Electornics/Documents/signing_document.proto";
+
+message SigningElectronicDetailsDto {
+  repeated SigningArchiveDto archives = 1;
+  repeated SigningDocumentDto documents = 2;
+}

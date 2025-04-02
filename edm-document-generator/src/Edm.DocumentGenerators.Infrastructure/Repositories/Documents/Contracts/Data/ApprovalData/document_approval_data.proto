@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApprovalData/Workflows/document_approval_workflow.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message DocumentApprovalDataDb {
+  google.protobuf.Timestamp attributes_version = 1;
+  repeated DocumentApprovalWorkflowDb workflows = 2;
+}
+

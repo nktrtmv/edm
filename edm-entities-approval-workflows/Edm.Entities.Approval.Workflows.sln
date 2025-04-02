@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{20C8AB00-734C-4B2B-A81B-A0B6D0194FA7}"
+ProjectSection(SolutionItems) = preProject
+	.editorconfig = .editorconfig
+	.gitignore = .gitignore
+	Directory.Build.props = Directory.Build.props
+	Directory.Packages.props = Directory.Packages.props
+	Dockerfile = Dockerfile
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CAAEE43B-85F6-45F4-A15D-957556BB0139}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Presentation", "src\Edm.Entities.Approval.Workflows.Presentation\Edm.Entities.Approval.Workflows.Presentation.csproj", "{9F6323B9-0DAC-4576-A836-6E9E94BDEB2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Presentation.Abstractions", "src\Edm.Entities.Approval.Workflows.Presentation.Abstractions\Edm.Entities.Approval.Workflows.Presentation.Abstractions.csproj", "{1EC160E8-B31B-4894-AFD1-3720DCCA66D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Application", "src\Edm.Entities.Approval.Workflows.Application\Edm.Entities.Approval.Workflows.Application.csproj", "{99DB1593-9049-4672-8FAE-B63F15827C23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Domain", "src\Edm.Entities.Approval.Workflows.Domain\Edm.Entities.Approval.Workflows.Domain.csproj", "{1345F2F4-B444-42CD-9032-83E972C2257E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Infrastructure.Abstractions", "src\Edm.Entities.Approval.Workflows.Infrastructure.Abstractions\Edm.Entities.Approval.Workflows.Infrastructure.Abstractions.csproj", "{256834E0-7F84-4E43-A216-1F3860FC0EDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Presentation.Publisher", "src\Edm.Entities.Approval.Workflows.Presentation.Publisher\Edm.Entities.Approval.Workflows.Presentation.Publisher.csproj", "{7CD4BD0B-92D3-4EE6-872E-49009488574F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.Infrastructure", "src\Edm.Entities.Approval.Workflows.Infrastructure\Edm.Entities.Approval.Workflows.Infrastructure.csproj", "{4D502397-B98C-44B6-90B9-E1A8D8EC04B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Edm.Entities.Approval.Workflows.GenericSubdomain", "src\Edm.Entities.Approval.Workflows.GenericSubdomain\Edm.Entities.Approval.Workflows.GenericSubdomain.csproj", "{395DC46A-6976-4408-B7D7-CFB5F3AB75AA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9F6323B9-0DAC-4576-A836-6E9E94BDEB2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F6323B9-0DAC-4576-A836-6E9E94BDEB2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F6323B9-0DAC-4576-A836-6E9E94BDEB2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F6323B9-0DAC-4576-A836-6E9E94BDEB2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EC160E8-B31B-4894-AFD1-3720DCCA66D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EC160E8-B31B-4894-AFD1-3720DCCA66D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EC160E8-B31B-4894-AFD1-3720DCCA66D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EC160E8-B31B-4894-AFD1-3720DCCA66D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99DB1593-9049-4672-8FAE-B63F15827C23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DB1593-9049-4672-8FAE-B63F15827C23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DB1593-9049-4672-8FAE-B63F15827C23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DB1593-9049-4672-8FAE-B63F15827C23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1345F2F4-B444-42CD-9032-83E972C2257E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1345F2F4-B444-42CD-9032-83E972C2257E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1345F2F4-B444-42CD-9032-83E972C2257E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1345F2F4-B444-42CD-9032-83E972C2257E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{256834E0-7F84-4E43-A216-1F3860FC0EDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{256834E0-7F84-4E43-A216-1F3860FC0EDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{256834E0-7F84-4E43-A216-1F3860FC0EDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{256834E0-7F84-4E43-A216-1F3860FC0EDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7CD4BD0B-92D3-4EE6-872E-49009488574F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CD4BD0B-92D3-4EE6-872E-49009488574F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CD4BD0B-92D3-4EE6-872E-49009488574F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CD4BD0B-92D3-4EE6-872E-49009488574F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D502397-B98C-44B6-90B9-E1A8D8EC04B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D502397-B98C-44B6-90B9-E1A8D8EC04B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D502397-B98C-44B6-90B9-E1A8D8EC04B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D502397-B98C-44B6-90B9-E1A8D8EC04B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{395DC46A-6976-4408-B7D7-CFB5F3AB75AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{395DC46A-6976-4408-B7D7-CFB5F3AB75AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{395DC46A-6976-4408-B7D7-CFB5F3AB75AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{395DC46A-6976-4408-B7D7-CFB5F3AB75AA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9F6323B9-0DAC-4576-A836-6E9E94BDEB2B} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{1EC160E8-B31B-4894-AFD1-3720DCCA66D5} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{99DB1593-9049-4672-8FAE-B63F15827C23} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{1345F2F4-B444-42CD-9032-83E972C2257E} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{256834E0-7F84-4E43-A216-1F3860FC0EDD} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{7CD4BD0B-92D3-4EE6-872E-49009488574F} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{4D502397-B98C-44B6-90B9-E1A8D8EC04B0} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+		{395DC46A-6976-4408-B7D7-CFB5F3AB75AA} = {CAAEE43B-85F6-45F4-A15D-957556BB0139}
+	EndGlobalSection
+EndGlobal

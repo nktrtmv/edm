@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+enum ApprovalWorkflowStageStatusDb {
+  ApprovalWorkflowStageStatusDb_None = 0;
+  ApprovalWorkflowStageStatusDb_NotStarted = 1;
+  ApprovalWorkflowStageStatusDb_InProgress = 2;
+  ApprovalWorkflowStageStatusDb_Approved = 4;
+  ApprovalWorkflowStageStatusDb_ApprovedWithRemark = 6;
+  ApprovalWorkflowStageStatusDb_ReturnedToRework = 5;
+  ApprovalWorkflowStageStatusDb_Rejected = 3;
+}

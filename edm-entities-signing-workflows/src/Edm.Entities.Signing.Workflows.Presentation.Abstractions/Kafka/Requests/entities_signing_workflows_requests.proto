@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "Kafka/Requests/CreateWorkflow/create_workflow_entities_signing_workflow_request.proto";
+import "Kafka/Requests/UpdateExecutors/update_executors_entities_signing_workflow_request.proto";
+import "Kafka/Requests/UpdateResponsibleManager/update_responsible_manager_entities_signing_workflow_request.proto";
+
+message EntitiesSigningWorkflowsRequestsKey {
+  string key = 1;
+}
+
+message EntitiesSigningWorkflowsRequestsValue {
+  string domain_id = 2;
+  oneof request {
+    CreateWorkflowEntitiesSigningWorkflowRequest create_workflow = 3;
+    UpdateExecutorsEntitiesSigningWorkflowRequest update_executors = 4;
+    UpdateResponsibleManagerEntitiesSigningWorkflowRequest update_responsible_manager = 6;
+  }
+}

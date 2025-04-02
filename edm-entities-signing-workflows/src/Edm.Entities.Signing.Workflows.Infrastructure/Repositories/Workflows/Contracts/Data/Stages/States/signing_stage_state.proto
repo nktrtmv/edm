@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-infrastructure-repositories-signing-workflows-contracts";
+
+package Edm.Entities.Signing.Workflows.Infrastructure.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Infrastructure.Repositories.SigningWorkflows.Contracts";
+
+import "Repositories/Workflows/Contracts/Data/Stages/States/Statuses/signing_stage_status.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message SigningStageStateDb {
+  SigningStageStatusDb status = 1;
+  google.protobuf.Timestamp status_changed_at = 2;
+}

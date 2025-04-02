@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "google/protobuf/timestamp.proto";
+
+message DocumentAuditAttributeValueDb {
+  string attribute_id = 1;
+  oneof value {
+    AttachmentDocumentAuditAttributeValueDb as_attachment = 2;
+    BooleanDocumentAuditAttributeValueDb as_boolean = 3;
+    DateDocumentAuditAttributeValueDb as_date = 4;
+    NumberDocumentAuditAttributeValueDb as_number = 5;
+    ReferenceDocumentAuditAttributeValueDb as_reference = 6;
+    StringDocumentAuditAttributeValueDb as_string = 7;
+    TupleDocumentAuditAttributeValueDb as_tuple = 8;
+  }
+}
+
+message AttachmentDocumentAuditAttributeValueDb {
+  repeated string values = 1;
+}
+
+message BooleanDocumentAuditAttributeValueDb {
+  repeated bool values = 1;
+}
+
+message DateDocumentAuditAttributeValueDb {
+  repeated google.protobuf.Timestamp values = 1;
+}
+
+message NumberDocumentAuditAttributeValueDb {
+  repeated int64 values = 1;
+}
+
+message ReferenceDocumentAuditAttributeValueDb {
+  repeated string values = 1;
+}
+
+message StringDocumentAuditAttributeValueDb {
+  repeated string values = 1;
+}
+
+message TupleDocumentAuditAttributeValueDb {
+  repeated TupleInnerDocumentAuditAttributeValueDb values = 2;
+}
+
+message TupleInnerDocumentAuditAttributeValueDb {
+  repeated DocumentAuditAttributeValueDb inner_values = 1;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+enum ApprovalRouteStageTypeDto {
+  ApprovalRouteStageTypeDto_None = 0;
+  ApprovalRouteStageTypeDto_ParallelAny = 1;
+  ApprovalRouteStageTypeDto_ParallelAll = 2;
+  ApprovalRouteStageTypeDto_Sequential = 3;
+}

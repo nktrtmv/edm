@@ -1,0 +1,169 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "google/protobuf/wrappers.proto";
+
+import "vendor/edm-document-classifier/References/Queries/GetReferenceValues/get_reference_values_search_query.proto";
+import "vendor/edm-document-classifier/References/Queries/GetTypes/get_types_query.proto";
+
+service ReferencesService {
+  rpc GetTypes(GetTypesQuery) returns (GetTypesQueryResponse);
+  rpc GetReferenceValuesSearch(GetReferenceValuesSearchQuery) returns (GetReferenceValuesSearchQueryResponse);
+
+  rpc CreateReference(CreateDocumentReferenceTypeCommand) returns (CreateDocumentReferenceTypeCommandResponse);
+  rpc UpdateReference(UpdateDocumentReferenceTypeCommand) returns (UpdateDocumentReferenceTypeCommandResponse);
+  rpc GetReference(GetDocumentReferenceTypeQuery) returns (GetDocumentReferenceTypeQueryResponse);
+  rpc GetAllReferences(GetAllDocumentReferenceTypesQuery) returns (GetAllDocumentReferenceTypesQueryResponse);
+
+  rpc CreateReferenceValue(CreateDocumentReferenceValueCommand) returns (CreateDocumentReferenceValueCommandResponse);
+  rpc UpdateReferenceValue(UpdateDocumentReferenceValueCommand) returns (UpdateDocumentReferenceValueCommandResponse);
+  rpc BulkUpsertReferenceValues(BulkUpsertReferenceValuesCommand) returns (BulkUpsertReferenceValuesCommandResponse);
+  rpc GetReferenceValue(GetDocumentReferenceValueQuery) returns (GetDocumentReferenceValueQueryResponse);
+  rpc GetAllReferenceValues(GetAllDocumentReferenceValuesQuery) returns (GetAllDocumentReferenceValuesQueryResponse);
+  rpc GetNewReferenceTypeId(GetNewReferenceTypeIdQuery) returns (GetNewReferenceTypeIdQueryResponse);
+}
+
+message BulkUpsertReferenceValuesCommand {
+  string domain_id = 1;
+  string reference_type = 2;
+  repeated BulkUpsertReferenceValue values = 3;
+  string current_user_id = 4;
+}
+
+message BulkUpsertReferenceValue {
+  google.protobuf.StringValue id = 1;
+  string display_value = 2;
+  google.protobuf.StringValue display_sub_value = 3;
+}
+
+message BulkUpsertReferenceValuesCommandResponse {
+}
+
+message CreateDocumentReferenceTypeCommand {
+  CreateDocumentReferenceType type = 1;
+  string current_user_id = 2;
+}
+
+message CreateDocumentReferenceTypeCommandResponse {
+  string reference_type = 1;
+}
+
+message UpdateDocumentReferenceTypeCommand {
+  UpdateDocumentReferenceType reference = 1;
+  string current_user_id = 2;
+  string concurrency_token = 3;
+}
+message UpdateDocumentReferenceTypeCommandResponse {
+  string reference_type = 1;
+}
+
+message GetDocumentReferenceTypeQuery {
+  google.protobuf.StringValue domain_id = 1;
+  string reference_type = 2;
+}
+message GetDocumentReferenceTypeQueryResponse {
+  GetDocumentReferenceType reference = 1;
+}
+
+message GetAllDocumentReferenceTypesQuery {
+  google.protobuf.StringValue domain_id = 1;
+  google.protobuf.StringValue search = 2;
+  int32 skip = 3;
+  int32 limit = 4;
+}
+message GetAllDocumentReferenceTypesQueryResponse {
+  repeated GetDocumentReferenceType references = 1;
+}
+
+message GetNewReferenceTypeIdQuery {
+}
+message GetNewReferenceTypeIdQueryResponse {
+  string reference_type = 1;
+}
+
+message CreateDocumentReferenceValueCommand {
+  CreateDocumentReferenceValue value = 1;
+  string current_user_id = 2;
+}
+message CreateDocumentReferenceValueCommandResponse {
+  string id = 1;
+}
+
+message UpdateDocumentReferenceValueCommand {
+  UpdateDocumentReferenceValue value = 1;
+  string current_user_id = 2;
+  string concurrency_token = 3;
+}
+message UpdateDocumentReferenceValueCommandResponse {
+  string id = 1;
+}
+
+message GetDocumentReferenceValueQuery {
+  google.protobuf.StringValue domain_id = 1;
+  string reference_type = 2;
+  string id = 3;
+}
+message GetDocumentReferenceValueQueryResponse {
+  ReferenceValue value = 1;
+}
+
+message GetAllDocumentReferenceValuesQuery {
+  google.protobuf.StringValue domain_id = 1;
+  string reference_type = 2;
+  google.protobuf.StringValue search = 3;
+  int32 skip = 4;
+  int32 limit = 5;
+}
+message GetAllDocumentReferenceValuesQueryResponse {
+  repeated ReferenceValue values = 1;
+}
+
+message CreateDocumentReferenceType {
+  google.protobuf.StringValue domain_id = 1;
+  string reference_type = 2;
+  string display_name = 3;
+  repeated string parent_reference_types = 4;
+}
+message UpdateDocumentReferenceType {
+  google.protobuf.StringValue domain_id = 1;
+  string reference_type = 2;
+  string display_name = 3;
+  repeated string parent_reference_types = 4;
+}
+message GetDocumentReferenceType {
+  string reference_type = 1;
+  repeated string parent_references_types = 2;
+  string display_name = 3;
+  GetTypesQueryResponseReferenceSearchConditionType search_condition_type = 4;
+  google.protobuf.StringValue domain_id = 5;
+  string concurrency_token = 6;
+}
+message CreateDocumentReferenceValue {
+  google.protobuf.StringValue domain_id = 1;
+  google.protobuf.StringValue id = 6;
+  string reference_type = 2;
+  string display_value = 3;
+  google.protobuf.StringValue display_sub_value = 4;
+  bool is_hidden = 5;
+}
+message UpdateDocumentReferenceValue {
+  google.protobuf.StringValue domain_id = 1;
+  string reference_type = 2;
+  string id = 3;
+  google.protobuf.StringValue new_id = 7;
+  string display_value = 4;
+  google.protobuf.StringValue display_sub_value = 5;
+  bool is_hidden = 6;
+}
+message ReferenceValue {
+  string id = 1;
+  string display_value = 2;
+  google.protobuf.StringValue display_sub_value = 3;
+  bool is_hidden = 4;
+  string concurrency_token = 5;
+}

@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+message ApprovalRouteParticipantDto {
+  string main_user_id = 1;
+  repeated string substitute_users_ids = 2;
+  bool is_substitution_disabled = 3;
+}
+

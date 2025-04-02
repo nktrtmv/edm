@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Services/Internals/Contracts/Entities/Conditions/Operators/Kinds/entity_condition_operator_kind.proto";
+import "Grpc/Services/Internals/Contracts/Entities/Conditions/Operators/Types/entity_condition_operator_type.proto";
+ 
+message EntityConditionOperatorDto {
+  EntityConditionOperatorKindDto kind = 1;
+  EntityConditionOperatorTypeDto type = 2;
+  string display_name = 3;
+}

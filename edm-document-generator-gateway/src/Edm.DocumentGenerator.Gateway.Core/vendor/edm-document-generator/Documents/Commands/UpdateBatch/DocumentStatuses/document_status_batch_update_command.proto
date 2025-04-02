@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+message DocumentStatusBatchUpdateCommand {
+  string domain_id = 1;
+  repeated string documents_ids = 2;
+  string new_status_id = 3;
+  string current_user_id = 4;
+}
+
+message DocumentStatusBatchUpdateCommandResponse {
+  repeated string uncompleted_document_ids = 1;
+}

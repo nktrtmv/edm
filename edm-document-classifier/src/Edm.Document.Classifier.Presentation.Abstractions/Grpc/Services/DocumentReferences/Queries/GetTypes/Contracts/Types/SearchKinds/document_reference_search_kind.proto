@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+enum DocumentReferenceSearchKindDto
+{
+  DocumentReferenceSearchKindDto_None = 0;
+  DocumentReferenceSearchKindDto_FixedList = 1;
+  DocumentReferenceSearchKindDto_Search = 2;
+}

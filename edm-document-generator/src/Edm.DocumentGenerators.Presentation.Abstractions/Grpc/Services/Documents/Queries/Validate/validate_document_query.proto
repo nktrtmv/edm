@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "Grpc/Services/Contracts/Validators/Conditions/condition_result.proto";
+
+import "Grpc/Services/Documents/Contracts/AttributesValues/document_attribute_value.proto";
+import "Grpc/Services/Documents/Queries/Validate/Errors/document_errors.proto";
+import "Grpc/Services/Documents/Queries/Get/Contracts/Detailed/AttributesValues/document_attribute_value_detailed.proto";
+
+message ValidateDocumentQuery {
+  string document_id = 1;
+  DocumentValidateParametersDto parameters = 2;
+  string domain_id = 3;
+}
+
+message DocumentValidateParametersDto {
+  string status_id = 1;
+  repeated DocumentAttributeValueDto attributes_values = 2;
+}
+
+message ValidateDocumentQueryResponse {
+  repeated DocumentValidatorValidationResultDto document_validators_validation_results = 1;
+  DocumentErrorsDto document_errors = 2;
+  repeated DocumentAttributeValueDetailedDto updated_attributes_values = 3;
+}
+
+message DocumentValidatorValidationResultDto {
+  string validator_id = 1;
+  repeated ConditionResultDto condition_results = 2;
+}

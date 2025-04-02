@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.Domain\Edm.Entities.Signing.Workflows.Domain.csproj"/>
+  </ItemGroup>
+
+</Project>

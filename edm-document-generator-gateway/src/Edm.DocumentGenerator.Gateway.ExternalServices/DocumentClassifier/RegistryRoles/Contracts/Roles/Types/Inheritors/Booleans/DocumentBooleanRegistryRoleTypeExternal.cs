@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier.RegistryRoles.Contracts.Roles.Types.Inheritors.Booleans;
+
+public sealed record DocumentBooleanRegistryRoleTypeExternal : DocumentRegistryRoleTypeExternal;

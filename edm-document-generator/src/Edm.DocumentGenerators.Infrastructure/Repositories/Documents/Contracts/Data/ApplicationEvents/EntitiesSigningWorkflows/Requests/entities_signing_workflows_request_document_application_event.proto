@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesSigningWorkflows/Requests/CreateWorkflow/create_workflow_entities_signing_workflows_request.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesSigningWorkflows/Requests/UpdateExecutor/update_executor_entities_signing_workflows_request.proto";
+import "Repositories/Documents/Contracts/Data/ApplicationEvents/EntitiesSigningWorkflows/Requests/UpdateResponsibleManagers/update_responsible_manager_entities_signing_workflows_request.proto";
+
+message EntitiesSigningWorkflowsRequestDocumentApplicationEventDb {
+  oneof request {
+    CreateWorkflowEntitiesSigningWorkflowsRequestDb as_create_workflow = 1;
+    UpdateExecutorEntitiesSigningWorkflowsRequestDb as_update_executor = 2;
+    UpdateResponsibleManagerEntitiesSigningWorkflowsRequestDb as_responsible_manager = 3;
+  }
+}

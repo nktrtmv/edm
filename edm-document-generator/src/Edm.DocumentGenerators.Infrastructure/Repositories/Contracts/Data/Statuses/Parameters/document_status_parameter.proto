@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Statuses/Parameters/Kinds/document_status_parameter_kind.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message DocumentStatusParameterDb {
+  string id = 1;
+  DocumentStatusParameterKindDb kind = 2;
+  oneof value {
+    BooleanDocumentStatusParameterDb as_boolean = 4;
+    StringDocumentStatusParameterDb as_string = 3;
+    ReferenceAttributeDocumentStatusParameterDb as_reference_attribute = 5;
+    DocumentStatusDocumentStatusParameterDb as_document_status = 6;
+  }
+}
+
+message BooleanDocumentStatusParameterDb {
+  bool value = 1;
+}
+
+message StringDocumentStatusParameterDb {
+  string value = 1;
+}
+
+message ReferenceAttributeDocumentStatusParameterDb {
+  string reference_type = 1;
+  google.protobuf.StringValue value_obsolete = 3;
+  repeated string values = 4;
+  bool isArray = 5;
+}
+
+message DocumentStatusDocumentStatusParameterDb {
+  google.protobuf.StringValue value = 1;
+}

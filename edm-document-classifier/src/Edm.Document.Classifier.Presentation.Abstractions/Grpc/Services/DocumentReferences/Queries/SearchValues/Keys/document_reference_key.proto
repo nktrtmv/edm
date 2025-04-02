@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentReferences/Queries/SearchValues/Keys/ParentValues/document_reference_parent_values.proto";
+
+message DocumentReferenceKeyDto {
+  string reference_type_id = 1;
+  repeated DocumentReferenceParentValuesDto parent_values = 2;
+  string template_id = 3;
+}

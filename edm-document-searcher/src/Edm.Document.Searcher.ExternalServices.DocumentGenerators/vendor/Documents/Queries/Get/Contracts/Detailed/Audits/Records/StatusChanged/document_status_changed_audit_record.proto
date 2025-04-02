@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/Documents/Queries/Get/Contracts/Detailed/Audits/Records/StatusChanged/Changes/document_status_changed_audit_record_change.proto";
+import "vendor/Documents/Commands/Update/Contracts/StatusesTransitionsParametersValues/document_status_transition_parameter_value.proto";
+
+message DocumentStatusChangedAuditRecordDto {
+  DocumentStatusChangedAuditRecordChangeDto change = 1;
+  repeated DocumentStatusTransitionParameterValueDto status_transition_parameters_values = 2;
+}

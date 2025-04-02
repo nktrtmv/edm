@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "Kafka/Requests/CreateWorkflow/create_workflow_entities_approval_workflows_request.proto";
+import "Kafka/Requests/UpdateOwners/update_owners_entities_approval_workflows_request.proto";
+import "Kafka/Requests/UpdateDocumentAuthor/update_document_author_entities_approval_workflows_request.proto";
+
+message EntitiesApprovalWorkflowsRequestsKey {
+  string key = 1;
+}
+
+message EntitiesApprovalWorkflowsRequestsValue {
+  oneof request {
+    CreateWorkflowEntitiesApprovalWorkflowsRequest as_create_workflow = 5;
+    UpdateOwnersEntitiesApprovalWorkflowsRequest as_update_owners = 6;
+    UpdateDocumentAuthorEntitiesApprovalWorkflowsRequest as_update_document_author = 8;
+  }
+}

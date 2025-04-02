@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Kafka/Requests/CreateWorkflow/Contracts/Parameters/Entities/approval_entity.proto";
+import "vendor/Kafka/Requests/CreateWorkflow/Contracts/Parameters/Info/approval_info.proto";
+import "vendor/Kafka/Requests/CreateWorkflow/Contracts/Parameters/Options/approval_options.proto";
+
+message ApprovalParametersDto {
+  ApprovalEntityDto entity = 2;
+  ApprovalInfoDto info = 3;
+  ApprovalOptionsDto options = 4;
+
+  reserved 1;
+}

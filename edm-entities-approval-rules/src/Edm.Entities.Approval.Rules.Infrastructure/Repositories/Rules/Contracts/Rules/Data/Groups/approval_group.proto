@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Groups/Data/approval_group_data.proto";
+import "Repositories/Rules/Contracts/Rules/Data/Groups/Details/approval_group_details.proto";
+
+message ApprovalGroupDb {
+  ApprovalGroupDataDb data = 4;
+  ApprovalGroupDetailsDb details = 5;
+}

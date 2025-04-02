@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+enum DocumentCustomStatusTransitionParameterTypeDb { // TODO: OBSOLETE
+  DocumentCustomStatusTransitionParameterTypeDb_None = 0;
+  DocumentCustomStatusTransitionParameterTypeDb_Comment = 1;
+}

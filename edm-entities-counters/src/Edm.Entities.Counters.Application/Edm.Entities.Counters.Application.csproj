@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="MediatR"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="**\*Converter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'Converter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+    <Compile Update="**\*FromDomainConverter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'FromDomainConverter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+    <Compile Update="**\*ToDomainConverter.cs">
+      <DependentUpon>$([System.Text.RegularExpressions.Regex]::Replace('%(Filename)%(Extension)', 'ToDomainConverter\.cs$', '.cs'))</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Counters.Infrastructure.Abstractions\Edm.Entities.Counters.Infrastructure.Abstractions.csproj"/>
+  </ItemGroup>
+
+</Project>

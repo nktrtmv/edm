@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/Statuses/approval_graph_status.proto";
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/Edges/approval_graph_edge.proto";
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/Nodes/approval_graph_node.proto";
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/ChiefApprovals/chief_approval_stage.proto";
+
+message ApprovalGraphDto {
+  string id = 1;
+  ApprovalGraphStatusDto status = 2;
+  repeated ApprovalGraphEdgeDto edges = 3;
+  repeated ApprovalGraphNodeDto nodes = 4;
+  ChiefApprovalStageDto chief_approval = 7;
+  string front_metadata = 5;
+  string display_name = 6;
+  string tag = 8;
+}

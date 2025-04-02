@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+message DomesticApprovalGroupOptionsDb {
+  bool multiple_participants_are_allowed = 1;
+  bool empty_group_is_allowed = 2;
+}
+

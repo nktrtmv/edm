@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/DocumentsTemplates/Contracts/Data/Prototypes/Numberings/Segments/document_numbering_segment.proto";
+
+
+message DocumentNumberingDb {
+  repeated DocumentNumberingSegmentDb segments = 1;
+}

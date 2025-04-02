@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "google/protobuf/timestamp.proto";
+
+message ForeignApprovalRouteGroupArgumentDto {
+  string id = 1;
+  oneof value {
+    BooleanForeignApprovalRouteGroupArgumentDto as_boolean = 2;
+    DateForeignApprovalRouteGroupArgumentDto as_date = 3;
+    NumberForeignApprovalRouteGroupArgumentDto as_number = 4;
+    ReferenceForeignApprovalRouteGroupArgumentDto as_reference = 5;
+    StringForeignApprovalRouteGroupArgumentDto as_string = 6;
+  }
+}
+
+message BooleanForeignApprovalRouteGroupArgumentDto {
+  repeated bool values = 1;
+}
+
+message DateForeignApprovalRouteGroupArgumentDto {
+  repeated google.protobuf.Timestamp values = 1;
+}
+
+message NumberForeignApprovalRouteGroupArgumentDto {
+  repeated int64 values = 1;
+}
+
+message ReferenceForeignApprovalRouteGroupArgumentDto {
+  repeated string values = 1;
+}
+
+message StringForeignApprovalRouteGroupArgumentDto {
+  repeated string values = 1;
+}
+

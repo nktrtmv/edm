@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+import "vendor/Contracts/Statuses/document_status.proto";
+import "vendor/Contracts/Validators/document_validator.proto";
+import "vendor/Contracts/DocumentsStagesTypes/document_stage_type.proto";
+
+import "vendor/Documents/Queries/Get/Contracts/Detailed/ApprovalData/document_approval_data.proto";
+import "vendor/Documents/Queries/Get/Contracts/Detailed/SigningData/document_signing_data.proto";
+import "vendor/Documents/Queries/Get/Contracts/Detailed/AttributesValues/document_attribute_value_detailed.proto";
+import "vendor/Documents/Queries/Get/Contracts/Detailed/StatusesTransitions/document_status_transition_detailed.proto";
+import "vendor/Documents/Queries/Get/Contracts/Detailed/Audits/document_audit.proto";
+import "vendor/Documents/Queries/Validate/Errors/Attributes/document_attribute_error.proto";
+import "vendor/Contracts/Parameters/document_parameters.proto";
+
+message DocumentDetailedDto {
+  string id = 1;
+  string template_id = 2;
+  DocumentStatusDto status = 4;
+  repeated DocumentAttributeValueDetailedDto attributes_values = 5;
+  repeated DocumentValidatorDto validators = 6;
+  repeated DocumentStatusTransitionDetailedDto available_statuses_transitions = 7;
+  DocumentApprovalDataDto approval_data = 8;
+  DocumentSigningDataDto signing_data = 9;
+  DocumentAuditDto audit = 11;
+  string concurrency_token = 12;
+  string front_metadata = 10;
+  DocumentStageTypeDto stage_type = 14;
+  repeated DocumentAttributeErrorDto attributes_errors_obsolete = 18;
+  optional google.protobuf.Timestamp template_updated_date = 19;
+  string domain_id = 20;
+  DocumentParametersDto parameters = 21;
+  ClassificationDto classification = 22;
+}
+
+message ClassificationDto {
+  string business_segment = 1;
+  string category = 2;
+  string type = 3;
+  string kind = 4;
+}

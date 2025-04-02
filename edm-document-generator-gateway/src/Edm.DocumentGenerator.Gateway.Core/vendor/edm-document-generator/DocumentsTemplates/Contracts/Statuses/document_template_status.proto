@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+enum DocumentTemplateStatusDto {
+  DocumentTemplateStatusDto_None = 0;
+  DocumentTemplateStatusDto_Draft = 1;
+  DocumentTemplateStatusDto_ReadyForApprovalGraphCreation = 2;
+  DocumentTemplateStatusDto_ReadyForDocumentCreation = 3;
+}

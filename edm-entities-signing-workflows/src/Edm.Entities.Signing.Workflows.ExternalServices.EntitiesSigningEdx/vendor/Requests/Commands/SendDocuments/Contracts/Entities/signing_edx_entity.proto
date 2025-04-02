@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+
+message SigningEdxEntityDto {
+  string id = 1;
+  string domain_id = 2;
+  string name = 3;
+  string number = 4;
+  google.protobuf.Timestamp date = 5;
+}

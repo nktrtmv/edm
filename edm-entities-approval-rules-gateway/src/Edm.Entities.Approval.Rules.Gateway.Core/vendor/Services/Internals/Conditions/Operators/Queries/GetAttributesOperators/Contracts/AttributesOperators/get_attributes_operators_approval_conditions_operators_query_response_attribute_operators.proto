@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Contracts/EntitiesTypes/Attributes/entity_type_attribute.proto";
+import "vendor/Services/Internals/Contracts/Entities/Conditions/Operators/entity_condition_operator.proto";
+
+message GetAttributesOperatorsApprovalConditionsOperatorsQueryResponseAttributeOperators {
+  EntityTypeAttributeDto attribute = 1;
+  repeated EntityConditionOperatorDto operators = 2;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Contracts/Rules/Keys/approval_rule_key.proto";
+import "Grpc/Services/Internals/Rules/Commands/Update/Contracts/Actions/update_approval_rules_command_action.proto";
+import "Grpc/Services/Internals/Rules/Commands/Update/Contracts/Rules/update_approval_rules_command_response_failed_during_update_approval_rule.proto";
+
+import "google/protobuf/wrappers.proto";
+
+message UpdateApprovalRulesCommand {
+  repeated ApprovalRuleKeyDto keys = 1;
+  UpdateApprovalRulesCommandAction action = 2;
+  bool is_dry_run = 3;
+  bool is_activation_required = 4;
+  google.protobuf.StringValue comment = 5;
+  string current_user_id = 6;
+}
+
+message UpdateApprovalRulesCommandResponse {
+  repeated UpdateApprovalRulesCommandResponseFailedDuringUpdateApprovalRule failed_during_update_approval_rules = 1;
+}

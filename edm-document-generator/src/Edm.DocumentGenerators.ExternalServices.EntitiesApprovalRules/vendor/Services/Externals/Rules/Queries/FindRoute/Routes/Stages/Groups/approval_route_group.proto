@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+import "vendor/Services/Externals/Rules/Queries/FindRoute/Routes/Stages/Groups/Inheritors/Chief/chief_approval_route_group.proto";
+import "vendor/Services/Externals/Rules/Queries/FindRoute/Routes/Stages/Groups/Inheritors/Domestic/domestic_approval_route_group.proto";
+import "vendor/Services/Externals/Rules/Queries/FindRoute/Routes/Stages/Groups/Inheritors/Foreign/foreign_approval_route_group.proto";
+
+message ApprovalRouteGroupDto {
+  string name = 1;
+  oneof group {
+    ChiefApprovalRouteGroupDto as_chief = 3;
+    DomesticApprovalRouteGroupDto as_domestic = 4;
+    ForeignApprovalRouteGroupDto as_foreign = 5;
+  }
+}

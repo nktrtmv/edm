@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "Kafka/Results/WorkflowCompleted/workflow_completed_entities_signing_workflow_result.proto";
+
+message EntitiesSigningWorkflowsResultsKey {
+  string key = 1;
+}
+
+message EntitiesSigningWorkflowsResultsValue {
+  string domain_id = 2;
+  oneof result {
+    WorkflowCompletedEntitiesSigningWorkflowResult workflow_completed = 3;
+  }
+}

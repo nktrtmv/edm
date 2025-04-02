@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Contracts/Entities/Conditions/entity_condition.proto";
+
+message DomesticApprovalGroupParticipantDto {
+  DomesticApprovalGroupParticipantSourceDto main_participant_source = 5;
+  repeated DomesticApprovalGroupParticipantSourceDto substitute_participants_sources = 6;
+  EntityConditionDto condition = 3;
+  bool is_substitution_disabled = 4;
+
+  string main_user_id = 1 [deprecated=true];
+  repeated string substitute_users_ids = 2 [deprecated=true];
+}
+
+message DomesticApprovalGroupParticipantSourceDto {
+  oneof value {
+    UserDomesticApprovalGroupParticipantSourceDto as_user = 1;
+    AttributeDomesticApprovalGroupParticipantSourceDto as_attribute = 2;
+  }
+}
+
+message UserDomesticApprovalGroupParticipantSourceDto {
+  string user_id = 1;
+}
+
+message AttributeDomesticApprovalGroupParticipantSourceDto {
+  int32 attribute_id = 1;
+}
+
+

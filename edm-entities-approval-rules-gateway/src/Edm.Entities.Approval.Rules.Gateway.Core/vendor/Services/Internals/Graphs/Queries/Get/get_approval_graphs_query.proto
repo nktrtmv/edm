@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Contracts/Rules/Keys/approval_rule_key.proto";
+
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/approval_graph.proto";
+import "vendor/Contracts/EntitiesTypes/Attributes/entity_type_attribute.proto";
+import "vendor/Services/Internals/Graphs/Queries/Get/Contracts/Groups/get_approval_graphs_query_response_group.proto";
+
+message GetApprovalGraphsQuery {
+  ApprovalRuleKeyDto approval_rule_key = 1;
+  string graph_id = 2;
+}
+
+message GetApprovalGraphsQueryResponse {
+  ApprovalGraphDto graph = 1;
+  repeated EntityTypeAttributeDto attributes = 2;
+  repeated GetApprovalGraphsQueryResponseGroup groups = 3;
+  string concurrency_token = 4;
+}

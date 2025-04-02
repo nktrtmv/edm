@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/Contracts/Statuses/document_status.proto";
+import "vendor/Contracts/StatusesTransitions/Types/document_status_transition_type.proto";
+import "vendor/Contracts/StatusesTransitions/Parameters/document_status_transition_parameter.proto";
+import "vendor/Contracts/Permissions/document_permission.proto";
+
+message DocumentStatusTransitionDetailedDto {
+  DocumentStatusDto status = 1;
+  DocumentStatusTransitionTypeDto type = 5;
+  repeated DocumentStatusTransitionParameterDto parameters = 4;
+  repeated DocumentPermissionDto permissions = 3;
+  string display_name = 2;
+}

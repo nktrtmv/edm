@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+enum DocumentStatusTransitionParameterKindDto {
+  DocumentStatusTransitionParameterKindDto_None = 0;
+  DocumentStatusTransitionParameterKindDto_Comment = 1;
+  DocumentStatusTransitionParameterKindDto_CommentWithAttachments = 2;
+}

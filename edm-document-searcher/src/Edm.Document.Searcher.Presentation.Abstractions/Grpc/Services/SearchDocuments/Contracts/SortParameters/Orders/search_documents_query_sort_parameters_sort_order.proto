@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+enum SearchDocumentsQuerySortParametersSortOrder {
+  SearchDocumentsQuerySortParametersSortOrder_None = 0;
+  SearchDocumentsQuerySortParametersSortOrder_Ascending = 1;
+  SearchDocumentsQuerySortParametersSortOrder_Descending = 2;
+}

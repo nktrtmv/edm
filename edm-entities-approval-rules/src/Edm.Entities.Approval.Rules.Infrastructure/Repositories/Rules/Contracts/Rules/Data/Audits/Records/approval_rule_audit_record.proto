@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "google/protobuf/timestamp.proto";
+
+message ApprovalRuleAuditRecordDb {
+  string updated_by = 1;
+  google.protobuf.Timestamp updated_at = 2;
+  oneof record {
+    ApprovalRuleActivatedRecordDb activated = 3;
+    ApprovalRuleDeactivatedRecordDb deactivated = 4;
+  }
+}
+
+message ApprovalRuleActivatedRecordDb {
+  string comment = 1;
+}
+
+message ApprovalRuleDeactivatedRecordDb {
+  string comment = 2;
+}

@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+message GetDocumentCategoriesQuery {
+}
+
+message GetDocumentCategoriesQueryResponse {
+  repeated GetDocumentCategoriesQueryResponseDocumentCategory document_categories = 1;
+}
+
+message GetDocumentCategoriesQueryResponseDocumentCategory {
+  string id = 1;
+  string name = 2;
+  string description = 3;
+  string system_name = 4;
+}

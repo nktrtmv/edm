@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Workflows.GenericSubdomain\Edm.Entities.Approval.Workflows.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Edm.Entities.Approval.Workflows.Tests.Common"/>
+  </ItemGroup>
+
+</Project>

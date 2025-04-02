@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "google/protobuf/wrappers.proto";
+
+message GetAllApprovalGroupsQueryParamsDto {
+  google.protobuf.StringValue search = 1;
+  int32 skip = 2;
+  int32 limit = 3;
+  repeated google.protobuf.StringValue participant_ids = 4;
+}

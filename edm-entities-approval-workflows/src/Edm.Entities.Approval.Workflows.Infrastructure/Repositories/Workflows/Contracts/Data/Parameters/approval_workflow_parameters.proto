@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-infrastructure";
+
+package Edm.Entities.Approval.Workflows.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Infrastructure";
+
+import "Repositories/Workflows/Contracts/Data/Parameters/Entities/approval_workflow_entity.proto";
+import "Repositories/Workflows/Contracts/Data/Parameters/Info/approval_workflow_info.proto";
+import "Repositories/Workflows/Contracts/Data/Parameters/Options/approval_workflow_options.proto";
+import "Repositories/Workflows/Contracts/Data/Parameters/ApprovalRulesKeys/approval_rule_key.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message ApprovalWorkflowParametersDb {
+  WorkflowEntityDb entity = 1;
+  ApprovalWorkflowInfoDb info = 2;
+  ApprovalWorkflowOptionsDb options = 3;
+  optional ApprovalRuleKeyDb approval_rule_key = 4;
+  optional google.protobuf.Timestamp route_updated_date = 5;
+}

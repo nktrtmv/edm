@@ -1,0 +1,48 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/wrappers.proto";
+
+message GetDocumentsQueryResponseSearchDocumentAttributeValue {
+  int32 registry_role_id = 1;
+  oneof value {
+    GetDocumentsQueryResponseSearchDocumentBooleanAttributeValue as_boolean = 2;
+    GetDocumentsQueryResponseSearchDocumentDateAttributeValue as_date = 3;
+    GetDocumentsQueryResponseSearchDocumentNumberAttributeValue as_number = 4;
+    GetDocumentsQueryResponseSearchDocumentReferenceAttributeValue as_reference = 5;
+    GetDocumentsQueryResponseSearchDocumentStringAttributeValue as_string = 6;
+  }
+}
+
+message GetDocumentsQueryResponseSearchDocumentBooleanAttributeValue {
+  repeated bool values = 1;
+}
+
+message GetDocumentsQueryResponseSearchDocumentDateAttributeValue {
+  repeated google.protobuf.Timestamp values = 1;
+}
+
+message GetDocumentsQueryResponseSearchDocumentNumberAttributeValue {
+  repeated int64 values = 1;
+}
+
+message GetDocumentsQueryResponseSearchDocumentReferenceAttributeValue {
+  repeated string values = 1;
+  google.protobuf.StringValue reference_type = 2;
+  repeated GetDocumentsQueryResponseSearchDocumentParentReferenceAttributeValue parent_values = 3;
+}
+
+message GetDocumentsQueryResponseSearchDocumentParentReferenceAttributeValue {
+  repeated string values = 1;
+  google.protobuf.StringValue reference_type = 2;
+}
+
+message GetDocumentsQueryResponseSearchDocumentStringAttributeValue {
+  repeated string values = 1;
+}

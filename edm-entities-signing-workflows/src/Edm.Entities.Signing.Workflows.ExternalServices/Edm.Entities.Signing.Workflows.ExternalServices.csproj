@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <PackageReference Include="JetBrains.Annotations"/>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Signing.Workflows.GenericSubdomain\Edm.Entities.Signing.Workflows.GenericSubdomain.csproj"/>
+  </ItemGroup>
+
+</Project>

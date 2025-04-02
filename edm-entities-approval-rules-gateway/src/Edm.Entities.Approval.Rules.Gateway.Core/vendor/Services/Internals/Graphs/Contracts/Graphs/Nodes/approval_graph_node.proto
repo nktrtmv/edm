@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "vendor/Services/Internals/Graphs/Contracts/Graphs/Nodes/Inheritors/Stages/approval_graph_stage_node.proto";
+
+message ApprovalGraphNodeDto {
+  string id = 1;
+  oneof value {
+    ApprovalGraphEndNodeDto as_end = 2;
+    ApprovalGraphStageNodeDto as_stage = 3;
+    ApprovalGraphStartNodeDto as_start = 4;
+    ApprovalGraphTransitNodeDto as_transit = 5;
+  }
+}
+
+message ApprovalGraphEndNodeDto {}
+
+message ApprovalGraphStartNodeDto {}
+
+message ApprovalGraphTransitNodeDto {}

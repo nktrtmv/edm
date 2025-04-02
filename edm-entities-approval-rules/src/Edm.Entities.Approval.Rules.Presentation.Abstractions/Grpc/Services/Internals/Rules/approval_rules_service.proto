@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-internals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals";
+
+import "Grpc/Services/Internals/Rules/Commands/Activate/activate_approval_rules_command.proto";
+import "Grpc/Services/Internals/Rules/Commands/CreateNewVersion/create_new_version_approval_rules_command.proto";
+import "Grpc/Services/Internals/Rules/Commands/Deactivate/deactivate_approval_rules_command.proto";
+import "Grpc/Services/Internals/Rules/Commands/Update/update_approval_rules_command.proto";
+
+import "Grpc/Services/Internals/Rules/Queries/GetActivationAudit/get_activation_audit_approval_rules_query.proto";
+import "Grpc/Services/Internals/Rules/Queries/GetAll/get_all_approval_rules_query.proto";
+import "Grpc/Services/Internals/Rules/Queries/Get/get_approval_rule_query.proto";
+import "Grpc/Services/Internals/Rules/Queries/GetVersions/get_versions_approval_rules_query.proto";
+import "Grpc/Services/Internals/Rules/Queries/Search/search_approval_rules_query.proto";
+
+service ApprovalRulesService {
+  rpc Activate(ActivateApprovalRulesCommand) returns (ActivateApprovalRulesCommandResponse);
+  rpc CreateNewVersion(CreateNewVersionApprovalRulesCommand) returns (CreateNewVersionApprovalRulesCommandResponse);
+  rpc Deactivate(DeactivateApprovalRulesCommand) returns (DeactivateApprovalRulesCommandResponse);
+  rpc Update(UpdateApprovalRulesCommand) returns (UpdateApprovalRulesCommandResponse);
+  rpc GetActivationAudit(GetActivationAuditApprovalRulesQuery) returns (GetActivationAuditApprovalRulesQueryResponse);
+  rpc GetAll(GetAllApprovalRulesQuery) returns (GetAllApprovalRulesQueryResponse);
+  rpc Get(GetApprovalRuleQuery) returns (GetApprovalRuleQueryResponse);
+  rpc GetVersions(GetVersionsApprovalRulesQuery) returns (GetVersionsApprovalRulesQueryResponse);
+  rpc Search(SearchApprovalRulesQuery) returns (SearchApprovalRulesQueryResponse);
+}

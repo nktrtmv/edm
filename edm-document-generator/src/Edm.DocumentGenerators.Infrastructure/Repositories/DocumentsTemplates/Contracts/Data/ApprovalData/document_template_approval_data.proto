@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "google/protobuf/timestamp.proto";
+
+message DocumentTemplateApprovalDataDb {
+  int32 last_custom_attribute_approval_metadata_id = 1;
+  google.protobuf.Timestamp attributes_version = 2;
+}
+

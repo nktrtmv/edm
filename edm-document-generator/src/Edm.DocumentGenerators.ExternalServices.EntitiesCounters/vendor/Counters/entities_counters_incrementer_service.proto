@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "entities-counters-presentation-abstractions";
+
+package Edm.Entities.Counters.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Counters.Presentation.Abstractions";
+
+import "vendor/Counters/Contracts/Values/entity_counter_value.proto";
+import "google/protobuf/wrappers.proto";
+
+service EntitiesCountersIncrementerService {
+  rpc Increment(IncrementEntitiesCountersCommand) returns (IncrementEntitiesCountersCommandResponse);
+}
+
+message IncrementEntitiesCountersCommand {
+  repeated string entities_counters_ids = 1;
+  google.protobuf.StringValue entity_token = 2;
+}
+
+message IncrementEntitiesCountersCommandResponse {
+  repeated EntityCounterValueDto entities_counters_values = 1;
+}

@@ -1,0 +1,52 @@
+syntax = "proto3";
+
+option go_package = "document-searcher-presentation-abstractions";
+
+package Edm.Document.Searcher.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Searcher.Presentation.Abstractions";
+
+import "vendor/SearchDocuments/Contracts/Filters/search_documents_query_filter.proto";
+import "vendor/SearchDocuments/Contracts/SortParameters/search_documents_query_sort_parameters.proto";
+import "vendor/SearchDocuments/Queries/Get/Contracts/Documents/AttributesValues/get_documents_query_response_search_document_attribute_value.proto";
+
+service SearchDocumentsService {
+  rpc Get(GetDocumentsQuery) returns (stream GetDocumentsQueryResponseSearchDocument);
+  rpc Search(SearchDocumentsQuery) returns (SearchDocumentsQueryResponse);
+  rpc Delete(DeleteDocumentsCommand) returns (DeleteDocumentsCommandResponse);
+}
+
+message DeleteDocumentsCommand {
+  string domain_id = 1;
+  repeated string document_ids = 2;
+}
+
+message DeleteDocumentsCommandResponse {
+
+}
+message GetDocumentsQuery {
+  string domain_id = 1;
+  repeated SearchDocumentsQueryFilter filters = 2;
+  SearchDocumentsQuerySortParameters sort_parameters = 3;
+  int32 limit = 4;
+  int32 skip = 5;
+  repeated string documents_ids = 6;
+}
+
+message GetDocumentsQueryResponseSearchDocument {
+  string id = 1;
+  string template_id = 2;
+  repeated GetDocumentsQueryResponseSearchDocumentAttributeValue attributes_values = 3;
+}
+
+message SearchDocumentsQuery {
+  string domain_id = 1;
+  repeated SearchDocumentsQueryFilter filters = 2;
+  SearchDocumentsQuerySortParameters sort_parameters = 3;
+  int32 limit = 4;
+  int32 skip = 5;
+}
+
+message SearchDocumentsQueryResponse {
+  repeated string documents_ids = 1;
+}

@@ -1,0 +1,3 @@
+namespace Edm.DocumentGenerators.Domain.Entities.Documents.ValueObjects.ApplicationEvents.Inheritors.EntitiesSigningWorkflows.Requests;
+
+public abstract record EntitiesSigningWorkflowsRequestDocumentApplicationEvent : DocumentApplicationEvent;

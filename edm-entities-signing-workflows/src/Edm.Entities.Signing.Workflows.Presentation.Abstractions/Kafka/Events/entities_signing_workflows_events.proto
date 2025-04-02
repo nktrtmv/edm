@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+import "Kafka/Events/SelfSigned/self_signed_entities_signing_workflow_event.proto";
+
+message EntitiesSigningWorkflowsEventsKey {
+  string key = 1;
+}
+
+message EntitiesSigningWorkflowsEventsValue {
+  string domain_id = 1;
+  string entity_id = 2;
+  string signing_id = 3;
+  oneof event {
+    SelfSignedEntitiesSigningWorkflowEvent self_signed = 4;
+    ContractorSignedEntitiesSigningWorkflowEvent contractor_signed = 6;
+  }
+}
+
+message ContractorSignedEntitiesSigningWorkflowEvent { }

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+service EntitiesApprovalWorkflowsService {
+  rpc DeleteWorkflowsByEntitiesIds(DeleteWorkflowsByEntitiesIdsCommand) returns (DeleteWorkflowsByEntitiesIdsCommandResponse);
+}
+
+message DeleteWorkflowsByEntitiesIdsCommand {
+  string domain_id = 1;
+  repeated string entities_ids = 2;
+}
+
+message DeleteWorkflowsByEntitiesIdsCommandResponse {
+}

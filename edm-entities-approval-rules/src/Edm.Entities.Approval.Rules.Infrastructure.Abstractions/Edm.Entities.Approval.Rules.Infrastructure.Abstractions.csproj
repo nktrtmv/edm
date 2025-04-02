@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Edm.Entities.Approval.Rules.Domain\Edm.Entities.Approval.Rules.Domain.csproj"/>
+  </ItemGroup>
+</Project>

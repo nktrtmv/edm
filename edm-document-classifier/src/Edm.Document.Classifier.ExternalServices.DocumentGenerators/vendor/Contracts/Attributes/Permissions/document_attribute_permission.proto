@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+import "vendor/Contracts/Permissions/document_permission.proto";
+
+message DocumentAttributePermissionDto {
+  string status_id = 1;
+  repeated DocumentPermissionDto permissions = 2;
+}
+

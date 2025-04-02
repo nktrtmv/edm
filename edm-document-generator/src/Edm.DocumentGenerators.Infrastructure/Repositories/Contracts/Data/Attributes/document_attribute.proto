@@ -1,0 +1,64 @@
+syntax = "proto3";
+
+option go_package = "document-generators-infrastructure-repositories-contracts";
+
+package Edm.DocumentGenerators.Infrastructure.Repositories.Contracts;
+
+option csharp_namespace = "Edm.DocumentGenerators.Infrastructure.Repositories.Contracts";
+
+import "Repositories/Contracts/Data/Attributes/Abstractions/Data/document_attribute_data.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message DocumentAttributeDb {
+  DocumentAttributeDataDb data = 8;
+  oneof value {
+    DocumentAttachmentAttributeDb as_attachment = 1;
+    DocumentBooleanAttributeDb as_boolean = 2;
+    DocumentDateAttributeDb as_date = 3;
+    DocumentNumberAttributeDb as_number = 4;
+    DocumentReferenceAttributeDb as_reference = 5;
+    DocumentStringAttributeDb as_string = 6;
+    DocumentTupleAttributeDb as_tuple = 7;
+  }
+}
+
+message DocumentAttachmentAttributeDb {
+  reserved 1;
+  repeated string default_values = 2;
+}
+
+message DocumentBooleanAttributeDb {
+  reserved 1;
+  repeated bool default_values = 2;
+}
+
+message DocumentDateAttributeDb {
+  reserved 1;
+  repeated google.protobuf.Timestamp default_values = 2;
+}
+
+message DocumentNumberAttributeDb {
+  reserved 1;
+  int32 precision = 2;
+  repeated int64 default_values = 3;
+}
+
+message DocumentReferenceAttributeDb {
+  reserved 1, 3;
+  string reference_type = 2;
+  repeated string default_values = 4;
+}
+
+message DocumentStringAttributeDb {
+  reserved 1;
+  repeated string default_values = 2;
+}
+
+message DocumentTupleAttributeDb {
+  reserved 1;
+  repeated DocumentAttributeDb inner_attributes = 2;
+}
+
+
+

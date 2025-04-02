@@ -1,0 +1,39 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-workflows-presentation-abstractions";
+
+package Edm.Entities.Approval.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Approval.Workflows.Presentation.Abstractions";
+
+import "vendor/Details/Queries/GetWorkflows/Stages/Groups/entities_approval_workflow_group.proto";
+
+import "google/protobuf/timestamp.proto";
+
+message EntitiesApprovalWorkflowStageDto {
+  string id = 1;
+  EntitiesApprovalWorkflowStageTypeDto type = 2;
+  repeated EntitiesApprovalWorkflowGroupDto groups = 3;
+  EntitiesApprovalWorkflowStageStatusDto status = 4;
+  optional google.protobuf.Timestamp started_date = 5;
+  string name = 6;
+}
+
+enum EntitiesApprovalWorkflowStageStatusDto
+{
+  EntitiesApprovalWorkflowStageStatusDto_None = 0;
+  EntitiesApprovalWorkflowStageStatusDto_NotStarted = 1;
+  EntitiesApprovalWorkflowStageStatusDto_InProgress = 2;
+  EntitiesApprovalWorkflowStageStatusDto_Approved = 3;
+  EntitiesApprovalWorkflowStageStatusDto_Rejected = 4;
+  EntitiesApprovalWorkflowStageStatusDto_ApprovedWithRemark = 5;
+  EntitiesApprovalWorkflowStageStatusDto_ReturnedToRework = 6;
+}
+
+enum EntitiesApprovalWorkflowStageTypeDto
+{
+  EntitiesApprovalWorkflowStageTypeDto_None = 0;
+  EntitiesApprovalWorkflowStageTypeDto_ParallelAny = 1;
+  EntitiesApprovalWorkflowStageTypeDto_ParallelAll = 2;
+  EntitiesApprovalWorkflowStageTypeDto_Sequential = 3;
+}

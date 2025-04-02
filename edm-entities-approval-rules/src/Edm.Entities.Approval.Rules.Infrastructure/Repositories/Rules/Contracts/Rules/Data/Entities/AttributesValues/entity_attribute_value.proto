@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "google/protobuf/timestamp.proto";
+
+message EntityAttributeValueDb {
+  int32 id = 1;
+  oneof value {
+    // TODO: OBSOLETE START - MAKE SURE ALL MIGRATIONS ARE DONE - Int value as long. Value as arrays.
+    ObsoleteEntityBoolAttributeValueDb as_bool_obsolete = 2;
+    ObsoleteEntityDateAttributeValueDb as_date_obsolete = 3;
+    ObsoleteEntityIntAttributeValueDb as_int_obsolete = 4;
+    ObsoleteEntityReferenceAttributeValueDb as_reference_obsolete = 5;
+    ObsoleteEntityStringAttributeValueDb as_string_obsolete = 6;
+    // TODO: OBSOLETE END
+
+    EntityBooleanAttributeValueDb as_boolean = 7;
+    EntityDateAttributeValueDb as_date = 8;
+    EntityNumberAttributeValueDb as_number = 9;
+    EntityReferenceAttributeValueDb as_reference = 10;
+    EntityStringAttributeValueDb as_string = 11;
+  }
+}
+
+// TODO: OBSOLETE START - MAKE SURE ALL MIGRATIONS ARE DONE - Int value as long. Value as arrays.
+
+message ObsoleteEntityBoolAttributeValueDb {
+  bool value = 1;
+}
+
+message ObsoleteEntityDateAttributeValueDb {
+  google.protobuf.Timestamp value = 1;
+}
+
+message ObsoleteEntityIntAttributeValueDb {
+  int32 value = 1;
+}
+
+message ObsoleteEntityReferenceAttributeValueDb {
+  string value = 1;
+}
+
+message ObsoleteEntityStringAttributeValueDb {
+  string value = 1;
+}
+
+// TODO: OBSOLETE END
+
+message EntityBooleanAttributeValueDb {
+  repeated bool value = 1;
+}
+
+message EntityDateAttributeValueDb {
+  repeated google.protobuf.Timestamp value = 1;
+}
+
+message EntityNumberAttributeValueDb {
+  repeated int64 value = 1;
+}
+
+message EntityReferenceAttributeValueDb {
+  repeated string value = 1;
+}
+
+message EntityStringAttributeValueDb {
+  repeated string value = 1;
+}

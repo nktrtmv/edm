@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "document-generators-presentation-abstractions";
+
+package Edm.DocumentGenerators.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.DocumentGenerators.Presentation.Abstractions";
+
+message ConditionResultDto {
+  string condition_id = 1;
+  repeated string failed_document_attribute_ids = 2;
+  repeated string should_be_empty_attribute_ids = 3;
+}
+
+

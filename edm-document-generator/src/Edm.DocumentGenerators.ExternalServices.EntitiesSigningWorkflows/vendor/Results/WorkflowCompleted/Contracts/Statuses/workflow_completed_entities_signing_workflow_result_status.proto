@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+enum WorkflowCompletedEntitiesSigningWorkflowResultStatus {
+  WorkflowCompletedEntitiesSigningWorkflowResultStatus_None = 0;
+  WorkflowCompletedEntitiesSigningWorkflowResultStatus_Signed = 1;
+  WorkflowCompletedEntitiesSigningWorkflowResultStatus_Cancelled = 2;
+  WorkflowCompletedEntitiesSigningWorkflowResultStatus_ReturnedToRework = 3;
+  WorkflowCompletedEntitiesSigningWorkflowResultStatus_Withdrawn = 4;
+}

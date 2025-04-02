@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package = "edm-document-classifier-presentation-abstractions";
+
+package Edm.Document.Classifier.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Document.Classifier.Presentation.Abstractions";
+
+import "Grpc/Services/DocumentReferences/Queries/GetTypes/Contracts/Types/document_reference_type.proto";
+
+message GetTypesDocumentReferencesQuery {
+}
+
+message GetTypesDocumentReferencesQueryResponse {
+  repeated DocumentReferenceTypeDto types = 1;
+}

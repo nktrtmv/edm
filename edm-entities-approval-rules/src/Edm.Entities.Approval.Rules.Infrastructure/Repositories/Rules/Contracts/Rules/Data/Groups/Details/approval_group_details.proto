@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-infrastructure";
+
+package Edm.Entities.Approval.Rules.Infrastructure;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Infrastructure";
+
+import "Repositories/Rules/Contracts/Rules/Data/Groups/Details/Inheritors/Domestic/domestic_approval_group_details.proto";
+
+message ApprovalGroupDetailsDb {
+  oneof details {
+    DomesticApprovalGroupDetailsDb as_domestic = 1;
+  }
+}

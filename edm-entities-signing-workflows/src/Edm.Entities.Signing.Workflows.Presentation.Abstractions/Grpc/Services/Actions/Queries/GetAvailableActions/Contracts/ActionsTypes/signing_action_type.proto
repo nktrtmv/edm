@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-workflows-presentation-abstractions";
+
+package Edm.Entities.Signing.Workflows.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Workflows.Presentation.Abstractions";
+
+enum SigningActionTypeDto {
+  SigningActionTypeDto_None = 0;
+  SigningActionTypeDto_Cancel = 1;
+  SigningActionTypeDto_PutIntoEffect = 2;
+  SigningActionTypeDto_ReturnToRework = 3;
+  SigningActionTypeDto_SendToContractor = 4;
+  SigningActionTypeDto_Sign = 5;
+  SigningActionTypeDto_WithdrawByContractor = 6;
+  SigningActionTypeDto_WithdrawBySelf = 7;
+}

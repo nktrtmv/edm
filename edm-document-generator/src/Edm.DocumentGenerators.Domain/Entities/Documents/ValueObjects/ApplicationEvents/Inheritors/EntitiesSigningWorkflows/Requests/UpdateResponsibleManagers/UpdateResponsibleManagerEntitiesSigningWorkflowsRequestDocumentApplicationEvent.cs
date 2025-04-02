@@ -1,0 +1,7 @@
+using Edm.DocumentGenerators.Domain.Markers;
+using Edm.DocumentGenerators.GenericSubdomain;
+
+namespace Edm.DocumentGenerators.Domain.Entities.Documents.ValueObjects.ApplicationEvents.Inheritors.EntitiesSigningWorkflows.Requests.UpdateResponsibleManagers;
+
+public sealed record UpdateResponsibleManagerEntitiesSigningWorkflowsRequestDocumentApplicationEvent(Id<User> ResponsibleManagerId)
+    : EntitiesSigningWorkflowsRequestDocumentApplicationEvent;

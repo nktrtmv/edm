@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-signing-edx-presentation-abstractions";
+
+package Edm.Entities.Signing.Edx.Presentation.Abstractions;
+
+option csharp_namespace = "Edm.Entities.Signing.Edx.Presentation.Abstractions";
+
+import "vendor/Requests/Commands/SendDocuments/Contracts/Entities/signing_edx_entity.proto";
+import "vendor/Requests/Commands/SendDocuments/Contracts/Parties/signing_edx_parties.proto";
+import "vendor/Requests/Commands/SendDocuments/Contracts/DocumentsToSend/signing_edx_document_to_send.proto";
+import "vendor/Requests/Commands/SendDocuments/Contracts/SigningContexts/signing_edx_context.proto";
+
+message SendDocumentsSigningEdxCommandDto {
+  string signing_id = 1;
+  SigningEdxEntityDto entity = 2;
+  SigningEdxPartiesDto parties = 3;
+  repeated SigningEdxDocumentToSendDto documents = 4;
+  SigningEdxContextDto signing_context = 5;
+}

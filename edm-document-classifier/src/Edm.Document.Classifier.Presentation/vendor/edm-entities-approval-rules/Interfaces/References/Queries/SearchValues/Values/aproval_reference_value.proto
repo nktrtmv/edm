@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "edm-entities-approval-rules-presentation-abstractions-externals";
+
+package Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals;
+
+option csharp_namespace = "Edm.Entities.Approval.Rules.Presentation.Abstractions.Externals";
+
+message ApprovalReferenceValueDto {
+  string id = 1;
+  string display_value = 2;
+  string display_sub_value = 3;
+}
