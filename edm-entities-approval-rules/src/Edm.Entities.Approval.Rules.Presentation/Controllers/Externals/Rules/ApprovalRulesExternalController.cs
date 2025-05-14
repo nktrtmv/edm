@@ -78,7 +78,7 @@ internal sealed class ApprovalRulesExternalController(IMediator mediator, ILogge
 
                 string resultJson = JsonSerializer.Serialize(result);
 
-                logger.LogInformation("ROUTE RESULT: 🔎🔎🔎🔎🔎\n{Route:l}", resultJson);
+                logger.LogInformation("ROUTE RESULT: 🔎🔎🔎🔎🔎\n{Route}", resultJson);
                 logger.LogInformation("ROUTE RESULT-8: 🔎🔎🔎🔎🔎\n{@Route}", result);
                 logger.LogInformation("ROUTE RESULT-STAGES: 🔎🔎🔎🔎🔎\n{@Route}", result.Route.Stages);
 

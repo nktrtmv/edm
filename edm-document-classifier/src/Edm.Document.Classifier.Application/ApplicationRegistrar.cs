@@ -50,6 +50,7 @@ public static class ApplicationRegistrar
         AddTransientReference<ApprovalBusinessUnitDocumentReferenceService>(services);
 
         services.AddSingleton<IReferenceServicesProvider, ReferenceServicesProvider>();
+        services.AddSingleton<ReferencesWarmUpService>();
     }
 
     private static void AddSingletonReference<T>(IServiceCollection services) where T : DocumentReferenceService

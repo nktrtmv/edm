@@ -1,5 +1,3 @@
-using Edm.DocumentGenerators.Presentation.Abstractions;
-
 using Edm.DocumentGenerator.Gateway.Core.Contracts.Attributes;
 using Edm.DocumentGenerator.Gateway.Core.Documents.Queries.Contracts.AttributesValues.Inheritors.Attachments;
 using Edm.DocumentGenerator.Gateway.Core.Documents.Queries.Contracts.AttributesValues.Inheritors.Booleans;
@@ -12,6 +10,7 @@ using Edm.DocumentGenerator.Gateway.Core.Documents.Queries.Contracts.AttributesV
 using Edm.DocumentGenerator.Gateway.Core.Documents.Queries.Services.Enrichment;
 using Edm.DocumentGenerator.Gateway.Core.References.Values.Contracts;
 using Edm.DocumentGenerator.Gateway.GenericSubdomain.Exceptions.Arguments;
+using Edm.DocumentGenerators.Presentation.Abstractions;
 
 namespace Edm.DocumentGenerator.Gateway.Core.Documents.Queries.Contracts.AttributesValues;
 
@@ -49,8 +48,6 @@ internal static class DocumentAttributeValueDetailedBffConverter
 
             _ => throw new ArgumentTypeOutOfRangeException(attributeValue.ValueCase)
         };
-
-        // result.Attribute.Permissions = [];
 
         return result;
     }

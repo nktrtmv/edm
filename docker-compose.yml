@@ -13,10 +13,11 @@ services:
     depends_on:
       - zookeeper
     environment:
-      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://127.0.0.1:9092
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
-      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://127.0.0.1:9092
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
       KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
       KAFKA_CREATE_TOPICS: >-
         edm_document_notifier_request:1:1,
@@ -32,6 +33,22 @@ services:
       - "9092:9092"
     expose:
       - 9093
+    healthcheck:
+      test: [ "CMD", "kafka-topics.sh", "--bootstrap-server", "localhost:9093", "--list" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  kafka-ui:
+    container_name: kafka-ui
+    image: provectuslabs/kafka-ui:latest
+    ports:
+      - 1010:1010
+    volumes:
+      - ./kui/kafka_ui_config.yml:/application.yml
+    depends_on:
+      kafka:
+        condition: service_healthy
   
   edm-document-classifier:
     container_name: edm-document-classifier
@@ -54,7 +71,9 @@ services:
       - "7001:5432"
 
   edm-document-classifier-postgres-migrator:
-    image: migrator
+    container_name: edm-document-classifier-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-document-classifier/src/Edm.Document.Classifier.Infrastructure/Migrations/:/migrations/
     command: >
@@ -73,13 +92,20 @@ services:
     ports:
       - 5004:5004
     depends_on:
-      - edm-document-classifier
-      - edm-entities-signing-workflows
-      - edm-entities-approval-workflows
-      - edm-document-generator-postgres
-      - edm-entities-counters
-      - edm-entities-approval-rules
-      - kafka
+      edm-document-classifier:
+        condition: service_started
+      edm-entities-signing-workflows:
+        condition: service_started
+      edm-entities-approval-workflows:
+        condition: service_started
+      edm-document-generator-postgres:
+        condition: service_started
+      edm-entities-counters:
+        condition: service_started
+      edm-entities-approval-rules:
+        condition: service_started
+      kafka:
+        condition: service_healthy
 
   edm-document-generator-postgres:
     container_name: edm-document-generator-postgres
@@ -92,7 +118,9 @@ services:
       - "7004:5432"
 
   edm-document-generator-postgres-migrator:
-    image: migrator
+    container_name: edm-document-generator-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-document-generator/src/Edm.DocumentGenerators.Infrastructure/Migrations/:/migrations/
     command: >
@@ -102,7 +130,7 @@ services:
       "
     depends_on:
       - edm-document-generator-postgres
-        
+
   edm-document-searcher:
     container_name: edm-document-searcher
     build:
@@ -111,8 +139,10 @@ services:
     ports:
       - 5003:5003
     depends_on:
-      - edm-document-searcher-postgres
-      - kafka
+      edm-document-searcher-postgres:
+        condition: service_started
+      kafka:
+        condition: service_healthy
 
   edm-document-searcher-postgres:
     container_name: edm-document-searcher-postgres
@@ -125,7 +155,9 @@ services:
       - "7003:5432"
 
   edm-document-searcher-postgres-migrator:
-    image: migrator
+    container_name: edm-document-searcher-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-document-searcher/src/Edm.Document.Searcher.Infrastructure/Migrations/:/migrations/
     command: >
@@ -158,7 +190,9 @@ services:
       - "7006:5432"
 
   edm-entities-approval-rules-postgres-migrator:
-    image: migrator
+    container_name: edm-entities-approval-rules-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-entities-approval-rules/src/Edm.Entities.Approval.Rules.Infrastructure/Migrations/:/migrations/
     command: >
@@ -177,8 +211,10 @@ services:
     ports:
       - 5007:5007
     depends_on:
-      - edm-entities-approval-workflows-postgres
-      - kafka
+      edm-entities-approval-workflows-postgres:
+        condition: service_started
+      kafka:
+        condition: service_healthy
 
   edm-entities-approval-workflows-postgres:
     container_name: edm-entities-approval-workflows-postgres
@@ -191,7 +227,9 @@ services:
       - "7007:5432"
 
   edm-entities-approval-workflows-postgres-migrator:
-    image: migrator
+    container_name: edm-entities-approval-workflows-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-entities-approval-workflows/src/Edm.Entities.Approval.Workflows.Infrastructure/Migrations/:/migrations/
     command: >
@@ -223,7 +261,9 @@ services:
       - "7005:5432"
 
   edm-entities-counters-postgres-migrator:
-    image: migrator
+    container_name: edm-entities-counters-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-entities-counters/src/Edm.Entities.Counters.Infrastructure/Migrations/:/migrations/
     command: >
@@ -242,8 +282,10 @@ services:
     ports:
       - 5008:5008
     depends_on:
-      - edm-entities-signing-workflows-postgres
-      - kafka
+      edm-entities-signing-workflows-postgres:
+        condition: service_started
+      kafka:
+        condition: service_healthy
 
   edm-entities-signing-workflows-postgres:
     container_name: edm-entities-signing-workflows-postgres
@@ -256,7 +298,9 @@ services:
       - "7008:5432"
 
   edm-entities-signing-workflows-postgres-migrator:
-    image: migrator
+    container_name: edm-entities-signing-workflows-postgres-migrator
+    build:
+      dockerfile: Dockerfile
     volumes:
       - ./edm-entities-signing-workflows/src/Edm.Entities.Signing.Workflows.Infrastructure/Migrations/:/migrations/
     command: >

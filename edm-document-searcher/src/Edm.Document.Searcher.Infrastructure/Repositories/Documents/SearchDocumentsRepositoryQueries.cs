@@ -97,7 +97,6 @@ internal static class DocumentRepositoryQueries
                  d.template_id,
                  d.domain_id,
                  d.attributes_values,
-                 d.data,
                  d.concurrency_token
              FROM all_search_documents d
              WHERE @domain_id = d.domain_id
@@ -141,7 +140,6 @@ internal static class DocumentRepositoryQueries
                 d.template_id,
                 d.domain_id,
                 d.attributes_values,
-                d.data,
                 d.concurrency_token
             FROM all_search_documents d
             WHERE d.domain_id = @domain_id AND d.id = @id

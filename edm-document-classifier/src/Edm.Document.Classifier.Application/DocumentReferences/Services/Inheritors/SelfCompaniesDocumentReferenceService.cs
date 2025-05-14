@@ -22,7 +22,7 @@ internal sealed class SelfCompaniesDocumentReferenceService(IContractorsClient c
         DocumentReferenceTypeId.SelfCompanies,
         DocumentReferenceSearchKind.Search,
         DocumentReferenceKind.None,
-        "Юр. лица Озон");
+        "Юр. лица компании");
 
     public override async Task<DocumentReferenceValue[]> Search(DocumentReferenceSearchParamsInternal searchParams, CancellationToken cancellationToken)
     {

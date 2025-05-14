@@ -15,6 +15,8 @@ internal static class IsDocumentPaperSigningTypeDetector
 
     internal static bool Detect(DocumentAttributesValuesFetcher fetcher)
     {
+        return true;
+
         var selector = new DocumentReferenceAttributeValueSelector(
             DocumentAttributeDocumentRole.SigningType,
             DocumentAttributeReferenceTypes.ContractSigningTypes,

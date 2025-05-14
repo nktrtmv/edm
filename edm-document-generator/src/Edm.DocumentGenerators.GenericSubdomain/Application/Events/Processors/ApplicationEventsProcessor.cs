@@ -16,7 +16,7 @@ public sealed class ApplicationEventsProcessor<T>(IEnumerable<IApplicationEventP
     {
         try
         {
-            Logger.LogDebug($"PROCESS APPLICATION EVENTS ({applicationEvents.Count}) START 🔵 Host: {host:l}");
+            Logger.LogDebug($"PROCESS APPLICATION EVENTS ({applicationEvents.Count}) START 🔵 Host: {host}");
 
             foreach (TApplicationEvent? applicationEvent in applicationEvents)
             {
@@ -25,7 +25,7 @@ public sealed class ApplicationEventsProcessor<T>(IEnumerable<IApplicationEventP
                 await Process(context, cancellationToken);
             }
 
-            Logger.LogDebug($"PROCESS APPLICATION EVENTS ({applicationEvents.Count}) END Host: {host:l}");
+            Logger.LogDebug($"PROCESS APPLICATION EVENTS ({applicationEvents.Count}) END Host: {host}");
 
             return (true, null);
         }

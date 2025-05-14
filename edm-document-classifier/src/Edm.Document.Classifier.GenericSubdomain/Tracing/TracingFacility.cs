@@ -15,17 +15,17 @@ public static class TracingFacility
     {
         try
         {
-            logger.Log(logLevel, "GRPC START: ⚪️ {Name:l}\n{@Request}", name, request);
+            logger.Log(logLevel, "GRPC START: ⚪️ {Name}\n{@Request}", name, request);
 
             var response = await func();
 
-            logger.Log(logLevel, "GRPC END: {Name:l}\n{@Response}", name, response);
+            logger.Log(logLevel, "GRPC END: {Name}\n{@Response}", name, response);
 
             return response;
         }
         catch (Exception e)
         {
-            logger.LogError(e, "GRPC EXCEPTION: ❌ {Message:l} in {Name:l}\n{@Request}", e.Message, name, request);
+            logger.LogError(e, "GRPC EXCEPTION: ❌ {Message} in {Name}\n{@Request}", e.Message, name, request);
 
             throw;
         }
@@ -40,17 +40,17 @@ public static class TracingFacility
     {
         try
         {
-            logger.LogInformation("KAFKA CONSUMER START: 🟡 {Name:l}\n{@Value}", name, message);
+            logger.LogInformation("KAFKA CONSUMER START: 🟡 {Name}\n{@Value}", name, message);
 
             await func();
 
-            logger.LogInformation("KAFKA CONSUMER END: {Name:l}\n{@Value}", name, message);
+            logger.LogInformation("KAFKA CONSUMER END: {Name}\n{@Value}", name, message);
         }
         catch (Exception e)
         {
             logger.LogError(
                 e,
-                "KAFKA CONSUMER EXCEPTION: ❌ {Message:l} in {Name:l}\n{@Value}\n{@Partition}\n{@Offset}",
+                "KAFKA CONSUMER EXCEPTION: ❌ {Message} in {Name}\n{@Value}\n{@Partition}\n{@Offset}",
                 e.Message,
                 name,
                 message,
@@ -65,17 +65,17 @@ public static class TracingFacility
     {
         try
         {
-            logger.LogInformation("KAFKA PRODUCER START: 🟠 {Name:l}\n{@Value}\n{@Key}", name, value, key);
+            logger.LogInformation("KAFKA PRODUCER START: 🟠 {Name}\n{@Value}\n{@Key}", name, value, key);
 
             await func();
 
-            logger.LogInformation("KAFKA PRODUCER END: {Name:l}\n{@Value}\n{@Key}", name, value, key);
+            logger.LogInformation("KAFKA PRODUCER END: {Name}\n{@Value}\n{@Key}", name, value, key);
         }
         catch (Exception e)
         {
             logger.LogError(
                 e,
-                "KAFKA PRODUCER EXCEPTION: ❌ {Message:l} in {Name:l}\n{@Value}\n{@Key}",
+                "KAFKA PRODUCER EXCEPTION: ❌ {Message} in {Name}\n{@Value}\n{@Key}",
                 e.Message,
                 name,
                 value,

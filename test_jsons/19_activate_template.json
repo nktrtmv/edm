@@ -1,0 +1,676 @@
+{
+  "template": {
+    "domainId": "8a3d776c-906a-4de2-9c20-1df638f1545b",
+    "id": "e896dc8f-63fe-40ea-bc6d-836771be3ed5",
+    "templateVersion": 0,
+    "name": "Шаблон документа для демо",
+    "systemName": "DocumentTemplateForDemo",
+    "status": "ReadyForDocumentCreation",
+    "documentPrototype": {
+      "statusesTransitions": [
+        {
+          "id": "6d779890-9378-4795-a522-f7a2528411bf",
+          "from": {
+            "id": "0a31b538-b866-4d97-930b-12454d4401cc",
+            "type": "Initial",
+            "displayName": "Черновик",
+            "systemName": "Draft",
+            "parameters": []
+          },
+          "to": {
+            "id": "43115521-d959-4432-a684-0857b20cd09a",
+            "type": "Cancelled",
+            "displayName": "Отменен",
+            "systemName": "Cancelled",
+            "parameters": []
+          },
+          "type": "Manual",
+          "displayName": "Отменить",
+          "transitionResultDisplayName": "Отклонено",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "54aab2d3-dc0c-4865-a736-6ad528fda85c",
+          "from": {
+            "id": "0a31b538-b866-4d97-930b-12454d4401cc",
+            "type": "Initial",
+            "displayName": "Черновик",
+            "systemName": "Draft",
+            "parameters": []
+          },
+          "to": {
+            "id": "0d70c2b1-3883-4081-88a3-b040020a668d",
+            "type": "Backlog",
+            "displayName": "Ожидание обработки",
+            "parameters": []
+          },
+          "type": "Manual",
+          "displayName": "В ожидание обработки",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "96552ba3-f3ea-405b-afd9-4c2f9332ca63",
+          "from": {
+            "id": "0d70c2b1-3883-4081-88a3-b040020a668d",
+            "type": "Backlog",
+            "displayName": "Ожидание обработки",
+            "parameters": []
+          },
+          "to": {
+            "id": "57a05bfc-e25d-45b0-8181-b15db0808956",
+            "type": "Approval",
+            "displayName": "Согласование",
+            "parameters": []
+          },
+          "type": "Manual",
+          "displayName": "На согласование",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "171b8bd5-6aae-4b3d-8123-4ad862af38ac",
+          "from": {
+            "id": "57a05bfc-e25d-45b0-8181-b15db0808956",
+            "type": "Approval",
+            "displayName": "Согласование",
+            "parameters": []
+          },
+          "to": {
+            "id": "43115521-d959-4432-a684-0857b20cd09a",
+            "type": "Cancelled",
+            "displayName": "Отменен",
+            "systemName": "Cancelled",
+            "parameters": []
+          },
+          "type": "ApprovalToCancelled",
+          "displayName": "Отклонить",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "57558e48-a52f-4092-bd09-8092f2e6ab4c",
+          "from": {
+            "id": "57a05bfc-e25d-45b0-8181-b15db0808956",
+            "type": "Approval",
+            "displayName": "Согласование",
+            "parameters": []
+          },
+          "to": {
+            "id": "c6fb736f-2131-44bc-a3dd-64393db1860f",
+            "type": "Simple",
+            "displayName": "Доработка",
+            "parameters": []
+          },
+          "type": "ApprovalToRework",
+          "displayName": "На доработку",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "29703d44-c674-4ae4-bef8-de7a76623481",
+          "from": {
+            "id": "c6fb736f-2131-44bc-a3dd-64393db1860f",
+            "type": "Simple",
+            "displayName": "Доработка",
+            "parameters": []
+          },
+          "to": {
+            "id": "57a05bfc-e25d-45b0-8181-b15db0808956",
+            "type": "Approval",
+            "displayName": "Согласование",
+            "parameters": []
+          },
+          "type": "Manual",
+          "displayName": "На согласование",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "de339c89-f538-492d-9c3c-c20f303168a1",
+          "from": {
+            "id": "d0d19c02-04e1-4385-9b7e-9f7677c9b31b",
+            "type": "Signing",
+            "displayName": "Подписание",
+            "parameters": []
+          },
+          "to": {
+            "id": "692300b5-f126-4883-b34f-010836bcd5ed",
+            "type": "Completed",
+            "displayName": "Действует",
+            "systemName": "InEffect",
+            "parameters": []
+          },
+          "type": "SigningToSigned",
+          "displayName": "Ввести в действие",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "28c7e5ad-6098-46bb-b278-57e520ea336c",
+          "from": {
+            "id": "d0d19c02-04e1-4385-9b7e-9f7677c9b31b",
+            "type": "Signing",
+            "displayName": "Подписание",
+            "parameters": []
+          },
+          "to": {
+            "id": "43115521-d959-4432-a684-0857b20cd09a",
+            "type": "Cancelled",
+            "displayName": "Отменен",
+            "systemName": "Cancelled",
+            "parameters": []
+          },
+          "type": "SigningToCancelled",
+          "displayName": "Отклонить",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "8ab09b61-7dd7-4bf6-99ea-1ea79c8bcd5c",
+          "from": {
+            "id": "57a05bfc-e25d-45b0-8181-b15db0808956",
+            "type": "Approval",
+            "displayName": "Согласование",
+            "parameters": []
+          },
+          "to": {
+            "id": "0a47ed69-a43d-4f15-8da6-ad409beebb14",
+            "type": "Simple",
+            "displayName": "Подготовка к подписанию",
+            "parameters": []
+          },
+          "type": "ApprovalToApproved",
+          "displayName": "На подготовку к подписанию",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "78c3e5b9-ec94-4bbf-a197-ab5d8070beb0",
+          "from": {
+            "id": "0a47ed69-a43d-4f15-8da6-ad409beebb14",
+            "type": "Simple",
+            "displayName": "Подготовка к подписанию",
+            "parameters": []
+          },
+          "to": {
+            "id": "d0d19c02-04e1-4385-9b7e-9f7677c9b31b",
+            "type": "Signing",
+            "displayName": "Подписание",
+            "parameters": []
+          },
+          "type": "Manual",
+          "displayName": "На подписание",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "da23fd61-d8c9-4676-9d56-0e003e100569",
+          "from": {
+            "id": "d0d19c02-04e1-4385-9b7e-9f7677c9b31b",
+            "type": "Signing",
+            "displayName": "Подписание",
+            "parameters": []
+          },
+          "to": {
+            "id": "c6fb736f-2131-44bc-a3dd-64393db1860f",
+            "type": "Simple",
+            "displayName": "Доработка",
+            "parameters": []
+          },
+          "type": "SigningToRework",
+          "displayName": "На доработку",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "6d37457f-981b-4652-b105-df083ba22d03",
+          "from": {
+            "id": "d0d19c02-04e1-4385-9b7e-9f7677c9b31b",
+            "type": "Signing",
+            "displayName": "Подписание",
+            "parameters": []
+          },
+          "to": {
+            "id": "0a47ed69-a43d-4f15-8da6-ad409beebb14",
+            "type": "Simple",
+            "displayName": "Подготовка к подписанию",
+            "parameters": []
+          },
+          "type": "SigningToPreparation",
+          "displayName": "На подготовку к подписанию",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "8ab09b61-7dd7-4bf6-99ea-1ea79c8bcd5f",
+          "from": {
+            "id": "57a05bfc-e25d-45b0-8181-b15db0808956",
+            "type": "Approval",
+            "displayName": "Согласование",
+            "parameters": []
+          },
+          "to": {
+            "id": "3ed009b4-bee3-434b-b4bc-4d8bae5eb1ed",
+            "type": "Simple",
+            "displayName": "Уточнение перед подписанием",
+            "parameters": []
+          },
+          "type": "ApprovalToApprovedWithRemark",
+          "displayName": "На уточнение перед подписанием",
+          "permissionsSets": [],
+          "parameters": []
+        },
+        {
+          "id": "2a3a809d-bb19-4657-9bfd-b3c54e1134bc",
+          "from": {
+            "id": "3ed009b4-bee3-434b-b4bc-4d8bae5eb1ed",
+            "type": "Simple",
+            "displayName": "Уточнение перед подписанием",
+            "parameters": []
+          },
+          "to": {
+            "id": "0a47ed69-a43d-4f15-8da6-ad409beebb14",
+            "type": "Simple",
+            "displayName": "Подготовка к подписанию",
+            "parameters": []
+          },
+          "type": "Manual",
+          "displayName": "На подготовку к подписанию",
+          "permissionsSets": [],
+          "parameters": []
+        }
+      ],
+      "attributes": [
+        {
+          "$type": "Reference",
+          "id": "00000001-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "author",
+          "displayName": "Автор",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentAuthor"
+          ],
+          "registryRoles": [
+            "Author"
+          ],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":300}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Boolean",
+          "id": "000000c8-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "autoProlongation",
+          "displayName": "Автоматическая пролонгация",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Boolean",
+          "id": "000000c9-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "isOriginalDocReceived",
+          "displayName": "Оригинал получен",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Date",
+          "id": "0000012c-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractDate",
+          "displayName": "Дата договора",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentDate"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Date",
+          "id": "0000012e-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractEndDate",
+          "displayName": "Дата окончания",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Number",
+          "id": "00000192-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractAmount",
+          "displayName": "Сумма договора",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true}",
+          "precision": 0,
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000001f4-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractResponsibleManager",
+          "displayName": "Ответственный",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentResponsible"
+          ],
+          "registryRoles": [
+            "ResponsibleManager"
+          ],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":300}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000001f5-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractCurrency",
+          "displayName": "Валюта договор",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [],
+          "registryRoles": [
+            "Currency"
+          ],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":100}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000001f7-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractClerk",
+          "displayName": "Исполнитель",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentClerk"
+          ],
+          "registryRoles": [
+            "Clerk"
+          ],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":300}",
+          "defaultValues": []
+        },
+        {
+          "$type": "String",
+          "id": "000007d0-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractNumber",
+          "displayName": "Рег. номер",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentRegistrationNumber"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"maskType\":\"None\",\"templateType\":\"None\"}",
+          "defaultValues": []
+        },
+        {
+          "$type": "String",
+          "id": "000007d1-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractDocNumber",
+          "displayName": "Номер договора",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentNumber"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"maskType\":\"None\",\"templateType\":\"None\"}",
+          "defaultValues": []
+        },
+        {
+          "$type": "String",
+          "id": "000007d4-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractName",
+          "displayName": "Название",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentName"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"maskType\":\"None\",\"templateType\":\"None\"}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000007d5-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "businessSegment",
+          "displayName": "Бизнес-сегмент",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "BusinessSegment"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":1200}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000007d6-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractCategory",
+          "displayName": "Категория договора",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentCategory"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":900}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000007d7-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractType",
+          "displayName": "Тип договора",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentType"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":1000}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "000007d8-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractKind",
+          "displayName": "Вид договора",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "DocumentKind"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true,\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":1100}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Boolean",
+          "id": "000007da-0000-0000-0000-000000000000",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "signingType",
+          "displayName": "Тип подписания",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [],
+          "registryRoles": [],
+          "frontMetadata": "{\"isSystem\":true}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "d7f33f4c-a699-4d37-bddb-b1f4a2d26079",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "contractor",
+          "displayName": "Контрагент",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "SigningPartyContractor"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":600}",
+          "defaultValues": []
+        },
+        {
+          "$type": "Reference",
+          "id": "00e4bbfd-16ca-4bac-bd2a-b9e32f11561e",
+          "isArray": false,
+          "hasSensitiveData": false,
+          "systemName": "self",
+          "displayName": "Компания",
+          "isApprovalParticipant": true,
+          "permissionsSets": [],
+          "documentsRoles": [
+            "SigningPartySelf"
+          ],
+          "registryRoles": [],
+          "frontMetadata": "{\"displayType\":\"None\"}",
+          "referenceType": "{\"TypeId\":500}",
+          "defaultValues": []
+        }
+      ],
+      "frontMetadata": "{\"layout\":[{\"id\":\"127dd27f-0ed0-4897-ba2a-9252e01ba5a9\",\"$type\":\"Tab\",\"config\":{\"systemName\":\"Основные данные-13120250192\",\"displayName\":\"Основные данные\",\"isDefault\":true},\"children\":[{\"id\":\"13a59a96-5e5b-4fda-82db-e660516485b4\",\"$type\":\"Fieldset\",\"config\":{\"displayName\":\"Base\"},\"children\":[{\"id\":\"8e6315d2-62bd-4638-b9fe-99cff5ea0844\",\"$type\":\"Attribute\",\"attributeId\":\"00000001-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"da7e2c63-1efe-4541-8bc9-c8831ffc9fdc\",\"$type\":\"Attribute\",\"attributeId\":\"000001f4-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"b583b561-c5c1-4c16-b830-b02205b6ad20\",\"$type\":\"Attribute\",\"attributeId\":\"000001f7-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"9b9b8341-77d9-47d3-b201-8d702370e093\",\"$type\":\"Attribute\",\"attributeId\":\"000007da-0000-0000-0000-000000000000\",\"config\":{}}]},{\"id\":\"6b3187b8-047c-419d-89b8-b4f5678505f1\",\"$type\":\"Attribute\",\"attributeId\":\"00e4bbfd-16ca-4bac-bd2a-b9e32f11561e\",\"config\":{}},{\"id\":\"e9be1557-0d9d-47c6-af54-a842dc4ff0b7\",\"$type\":\"Attribute\",\"attributeId\":\"d7f33f4c-a699-4d37-bddb-b1f4a2d26079\",\"config\":{}},{\"id\":\"c07b4288-5331-456d-bbef-70e8e0ca5881\",\"$type\":\"Attribute\",\"attributeId\":\"000007d0-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"236ab20b-6a07-4a53-9e01-5adce8a87d11\",\"$type\":\"Attribute\",\"attributeId\":\"000007d1-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"93f01980-86aa-4730-8b44-9fa88ff0b4a3\",\"$type\":\"Attribute\",\"attributeId\":\"000007d4-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"2aba5e77-1a1e-458e-abac-94543027e518\",\"$type\":\"Attribute\",\"attributeId\":\"0000012c-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"952d9dac-d658-46ac-a91d-51ce953e7c7c\",\"$type\":\"Attribute\",\"attributeId\":\"0000012e-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"a1bde3f2-fdef-40a4-8c11-f8a0e5c5ec34\",\"$type\":\"Attribute\",\"attributeId\":\"000000c8-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"cfd95a11-5e37-4b93-ab61-c6f2fe4bd1fc\",\"$type\":\"Attribute\",\"attributeId\":\"000001f5-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"6f7eae73-5f5b-4e05-9a54-3bbf549af359\",\"$type\":\"Attribute\",\"attributeId\":\"00000192-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"8b313099-1a63-48c5-b228-4a7d7cb33ce2\",\"$type\":\"Attribute\",\"attributeId\":\"000000c9-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"390f51d6-8295-4ec1-9d46-b3c7ac225e25\",\"$type\":\"Attribute\",\"attributeId\":\"000007d5-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"2c9238fa-2e08-44e6-a91c-38f965b01161\",\"$type\":\"Attribute\",\"attributeId\":\"000007d6-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"06339485-05a3-4933-a93f-489301f5195f\",\"$type\":\"Attribute\",\"attributeId\":\"000007d7-0000-0000-0000-000000000000\",\"config\":{}},{\"id\":\"b7badfa7-5caa-464d-9a97-3f13d05680a8\",\"$type\":\"Attribute\",\"attributeId\":\"000007d8-0000-0000-0000-000000000000\",\"config\":{}}]}]}",
+      "notifications": [],
+      "validators": [
+        {
+          "id": "a2ab769e-2023-4ec1-b701-c5325f6e63ad",
+          "name": "Валидатор основных полей документа",
+          "conditions": [
+            {
+              "$type": "Exists",
+              "data": {
+                "conditionId": "a63c064e-2dca-4ea2-a0f0-0a9362ec470d",
+                "linkedDocumentAttributeIds": [
+                  "0000012c-0000-0000-0000-000000000000",
+                  "000001f5-0000-0000-0000-000000000000",
+                  "00000192-0000-0000-0000-000000000000",
+                  "0000012e-0000-0000-0000-000000000000",
+                  "000007d0-0000-0000-0000-000000000000"
+                ],
+                "supportedDocumentStatusIds": [
+                  "57a05bfc-e25d-45b0-8181-b15db0808956"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "id": "5a500d5b-20ad-4291-bac9-51b8d6398a0a",
+          "name": "Тип подписания",
+          "conditions": [
+            {
+              "$type": "Exists",
+              "data": {
+                "conditionId": "e40517b4-0c75-4fda-acdf-59ea7544648d",
+                "linkedDocumentAttributeIds": [
+                  "000007da-0000-0000-0000-000000000000"
+                ],
+                "supportedDocumentStatusIds": [
+                  "d0d19c02-04e1-4385-9b7e-9f7677c9b31b"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "numbering": {
+        "segments": [
+          {
+            "$type": "Constant",
+            "id": "d40c73b1-8c4a-4f3b-8694-b6d3cbc35e28",
+            "format": "",
+            "value": "Test–"
+          },
+          {
+            "$type": "Counter",
+            "id": "b0106c06-138b-4fdb-802c-7da54f529970",
+            "format": "D",
+            "counterId": "806e3fe6-3bda-4e94-a59d-bb78dd4ffc0f"
+          },
+          {
+            "$type": "Constant",
+            "id": "62efaa75-3bd3-4b31-b9e4-d2d3b1f0168c",
+            "format": "",
+            "value": "–"
+          },
+          {
+            "$type": "Date",
+            "id": "73b53105-fe2a-4bc3-9779-57b7b608debd",
+            "format": "dd/MM/yyyy"
+          }
+        ]
+      },
+      "parameters": {
+        "attachmentsInCommentsIsAllowed": false
+      }
+    },
+    "frontMetadata": "{\"graph\":\"{\\\"elements\\\":{\\\"0a31b538-b866-4d97-930b-12454d4401cc\\\":{\\\"x\\\":-510,\\\"y\\\":18.75},\\\"43115521-d959-4432-a684-0857b20cd09a\\\":{\\\"x\\\":205.77650667081247,\\\"y\\\":849.3984247861911},\\\"692300b5-f126-4883-b34f-010836bcd5ed\\\":{\\\"x\\\":1959.1027500694013,\\\"y\\\":149.36495977761987},\\\"0d70c2b1-3883-4081-88a3-b040020a668d\\\":{\\\"x\\\":-53.75,\\\"y\\\":18.125},\\\"57a05bfc-e25d-45b0-8181-b15db0808956\\\":{\\\"x\\\":619.284731390619,\\\"y\\\":21.179811835379247},\\\"d0d19c02-04e1-4385-9b7e-9f7677c9b31b\\\":{\\\"x\\\":1286.4037650185046,\\\"y\\\":485.12140038775146},\\\"c6fb736f-2131-44bc-a3dd-64393db1860f\\\":{\\\"x\\\":137.2595033491673,\\\"y\\\":282.7417429682527},\\\"0a47ed69-a43d-4f15-8da6-ad409beebb14\\\":{\\\"x\\\":937.4733211917832,\\\"y\\\":243.19629266789102}}}\"}",
+    "concurrencyToken": "2025-05-14T12:49:50.1184890Z"
+  }
+}

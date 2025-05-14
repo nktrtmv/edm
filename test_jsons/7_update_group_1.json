@@ -1,0 +1,146 @@
+{
+  "concurrencyToken": "2025-05-14T12:43:51.7502890Z",
+  "approvalRuleKey": {
+    "entityTypeKey": {
+      "domainId": "8a3d776c-906a-4de2-9c20-1df638f1545b",
+      "entityTypeId": "e896dc8f-63fe-40ea-bc6d-836771be3ed5",
+      "entityTypeUpdatedDate": "2025-05-14T12:42:04.858039Z"
+    },
+    "version": 0
+  },
+  "group": {
+    "details": {
+      "$type": "Domestic",
+      "options": {
+        "multipleParticipantsAreAllowed": true,
+        "emptyGroupIsAllowed": false
+      },
+      "participants": [
+        {
+          "isSubstitutionDisabled": true,
+          "mainUserSource": {
+            "$type": "User",
+            "user": {
+              "id": "00000000-0000-0000-0000-000000000000",
+              "mainInfo": "Артемов Никита Владиславович (nartemov)",
+              "additionalInfo": "HSE/Student/nartemov@hse.ru"
+            }
+          },
+          "substituteUsersSources": [],
+          "condition": {
+            "$type": "None"
+          }
+        },
+        {
+          "isSubstitutionDisabled": false,
+          "mainUserSource": {
+            "$type": "User",
+            "user": {
+              "id": "00000000-0000-0000-0000-000000000001",
+              "mainInfo": "full_name_1 (login_1)",
+              "additionalInfo": "department_1/position_1/email_1"
+            }
+          },
+          "substituteUsersSources": [],
+          "condition": {
+            "$type": "Nary",
+            "operator": {
+              "kind": "LogicalNary",
+              "type": "LogicalNaryAnd",
+              "displayName": "И"
+            },
+            "innerConditions": [
+              {
+                "$type": "AttributeValue",
+                "operator": {
+                  "label": "=",
+                  "id": "AttributeValueEqual",
+                  "kind": "AttributeValue",
+                  "type": "AttributeValueEqual",
+                  "displayName": "="
+                },
+                "attributeValue": {
+                  "$type": "Reference",
+                  "id": 1007,
+                  "displayName": "Валюта договор",
+                  "value": [
+                    {
+                      "id": "RUB",
+                      "displayValue": "Российский рубль",
+                      "displaySubValue": "RUB"
+                    }
+                  ]
+                }
+              },
+              {
+                "$type": "AttributeValue",
+                "operator": {
+                  "label": ">=",
+                  "id": "AttributeValueGreaterOrEqual",
+                  "kind": "AttributeValue",
+                  "type": "AttributeValueGreaterOrEqual",
+                  "displayName": ">="
+                },
+                "attributeValue": {
+                  "$type": "Number",
+                  "id": 1005,
+                  "displayName": "Сумма договора",
+                  "value": 1000
+                }
+              }
+            ]
+          }
+        },
+        {
+          "isSubstitutionDisabled": false,
+          "mainUserSource": {
+            "$type": "User",
+            "user": {
+              "id": "00000000-0000-0000-0000-000000000002",
+              "mainInfo": "full_name_2 (login_2)",
+              "additionalInfo": "department_2/position_2/email_2"
+            }
+          },
+          "substituteUsersSources": [],
+          "condition": {
+            "$type": "Unary",
+            "operator": {
+              "kind": "LogicalUnary",
+              "type": "LogicalUnaryNot",
+              "displayName": "НЕ"
+            },
+            "innerCondition": {
+              "$type": "AttributeValue",
+              "operator": {
+                "label": "=",
+                "id": "AttributeValueEqual",
+                "kind": "AttributeValue",
+                "type": "AttributeValueEqual",
+                "displayName": "="
+              },
+              "attributeValue": {
+                "$type": "Boolean",
+                "id": 1001,
+                "displayName": "Автоматическая пролонгация",
+                "value": true
+              }
+            }
+          }
+        }
+      ]
+    },
+    "concurrencyToken": "2025-05-14T12:43:51.7502890Z",
+    "data": {
+      "id": "0ba091fc-5c50-4126-8ba8-19c69810af34",
+      "displayName": "Группа 1",
+      "label": "",
+      "parameters": [
+        {
+          "$type": "Boolean",
+          "kind": "MasterData",
+          "value": false
+        }
+      ]
+    }
+  }
+}

@@ -6,6 +6,7 @@
     <PackageReference Include="KafkaFlow.Microsoft.DependencyInjection"/>
     <PackageReference Include="MediatR"/>
     <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger"/>
+    <PackageReference Include="KafkaFlow.Retry"/>
   </ItemGroup>
 
   <ItemGroup>

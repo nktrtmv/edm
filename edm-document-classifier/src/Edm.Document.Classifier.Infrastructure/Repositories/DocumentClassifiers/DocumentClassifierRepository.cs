@@ -16,18 +16,8 @@ internal sealed class DocumentClassifierRepository : IDocumentClassifierReposito
     private readonly BusinessSegment[] _businessSegments =
     {
         BusinessSegmentFactory.CreateFrom("1", "Retail", "RT - Ритейл"),
-        BusinessSegmentFactory.CreateFrom("2", "Express", "EX - Фреш"),
-        BusinessSegmentFactory.CreateFrom("3", "Marketplace", "MP - Маркетплейс"),
-        BusinessSegmentFactory.CreateFrom("4", "Fulfillment", "FF - Фулфилмент"),
-        BusinessSegmentFactory.CreateFrom("5", "Global", "GB - Глобал"),
-        BusinessSegmentFactory.CreateFrom("6", "Holding", "OH - Озон Холдинг"),
-        BusinessSegmentFactory.CreateFrom("7", "Fintech", "FT - Финтех"),
-        BusinessSegmentFactory.CreateFrom("8", "Trevel", "TV - Тревел", Usage.Unused),
-        BusinessSegmentFactory.CreateFrom("9", "Logistics", "LG - Логистика", Usage.Unused),
-        BusinessSegmentFactory.CreateFrom("10", "Cis", "CIS - СНГ", Usage.Unused),
-        BusinessSegmentFactory.CreateFrom("11", "Commercial", "KD - Коммерческая дирекция"),
-        BusinessSegmentFactory.CreateFrom("12", "Metropolitan", "MTP - Метрополитан"),
-        BusinessSegmentFactory.CreateFrom("13", "Travel", "TR - Тревел")
+        BusinessSegmentFactory.CreateFrom("2", "Global", "GB - Глобал"),
+        BusinessSegmentFactory.CreateFrom("3", "Fintech", "FT - Финтех"),
     };
 
     private readonly DocumentCategory[] _documentCategories =
@@ -120,7 +110,7 @@ internal sealed class DocumentClassifierRepository : IDocumentClassifierReposito
                         DocumentKindFactory.CreateFrom("52", "Дополнительное соглашение о маркировке"),
                         DocumentKindFactory.CreateFrom("53", "Дополнительное соглашение недостача и брак"),
                         DocumentKindFactory.CreateFrom("54", "Дополнительное соглашение о добавлении бренда"),
-                        DocumentKindFactory.CreateFrom("55", "Дополнительное соглашение об изложении текста договора по условиям Озон"),
+                        DocumentKindFactory.CreateFrom("55", "Дополнительное соглашение об изложении текста договора по условиям Компании"),
                         DocumentKindFactory.CreateFrom("56", "Дополнительное соглашение скидки и промо"),
                         DocumentKindFactory.CreateFrom("57", "Дополнительное соглашение о доп.упаковке / стикировке"),
                         DocumentKindFactory.CreateFrom("58", "Дополнительное соглашение на услуги склада"),
@@ -494,58 +484,6 @@ internal sealed class DocumentClassifierRepository : IDocumentClassifierReposito
                     {
                         DocumentKindFactory.CreateFrom("3_13_1", "Дополнительное соглашение"),
                         DocumentKindFactory.CreateFrom("3_13_2", "Спецификация"),
-                    })
-            }),
-        DocumentCategoryFactory.CreateFrom(
-            "4",
-            "investment",
-            "Инвестиционный (MA)",
-            Usage.Unused,
-            new[]
-            {
-                DocumentTypeFactory.CreateFrom(
-                    "4_7",
-                    "Дополнительное соглашение",
-                    Usage.Unused,
-                    new[]
-                    {
-                        DocumentKindFactory.CreateFrom("4_7_19", "Дополнительное соглашение на изменение / дополнение условий договора", Usage.Unused),
-                        DocumentKindFactory.CreateFrom("4_7_27", "Дополнительное соглашение на выдачу банковской гарантии", Usage.Unused),
-                        DocumentKindFactory.CreateFrom("4_7_28", "Дополнительное соглашение на изменение порядка оплаты", Usage.Unused),
-                        DocumentKindFactory.CreateFrom("4_7_29", "Дополнительное соглашение на пролонгацию договора", Usage.Unused)
-                    }),
-                DocumentTypeFactory.CreateFrom(
-                    "4_9",
-                    "Соглашение о перемене лиц в обязательстве",
-                    Usage.Unused,
-                    new[]
-                    {
-                        DocumentKindFactory.CreateFrom("4_9_20", "Соглашение о перемене лиц в обязательстве", Usage.Unused)
-                    }),
-                DocumentTypeFactory.CreateFrom(
-                    "4_10",
-                    "Соглашение о расторжении",
-                    Usage.Unused,
-                    new[]
-                    {
-                        DocumentKindFactory.CreateFrom("4_10_21", "Соглашение о расторжении", Usage.Unused)
-                    }),
-                DocumentTypeFactory.CreateFrom(
-                    "4_11",
-                    "Спецификация",
-                    Usage.Unused,
-                    new[]
-                    {
-                        DocumentKindFactory.CreateFrom("4_11_22", "Промо-спецификация", Usage.Unused),
-                        DocumentKindFactory.CreateFrom("4_11_23", "Спецификация - стандартная", Usage.Unused)
-                    }),
-                DocumentTypeFactory.CreateFrom(
-                    "4_13",
-                    "Соглашение о конфиденциальности",
-                    Usage.Unused,
-                    new[]
-                    {
-                        DocumentKindFactory.CreateFrom("4_13_45", "Соглашение о конфиденциальности", Usage.Unused)
                     })
             })
     };

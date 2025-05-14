@@ -81,7 +81,7 @@ internal sealed class DocumentsTemplatesFacade(IDocumentsTemplatesRepository tem
     {
         await templates.Upsert(template, cancellationToken);
 
-        DocumentTemplate? result = await templates.GetRequired(template.DomainId, template.Id, cancellationToken);
+        DocumentTemplate result = await templates.GetRequired(template.DomainId, template.Id, cancellationToken);
 
         return result;
     }

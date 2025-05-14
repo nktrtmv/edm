@@ -23,6 +23,8 @@ using Edm.Entities.Approval.Rules.Gateway.Core.Rules.Queries.GetActivationAudit;
 using Edm.Entities.Approval.Rules.Gateway.Core.Rules.Queries.GetAll;
 using Edm.Entities.Approval.Rules.Gateway.Core.Rules.Queries.GetVersions;
 using Edm.Entities.Approval.Rules.Gateway.Core.Rules.Queries.Search;
+using Edm.Entities.Approval.Rules.Gateway.Core.Services.Enrichers.Sources.Persons;
+using Edm.Entities.Approval.Rules.Gateway.GenericSubdomain.Enrichers.Sources;
 using Edm.Entities.Approval.Rules.Presentation.Abstractions.Internals;
 
 using Microsoft.Extensions.DependencyInjection;
@@ -92,6 +94,7 @@ public static class CoreRegistrar
     {
         services.AddSingleton<GetTypesApprovalReferencesQueryService>();
         services.AddSingleton<SearchValuesApprovalReferencesQueryService>();
+        services.AddSingleton<IEnricherSource, PersonsEnricherSource>();
     }
 
     private static void ConfigureRules(IServiceCollection services)

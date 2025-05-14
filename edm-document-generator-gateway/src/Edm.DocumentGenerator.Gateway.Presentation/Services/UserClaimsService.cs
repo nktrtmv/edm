@@ -33,7 +33,7 @@ internal static class UserClaimsService
         var result = userClaims
             .Claims
             .FirstOrDefault(a => a.Type == UserIdClaim)
-            ?.Value ?? "0";
+            ?.Value ?? "00000000-0000-0000-0000-000000000000";
 
         return result;
     }

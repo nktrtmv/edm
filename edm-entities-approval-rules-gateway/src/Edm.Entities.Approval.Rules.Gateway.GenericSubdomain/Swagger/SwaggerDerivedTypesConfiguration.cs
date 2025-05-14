@@ -1,11 +1,13 @@
 using System.Reflection;
 using System.Text.Json.Serialization;
 
+using Microsoft.Extensions.DependencyInjection;
+
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Edm.Entities.Approval.Rules.Gateway.Presentation.Configuration.Swagger;
+namespace Edm.Entities.Approval.Rules.Gateway.GenericSubdomain.Swagger;
 
-internal static class SwaggerDerivedTypesConfiguration
+public static class SwaggerDerivedTypesConfiguration
 {
     public static void ConfigureDerivedTypes(SwaggerGenOptions options)
     {
@@ -25,6 +27,15 @@ internal static class SwaggerDerivedTypesConfiguration
 
     private static string GetDiscriminatorValue(Type subType)
     {
+        var attributeFromSameType = subType
+            .GetCustomAttributes<JsonDerivedTypeAttribute>()
+            .FirstOrDefault(x => x.DerivedType == subType);
+
+        if (attributeFromSameType?.TypeDiscriminator is string typeDiscriminator)
+        {
+            return typeDiscriminator;
+        }
+
         for (var type = subType; type.BaseType is not null; type = type.BaseType)
         {
             var attribute = type.BaseType

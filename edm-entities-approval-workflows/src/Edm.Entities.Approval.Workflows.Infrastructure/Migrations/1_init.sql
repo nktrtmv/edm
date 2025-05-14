@@ -8,7 +8,7 @@ CREATE TABLE approval_workflows
     entity_domain_id TEXT      NOT NULL,
     status           TEXT      NOT NULL,
     data             BYTEA     NOT NULL,
-    actualized_date  TIMESTAMP NULL
+    actualized_date  TIMESTAMP NULL,
     created_date     TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'utc'),
     updated_date     TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'utc'),
     PRIMARY KEY (id)

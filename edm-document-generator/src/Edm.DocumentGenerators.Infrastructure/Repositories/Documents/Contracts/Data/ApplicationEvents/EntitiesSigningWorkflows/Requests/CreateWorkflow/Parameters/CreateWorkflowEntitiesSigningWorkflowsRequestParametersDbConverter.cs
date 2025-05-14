@@ -39,14 +39,4 @@ internal static class CreateWorkflowEntitiesSigningWorkflowsRequestParametersDbC
 
         return result;
     }
-
-    internal static DocumentSigningParameters ObsoleteToDomain(CreateWorkflowEntitiesSigningWorkflowsRequestElectronicParametersDb? electronicDb)
-    {
-        DocumentSigningElectronicParameters? electronic =
-            NullableConverter.Convert(electronicDb, CreateWorkflowEntitiesSigningWorkflowsRequestElectronicParametersDbConverter.ToDomain);
-
-        var result = new DocumentSigningParameters(null, electronic);
-
-        return result;
-    }
 }

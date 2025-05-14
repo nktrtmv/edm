@@ -24,6 +24,7 @@ using Edm.DocumentGenerators.Presentation.Controllers.DocumentsTemplatesDetails;
 using Edm.DocumentGenerators.Presentation.Publisher;
 
 using KafkaFlow;
+using KafkaFlow.Retry;
 
 namespace Edm.DocumentGenerators.Presentation;
 
@@ -52,6 +53,10 @@ internal sealed class Startup(IConfiguration configuration)
                                 .WithBufferSize(10000)
                                 .AddMiddlewares(
                                     middlewares => middlewares
+                                        .RetryForever(options => options
+                                            .WithTimeBetweenTriesPlan(TimeSpan.FromSeconds(5))
+                                            .HandleAnyException()
+                                        )
                                         .AddTypedHandlers(
                                             handlers =>
                                                 handlers
@@ -64,6 +69,10 @@ internal sealed class Startup(IConfiguration configuration)
                                 .WithBufferSize(10000)
                                 .AddMiddlewares(
                                     middlewares => middlewares
+                                        .RetryForever(options => options
+                                            .WithTimeBetweenTriesPlan(TimeSpan.FromSeconds(5))
+                                            .HandleAnyException()
+                                        )
                                         .AddTypedHandlers(
                                             handlers =>
                                                 handlers
@@ -76,6 +85,10 @@ internal sealed class Startup(IConfiguration configuration)
                                 .WithBufferSize(10000)
                                 .AddMiddlewares(
                                     middlewares => middlewares
+                                        .RetryForever(options => options
+                                            .WithTimeBetweenTriesPlan(TimeSpan.FromSeconds(5))
+                                            .HandleAnyException()
+                                        )
                                         .AddTypedHandlers(
                                             handlers =>
                                                 handlers

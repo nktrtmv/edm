@@ -29,22 +29,20 @@ internal sealed class WorkflowCompletedEntitiesApprovalWorkflowsResultInternalHa
 
         DomainId domainId = DomainId.Parse(request.DomainId);
 
-        Document document;
-
-        document = await documentsFacade.GetRequired(domainId, documentId, cancellationToken);
+        Document document = await documentsFacade.GetRequired(domainId, documentId, cancellationToken);
 
         Id<User> currentUserId = IdConverterFrom<User>.From(request.CurrentUserId);
 
-        ApprovalWorkflowDocumentUpdate? update = WorkflowCompletedEntitiesApprovalWorkflowsResultInternalConverter.ToDomain(request, currentUserId);
+        ApprovalWorkflowDocumentUpdate update = WorkflowCompletedEntitiesApprovalWorkflowsResultInternalConverter.ToDomain(request, currentUserId);
 
         DocumentUpdater.Update(roleAdapter, document, update);
 
         logger.LogInformation(
             """
-            APPROVAL WORKFLOW UPDATE: 📝📝📝 {Change:l}
+            APPROVAL WORKFLOW UPDATE: 📝📝📝 {Change}
             DocumentId: {DocumentId}
-            WorkflowId: {WorkflowId:l},
-            Status: {Status:l}
+            WorkflowId: {WorkflowId},
+            Status: {Status}
             """,
             update,
             documentId,

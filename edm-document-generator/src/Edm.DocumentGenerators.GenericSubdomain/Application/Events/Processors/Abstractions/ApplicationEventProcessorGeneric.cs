@@ -19,15 +19,15 @@ public abstract class ApplicationEventProcessorGeneric<THost, TApplicationEvent>
 
         try
         {
-            Logger.LogDebug($"PROCESS APPLICATION EVENT START: 🔷 {context.ApplicationEvent:l}\nHost: {context.Host:l}");
+            Logger.LogDebug($"PROCESS APPLICATION EVENT START: 🔷 {context.ApplicationEvent}\nHost: {context.Host}");
 
             await OnProcess(e, context.Host, cancellationToken);
 
-            Logger.LogDebug($"PROCESS APPLICATION EVENT END: {context.ApplicationEvent:l}\nHost: {context.Host:l}");
+            Logger.LogDebug($"PROCESS APPLICATION EVENT END: {context.ApplicationEvent}\nHost: {context.Host}");
         }
         catch (Exception ex)
         {
-            Logger.LogError(ex, $"PROCESS APPLICATION EVENT ERROR: ❌ {context.ApplicationEvent:l}\nHost: {context.Host:l}\n{ex.Message}");
+            Logger.LogError(ex, $"PROCESS APPLICATION EVENT ERROR: ❌ {context.ApplicationEvent}\nHost: {context.Host}\n{ex.Message}");
 
             throw;
         }

@@ -114,20 +114,20 @@ public sealed class SigningWorkflowsFacade
     {
         try
         {
-            Logger.LogInformation("APPLICATION EVENT [{Counts:l}] START : Event: {@Event}, Workflow: {@Workflow}", counts, applicationEvent, workflow);
+            Logger.LogInformation("APPLICATION EVENT [{Counts}] START : Event: {@Event}, Workflow: {@Workflow}", counts, applicationEvent, workflow);
 
             foreach (ISigningApplicationEventProcessor processor in Processors)
             {
                 await processor.Process(applicationEvent, workflow, cancellationToken);
             }
 
-            Logger.LogInformation("APPLICATION EVENT [{Counts:l}] END: Event: {@Event}, Workflow: {@Workflow}", counts, applicationEvent, workflow);
+            Logger.LogInformation("APPLICATION EVENT [{Counts}] END: Event: {@Event}, Workflow: {@Workflow}", counts, applicationEvent, workflow);
         }
         catch (Exception e)
         {
             Logger.LogError(
                 e,
-                "APPLICATION EVENT [{Counts:l}] ERROR: Reason: {@Message}, Event: {@Event}, Workflow: {@Workflow}",
+                "APPLICATION EVENT [{Counts}] ERROR: Reason: {@Message}, Event: {@Event}, Workflow: {@Workflow}",
                 counts,
                 e.Message,
                 applicationEvent,

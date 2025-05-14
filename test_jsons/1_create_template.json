@@ -1,0 +1,21 @@
+{
+  "domainId": "8a3d776c-906a-4de2-9c20-1df638f1545b",
+  "name": "Шаблон документа для демо",
+  "systemName": "DocumentTemplateForDemo",
+  "classifierSubset": {
+    "businessSegmentIds": [
+      "2"
+    ],
+    "documentCategory": {
+      "documentCategoryId": "2",
+      "documentTypes": [
+        {
+          "documentTypeId": "1",
+          "documentKindIds": [
+            "1", "2"
+          ]
+        }
+      ]
+    }
+  }
+}

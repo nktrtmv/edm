@@ -49,8 +49,8 @@ internal class UpdateDocumentCommandInternalHandler(
 
         logger.LogInformation(
             """
-            DOCUMENT GENERATOR UPDATE: 📝📝📝 {Update:l}
-            Document: {Document:l}
+            DOCUMENT GENERATOR UPDATE: 📝📝📝 {Update}
+            Document: {Document}
             """,
             update,
             document);

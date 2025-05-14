@@ -36,7 +36,7 @@ internal sealed class WorkflowCompletedEntitiesSigningWorkflowsResultInternalHan
 
         logger.LogInformation(
             """
-            SIGNING WORKFLOW UPDATE: 📝📝📝 {Change:l}
+            SIGNING WORKFLOW UPDATE: 📝📝📝 {Change}
             DocumentId: {DocumentId}
             SigningWorkflow: {Workflow}
             SigningStatus: {Status}

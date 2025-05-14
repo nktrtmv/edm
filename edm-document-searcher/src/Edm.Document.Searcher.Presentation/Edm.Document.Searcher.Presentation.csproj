@@ -9,6 +9,7 @@
     <PackageReference Include="Microsoft.Extensions.Options"/>
     <PackageReference Include="Google.Protobuf"/>
     <PackageReference Include="Google.Api.CommonProtos"/>
+    <PackageReference Include="KafkaFlow.Retry"/>
     <PackageReference Include="Grpc.Tools">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

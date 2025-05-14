@@ -51,7 +51,7 @@ internal sealed class CreateWorkflowEntitiesApprovalWorkflowsRequestInternalHand
         }
         catch (Exception e)
         {
-            logger.LogError(e, "Failed Activate Stage.\nWorkflow: {Workflow:l}", workflow);
+            logger.LogError(e, "Failed Activate Stage.\nWorkflow: {Workflow}", workflow);
 
             throw;
         }

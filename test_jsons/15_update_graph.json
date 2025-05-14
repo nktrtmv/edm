@@ -1,0 +1,164 @@
+{
+  "graph": {
+    "id": "30085cf0-d1d1-4f64-813b-0df8ff9ec890",
+    "status": "Active",
+    "displayName": "Граф 1",
+    "frontMetadata": "{\"nodes\":{\"92c19c10-3104-4325-9bb9-30a2bdf4442f\":{\"position\":{\"x\":16.64271128474489,\"y\":-113.60955893672707}},\"ab9b86be-a4c4-400c-ad91-f5508b427fce\":{\"position\":{\"x\":19.819595924293075,\"y\":530.3241363672372}},\"0a2a0f2c-2784-44d0-a560-52297140adf9\":{\"isCondition\":true,\"position\":{\"x\":16.64271128474492,\"y\":177.41410278727616}},\"b073b719-bfc6-46bb-88b7-3654295358df\":{\"position\":{\"x\":-308.9879642689352,\"y\":374.3045905282256}},\"7c475812-80a4-443d-9307-3262a7f3ccaa\":{\"position\":{\"x\":312.09298276271824,\"y\":348.8895134118408}}},\"edges\":{\"b722a4ac-3d64-4c83-b5fe-cab995c7fcef\":{},\"e1d36402-2514-40ca-81af-fd66b25a47f7\":{\"typeForCondition\":true},\"ce4f11a9-bd33-436b-b351-47f5f9832a8d\":{},\"e146d28a-7f14-4969-9cde-6995695a93bd\":{\"typeForCondition\":false},\"03c2f95b-2c7e-4dee-8ed7-c3ced6b0321c\":{}}}",
+    "edges": [
+      {
+        "id": "b722a4ac-3d64-4c83-b5fe-cab995c7fcef",
+        "fromNodeId": "92c19c10-3104-4325-9bb9-30a2bdf4442f",
+        "toNodeId": "0a2a0f2c-2784-44d0-a560-52297140adf9",
+        "condition": {
+          "$type": "None"
+        }
+      },
+      {
+        "id": "e1d36402-2514-40ca-81af-fd66b25a47f7",
+        "fromNodeId": "0a2a0f2c-2784-44d0-a560-52297140adf9",
+        "toNodeId": "b073b719-bfc6-46bb-88b7-3654295358df",
+        "condition": {
+          "$type": "AttributeValue",
+          "operator": {
+            "kind": "AttributeValue",
+            "type": "AttributeValueEqual",
+            "displayName": "="
+          },
+          "attributeValue": {
+            "$type": "Reference",
+            "id": 1000,
+            "displayName": "Автор",
+            "value": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "mainInfo": "Артемов Никита Владиславович (nartemov)",
+                "additionalInfo": "HSE/Student/nartemov@hse.ru"
+              }
+            ]
+          }
+        }
+      },
+      {
+        "id": "ce4f11a9-bd33-436b-b351-47f5f9832a8d",
+        "fromNodeId": "b073b719-bfc6-46bb-88b7-3654295358df",
+        "toNodeId": "ab9b86be-a4c4-400c-ad91-f5508b427fce",
+        "condition": {
+          "$type": "None"
+        }
+      },
+      {
+        "id": "e146d28a-7f14-4969-9cde-6995695a93bd",
+        "fromNodeId": "0a2a0f2c-2784-44d0-a560-52297140adf9",
+        "toNodeId": "7c475812-80a4-443d-9307-3262a7f3ccaa",
+        "condition": {
+          "$type": "Unary",
+          "operator": {
+            "kind": "LogicalUnary",
+            "type": "LogicalUnaryNot",
+            "displayName": "НЕ"
+          },
+          "innerCondition": {
+            "$type": "AttributeValue",
+            "operator": {
+              "kind": "AttributeValue",
+              "type": "AttributeValueEqual",
+              "displayName": "="
+            },
+            "attributeValue": {
+              "$type": "Reference",
+              "id": 1000,
+              "displayName": "Автор",
+              "value": [
+                {
+                  "id": "00000000-0000-0000-0000-000000000000",
+                  "mainInfo": "Артемов Никита Владиславович (nartemov)",
+                  "additionalInfo": "HSE/Student/nartemov@hse.ru"
+                }
+              ]
+            }
+          }
+        }
+      },
+      {
+        "id": "03c2f95b-2c7e-4dee-8ed7-c3ced6b0321c",
+        "fromNodeId": "7c475812-80a4-443d-9307-3262a7f3ccaa",
+        "toNodeId": "ab9b86be-a4c4-400c-ad91-f5508b427fce",
+        "condition": {
+          "$type": "None"
+        }
+      }
+    ],
+    "nodes": [
+      {
+        "$type": "Start",
+        "id": "92c19c10-3104-4325-9bb9-30a2bdf4442f"
+      },
+      {
+        "$type": "End",
+        "id": "ab9b86be-a4c4-400c-ad91-f5508b427fce"
+      },
+      {
+        "$type": "Transit",
+        "id": "0a2a0f2c-2784-44d0-a560-52297140adf9"
+      },
+      {
+        "$type": "Stage",
+        "sets": [
+          {
+            "groups": [
+              {
+                "id": "0ba091fc-5c50-4126-8ba8-19c69810af34",
+                "displayName": "Группа 1"
+              }
+            ],
+            "id": "56e93946-9081-48fa-9fda-d4381443dd6a",
+            "condition": {
+              "$type": "None"
+            }
+          }
+        ],
+        "type": "ParallelAny",
+        "label": "",
+        "id": "b073b719-bfc6-46bb-88b7-3654295358df",
+        "displayName": "Этап если автор не nartemov (параллельно - любой)"
+      },
+      {
+        "$type": "Stage",
+        "sets": [
+          {
+            "groups": [
+              {
+                "id": "55fe50fe-964f-4914-9281-7fac8cfb46f5",
+                "displayName": "Группа 2"
+              }
+            ],
+            "id": "dc9c927e-cc37-48b6-829c-9e4dff8ba0f5",
+            "condition": {
+              "$type": "None"
+            }
+          }
+        ],
+        "type": "Sequential",
+        "label": "",
+        "id": "7c475812-80a4-443d-9307-3262a7f3ccaa",
+        "displayName": "Этап если автор nartemov (последовательно)"
+      }
+    ],
+    "tag": "",
+    "chiefApproval": {
+      "isRequired": false,
+      "condition": {
+        "$type": "None"
+      }
+    }
+  },
+  "approvalRuleKey": {
+    "entityTypeKey": {
+      "domainId": "8a3d776c-906a-4de2-9c20-1df638f1545b",
+      "entityTypeId": "e896dc8f-63fe-40ea-bc6d-836771be3ed5",
+      "entityTypeUpdatedDate": "2025-05-14T12:42:04.858039Z"
+    },
+    "version": 0
+  },
+  "concurrencyToken": "2025-05-14T12:47:27.5132250Z"
+}

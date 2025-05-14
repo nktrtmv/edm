@@ -50,7 +50,7 @@ internal static class DocumentSigningPartiesDetector
         var selector = new DocumentReferenceAttributeValueSelector(
             DocumentAttributeDocumentRole.SigningSignatory,
             DocumentAttributeReferenceTypes.Employees,
-            "ФИО подписанта Озон");
+            "ФИО подписанта компании");
 
         string? signatoryId = fetcher.FetchSingleAttributeWithSingleValue(selector);
 

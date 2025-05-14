@@ -74,8 +74,8 @@ internal sealed class DocumentStatusBatchUpdateCommandInternalHandler(
 
         logger.LogInformation(
             """
-            DOCUMENT GENERATOR UPDATE: 📝📝📝 {Change:l}
-            Document: {Document:l}
+            DOCUMENT GENERATOR UPDATE: 📝📝📝 {Change}
+            Document: {Document}
             """,
             update,
             document);

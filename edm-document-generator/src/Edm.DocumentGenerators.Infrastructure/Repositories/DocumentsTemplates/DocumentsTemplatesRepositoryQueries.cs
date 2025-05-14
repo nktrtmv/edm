@@ -27,10 +27,10 @@ INSERT INTO document_templates
 )
 VALUES
 (
-    @domain_id,
     @id,
-    @name,
+    @domain_id,
     @system_name,
+    @name,
     @data,
     @created_by_id,
     @updated_by_id,

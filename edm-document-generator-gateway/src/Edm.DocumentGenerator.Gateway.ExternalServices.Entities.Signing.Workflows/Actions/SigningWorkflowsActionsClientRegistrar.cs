@@ -13,7 +13,7 @@ internal static class SigningWorkflowsActionsClientRegistrar
     {
         services.AddSingleton<GetDocumentsToSignSigningWorkflowActionService>();
 
-        const string serviceUri = "http://edm-entities-signing-workflow:5008";
+        const string serviceUri = "http://edm-entities-signing-workflows:5008";
 
         services.AddGrpcClient<SigningActionsService.SigningActionsServiceClient>(o => o.Address = new Uri(serviceUri));
         services.AddSingleton<ISigningWorkflowsActionsClient, SigningWorkflowsActionsClient>();

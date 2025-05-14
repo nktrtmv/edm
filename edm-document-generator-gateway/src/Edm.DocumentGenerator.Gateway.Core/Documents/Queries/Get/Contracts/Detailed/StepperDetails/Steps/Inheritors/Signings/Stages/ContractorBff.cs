@@ -1,13 +1,17 @@
+using Edm.DocumentGenerator.Gateway.Core.References.Values.Contracts;
+using Edm.DocumentGenerator.Gateway.Core.Services.Enrichers.References.Contracts;
+
 namespace Edm.DocumentGenerator.Gateway.Core.Documents.Queries.Get.Contracts.Detailed.StepperDetails.Steps.Inheritors.Signings.Stages;
 
-public sealed class ContractorBff(string id, string displayValue, string displaySubValue)
+public sealed record ContractorBff(ReferenceTypeValueBff Value) : ReferenceValueWithType(DefaultKey, Value)
 {
-    public string Id { get; set; } = id;
-    public string DisplayValue { get; set; } = displayValue;
-    public string DisplaySubValue { get; set; } = displaySubValue;
+    private static readonly ReferenceTypeKey DefaultKey = new ReferenceTypeKey("{\"TypeId\":600}", string.Empty, null);
 
-    public static ContractorBff? CreateNotEnriched(string id)
+    public static ContractorBff CreateNotEnriched(string id)
     {
-        return new ContractorBff(id, string.Empty, string.Empty);
+        var value = ReferenceTypeValueBff.CreateNotEnriched(id);
+        var result = new ContractorBff(value);
+
+        return result;
     }
 }

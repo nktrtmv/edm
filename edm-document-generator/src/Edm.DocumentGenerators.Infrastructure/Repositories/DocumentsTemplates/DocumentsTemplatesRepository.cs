@@ -32,16 +32,16 @@ internal sealed class DocumentsTemplatesRepository : IDocumentsTemplatesReposito
     {
         await using NpgsqlConnection connection = await GetAndOpenConnection();
 
-        DocumentTemplateDb? db = DocumentTemplateDbFromDomainConverter.FromDomain(template);
+        DocumentTemplateDb db = DocumentTemplateDbFromDomainConverter.FromDomain(template);
 
         await connection.QuerySingleAsync<string>(DocumentsTemplatesRepositoryQueries.Upsert(db, cancellationToken));
     }
 
     public async Task Delete(DocumentTemplate template, CancellationToken cancellationToken)
     {
-        await using NpgsqlConnection? connection = await GetAndOpenConnection();
+        await using NpgsqlConnection connection = await GetAndOpenConnection();
 
-        DocumentTemplateDb? templateDb = DocumentTemplateDbFromDomainConverter.FromDomain(template);
+        DocumentTemplateDb templateDb = DocumentTemplateDbFromDomainConverter.FromDomain(template);
 
         await connection.QueryAsync(DocumentsTemplatesRepositoryQueries.Delete(templateDb, cancellationToken));
     }

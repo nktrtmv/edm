@@ -2,12 +2,6 @@ using System.Text.Json.Serialization;
 
 using Edm.Document.Classifier.Presentation.Abstractions;
 using Edm.Document.Searcher.Presentation.Abstractions;
-using Edm.DocumentGenerators.Presentation.Abstractions;
-
-using Hellang.Middleware.ProblemDetails;
-
-using Microsoft.Net.Http.Headers;
-
 using Edm.DocumentGenerator.Gateway.Core;
 using Edm.DocumentGenerator.Gateway.Core.Documents;
 using Edm.DocumentGenerator.Gateway.Core.Extensions;
@@ -15,10 +9,15 @@ using Edm.DocumentGenerator.Gateway.ExternalServices.DocumentClassifier;
 using Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Approval.Workflows;
 using Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Counters;
 using Edm.DocumentGenerator.Gateway.ExternalServices.Entities.Signing.Workflows;
+using Edm.DocumentGenerator.Gateway.Presentation.Authorization;
 using Edm.DocumentGenerator.Gateway.Presentation.Configuration;
 using Edm.DocumentGenerator.Gateway.Presentation.Users;
+using Edm.DocumentGenerators.Presentation.Abstractions;
 
-using Edm.DocumentGenerator.Gateway.Presentation.Authorization;
+using Hellang.Middleware.ProblemDetails;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Net.Http.Headers;
 
 namespace Edm.DocumentGenerator.Gateway.Presentation;
 
@@ -33,12 +32,22 @@ public sealed class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddProblemDetails(o =>
+        {
+            o.Map<Exception>(e => new ProblemDetails
+            {
+                Type = e.GetType().Name,
+                Title = e.Message,
+                Status = StatusCodes.Status500InternalServerError
+            });
+        });
+
         services
             .AddControllers()
             .AddJsonOptions(options => { options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
 
-        services.AddKeycloak(Configuration);
-        services.AddSwagger(Configuration);
+        services.AddKeycloak();
+        services.AddSwagger();
 
         services.AddMemoryCache();
 
@@ -77,19 +86,18 @@ public sealed class Startup
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-        if (env.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
+        app.UseProblemDetails();
 
         app.UseRouting();
 
         app.UseAuthentication();
         app.UseAuthorization();
 
-        app.UseCors(
-            x => x.AllowAnyOrigin()
-                .WithExposedHeaders(HeaderNames.ContentDisposition));
+        app.UseSwagger();
+        app.UseSwaggerUI();
+
+        app.UseCors(x => x.AllowAnyOrigin()
+            .WithExposedHeaders(HeaderNames.ContentDisposition));
 
         app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
     }

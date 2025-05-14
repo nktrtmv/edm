@@ -68,7 +68,7 @@ public sealed class GetDocumentService(
 
         Dictionary<string, string> attributesFrontMetadata = DocumentAttributesFrontMetadataCollector.Collect(response.Document);
 
-        var enricher = serviceProvider.GetRequiredService<DocumentDetailedBffEnricher>(); // TODO: Rewrite from transient
+        var enricher = serviceProvider.GetRequiredService<DocumentDetailedBffEnricher>();
         var documentConversionContext = new DocumentConversionContext(enricher, attributesFrontMetadata, documentEnricherContext);
 
         var stepperDetails = DocumentWorkflowStepperDetailsConstructor.Construct(
@@ -84,10 +84,6 @@ public sealed class GetDocumentService(
                 documentClassification.Category,
                 documentClassification.Type,
                 documentClassification.Kind);
-
-        var attributesToBuildLinks = response.Document.AttributesValues
-            .Where(x => x.Attribute.Data.LinkKind is DocumentLinkKindDto.Master or DocumentLinkKindDto.External)
-            .ToList();
 
         var document = DocumentDetailedBffConverter.ToBff(
             response.Document,

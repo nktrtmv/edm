@@ -1,0 +1,16 @@
+auth:
+  type: DISABLED
+dynamic:
+  config:
+    enabled: true
+server:
+  port: 1010
+kafka:
+  clusters:
+    - bootstrapServers: kafka:9093
+      name: local
+      properties: {}
+      readOnly: false
+rbac:
+  roles: []
+webclient: {}

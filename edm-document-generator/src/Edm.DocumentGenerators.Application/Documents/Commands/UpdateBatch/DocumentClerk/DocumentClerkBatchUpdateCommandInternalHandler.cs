@@ -43,8 +43,8 @@ internal sealed class DocumentClerkBatchUpdateCommandInternalHandler(
 
             logger.LogInformation(
                 """
-                DOCUMENT GENERATOR UPDATE: 📝📝📝 {Change:l}
-                Document: {Document:l}
+                DOCUMENT GENERATOR UPDATE: 📝📝📝 {Change}
+                Document: {Document}
                 """,
                 update,
                 document);

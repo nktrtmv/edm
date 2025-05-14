@@ -25,23 +25,18 @@ internal static class DocumentSigningStageDetailsBffConverter
 
         if (stageType == DocumentSigningStageTypeBff.Contractor)
         {
-            var (contractorReferenceType, contractorId) = FetchContractor(conversionContext.DocumentEnricherContext.Document);
+            var contractorId = FetchContractor(conversionContext.DocumentEnricherContext.Document);
 
             contractor = ContractorBff.CreateNotEnriched(contractorId);
 
-            var contractorTargetEnricherKey =
-                new ReferenceValueEnricherKey(contractorReferenceType, contractorId, conversionContext.DocumentEnricherContext.Document.TemplateId);
-
-            var target = new ContractorBffEnricherTarget(contractorTargetEnricherKey, contractor);
-
-            conversionContext.DocumentEnricherContext.Add(target);
+            conversionContext.Enricher.References.Add(contractor);
         }
 
         var result = new DocumentSigningStageDetailsBff
         {
             Number = number,
             StageType = stageType,
-            Contractor = contractor,
+            Contractor = contractor?.Value,
             Executor = executor,
             Status = status,
             StatusChangedAt = details.State.StatusChangedAt,
@@ -51,7 +46,7 @@ internal static class DocumentSigningStageDetailsBffConverter
         return result;
     }
 
-    private static (string referenceType, string id) FetchContractor(DocumentDetailedDto document)
+    private static string FetchContractor(DocumentDetailedDto document)
     {
         var contractorAttributeValue = document.AttributesValues.SingleOrDefault(x => x.Attribute.Data.DocumentsRoles.Any(role => role == SigningPartyContractor));
 
@@ -61,8 +56,7 @@ internal static class DocumentSigningStageDetailsBffConverter
         }
 
         var contractorId = contractorAttributeValue.AsReference.Values.Single();
-        var referenceType = contractorAttributeValue.Attribute.AsReference.ReferenceType;
 
-        return (referenceType, contractorId);
+        return contractorId;
     }
 }

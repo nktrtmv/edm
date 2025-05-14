@@ -8,7 +8,7 @@ using Edm.DocumentGenerator.Gateway.GenericSubdomain.Services.Enrichers;
 
 namespace Edm.DocumentGenerator.Gateway.Core.Services.Enrichers.References;
 
-public class ReferencesByTypeEnricher : GenericEnricher<string, ReferenceTypeValueBff, ReferenceTypeValueBff>
+public sealed class ReferencesByTypeEnricher : GenericEnricher<string, ReferenceTypeValueBff, ReferenceTypeValueBff>
 {
     private readonly ReferenceTypeKey _referenceTypeKey;
     private readonly GetReferencesTypeValuesSearchService _searchService;

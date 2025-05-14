@@ -12,17 +12,17 @@ public static class TracingFacility
     {
         try
         {
-            logger.LogInformation("GRPC START: ⚪️ {Name:l} {@Request}.", name, request);
+            logger.LogInformation("GRPC START: ⚪️ {Name} {@Request}.", name, request);
 
             var response = await func();
 
-            logger.LogInformation("GRPC END: {Name:l} {@Response}.", name, response);
+            logger.LogInformation("GRPC END: {Name} {@Response}.", name, response);
 
             return response;
         }
         catch (Exception e)
         {
-            logger.LogError(e, "GRPC EXCEPTION: ❌ {Message:l} in {Name:l} {@Request}.", e.Message, name, request);
+            logger.LogError(e, "GRPC EXCEPTION: ❌ {Message} in {Name} {@Request}.", e.Message, name, request);
 
             throw;
         }

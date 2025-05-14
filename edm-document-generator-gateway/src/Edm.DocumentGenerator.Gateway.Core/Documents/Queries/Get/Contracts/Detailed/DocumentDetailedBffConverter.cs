@@ -33,11 +33,9 @@ internal static class DocumentDetailedBffConverter
 
         DocumentAttributeErrorBff[] attributesErrors = document.AttributesErrorsObsolete.Select(DocumentAttributeErrorBffConverter.ToBffObsolete).ToArray();
 
-        var approvalRuleKey =
-            ApprovalRuleKeyBffConverter.FromDto(document.DomainId, document.TemplateId, document.ApprovalData.AttributesVersion);
+        var approvalRuleKey = ApprovalRuleKeyBffConverter.FromDto(document.DomainId, document.TemplateId, document.ApprovalData.AttributesVersion);
 
-        var audit =
-            DocumentAuditBffConverter.ToBff(document.Audit, context);
+        var audit = DocumentAuditBffConverter.ToBff(document.Audit, context);
 
         var parameters = DocumentParametersBffConverter.FromDto(document.Parameters);
 

@@ -21,7 +21,7 @@ internal sealed class SelfCompanyPaymentDetailsDocumentReferenceService(IContrac
         DocumentReferenceTypeId.SelfCompanyPaymentDetails,
         DocumentReferenceSearchKind.Search,
         DocumentReferenceKind.None,
-        "Реквизиты юр. лица Озон",
+        "Реквизиты юр. лица компании",
         DocumentReferenceTypeId.SelfCompanies);
 
     public override async Task<DocumentReferenceValue[]> Search(DocumentReferenceSearchParamsInternal searchParams, CancellationToken cancellationToken)

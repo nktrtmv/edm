@@ -35,9 +35,7 @@ internal static class CreateWorkflowEntitiesSigningWorkflowsRequestDbConverter
     {
         Id<User> currentUserId = IdConverterFrom<User>.FromString(request.CurrentUserId);
 
-        DocumentSigningParameters parameters = request.Parameters is null
-            ? CreateWorkflowEntitiesSigningWorkflowsRequestParametersDbConverter.ObsoleteToDomain(request.ElectronicParametersObsolete) // TODO: obsolete remove
-            : CreateWorkflowEntitiesSigningWorkflowsRequestParametersDbConverter.ToDomain(request.Parameters);
+        DocumentSigningParameters parameters = CreateWorkflowEntitiesSigningWorkflowsRequestParametersDbConverter.ToDomain(request.Parameters);
 
         DocumentSigningParty[] parties =
             request.Parties.Select(CreateWorkflowEntitiesSigningWorkflowsRequestSigningPartyDbConverter.ToDomain).ToArray();

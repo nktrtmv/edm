@@ -178,7 +178,7 @@ public sealed class ApprovalWorkflowsFacade(
         {
             logger.LogInformation(
                 """
-                APPLICATION EVENT [{Counts:l}] START: 🔷 {ApplicationEvent:l}
+                APPLICATION EVENT [{Counts}] START: 🔷 {ApplicationEvent}
                 Workflow: {@Workflow}
                 """,
                 counts,
@@ -192,7 +192,7 @@ public sealed class ApprovalWorkflowsFacade(
 
             logger.LogInformation(
                 """
-                APPLICATION EVENT [{Counts:l}] END: {ApplicationEvent:l}
+                APPLICATION EVENT [{Counts}] END: {ApplicationEvent}
                 Workflow: {@Workflow}
                 """,
                 counts,
@@ -204,7 +204,7 @@ public sealed class ApprovalWorkflowsFacade(
             logger.LogError(
                 e,
                 """
-                APPLICATION EVENT [{Counts:l}] ERROR: ❌ {ApplicationEvent:l} {@Message}
+                APPLICATION EVENT [{Counts}] ERROR: ❌ {ApplicationEvent} {@Message}
                 Workflow: {@Workflow}
                 """,
                 counts,
